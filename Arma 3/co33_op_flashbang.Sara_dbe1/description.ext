@@ -1,0 +1,96 @@
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 64;
+};
+disabledAI = 1;
+
+// ===  Mission name etc settings
+OnLoadName = "OP FLASHBANG";// Mission name (short)
+onLoadMission="Take back Sahrani"; // Longer description
+loadScreen = "pic.jpg"; // custom load image
+author="Cuel | 2016";
+
+// ===  Respawn settings
+respawndelay = 4;
+respawnDialog = 0;
+// don't edit respawn type unless you know what youre doing
+// if you don't want respawn, edit config.sqf
+respawn = "BASE";
+
+class CfgFunctions {
+	createShortcuts = 1;
+    // Base functions. Do not remove
+	#include "base\funcs.hpp"
+	
+    class FP_AI {
+    	#include "xtra\ai\funcs.hpp"
+    };
+    // Gear funcs
+    class FP_Gear {
+    	#include "gear\functions\funcs.hpp"
+    };
+};
+
+// === Debriefing
+class CfgDebriefing {
+	class End1 {
+		title = "Mission Success";
+		description = "You have completed the mission.";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "\fp_misc\img\fp_logo.paa";
+		//pictureColor[] = {};
+	};
+	class End2 {
+		title = "Mission Failure";
+		description = "You have failed the mission, better luck next time";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "loc_Church";
+		//pictureColor[] = {};
+	};
+};
+
+// === DO NOT EDIT BELOW
+
+class Extended_PreInit_EventHandlers {
+	class FPARMA {
+		init = "[] call compile preProcessFileLineNumbers 'base\init.sqf'";
+	};
+};
+
+class Extended_InitPost_EventHandlers {
+  class CAManBase {
+      class CUL_switchI { init = "_this call CUL_fixDamage;"; };
+  };
+  class LandVehicle {
+      class CUL_switchL { init = "_this call CUL_switchCrew;"; };
+  };
+  class Air {
+      class CUL_switchA { init = "_this call CUL_switchCrew;"; };
+  };
+};
+
+showGPS = 1;
+showMap = 1;
+showWatch = 1;
+showCompass = 1;
+joinUnassigned = 1;
+allowFunctionsLog = 0;
+enableDebugConsole = 1;
+onLoadIntroTime = false;
+enableItemsDropping = 0;
+onLoadMissionTime = false;
+
+// Clean up settings
+corpseManagerMode = 1;
+corpseLimit = 20;
+corpseRemovalMinTime = 120;
+corpseRemovalMaxTime = 300;
+
+wreckManagerMode = 1;
+wreckLimit = 10;
+wreckRemovalMinTime = 300;
+wreckRemovalMaxTime = 800;

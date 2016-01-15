@@ -1,0 +1,30 @@
+// Mission Header
+class Header
+{
+  gameType = Team;
+  minPlayers = 1;
+  maxPlayers = 20;
+};
+enableSaving = [false,false];
+loadScreen = "img\loading.paa";
+OnLoadMission = "A normal day in Merderet...";
+OnLoadIntro = "A normal day in Merderet...";
+OnLoadIntroTime = false;
+OnLoadMissionTime = false;
+
+respawn = "BASE";
+respawndelay = 10;
+disabledAI = 1;
+
+class Params
+{
+        class Revive
+        {
+		// paramsArray[1]
+                title = "Time of Day";
+                values[] = {0,1};
+                texts[] = {"Day","Evening"};
+                default = 0;
+        };
+};
+

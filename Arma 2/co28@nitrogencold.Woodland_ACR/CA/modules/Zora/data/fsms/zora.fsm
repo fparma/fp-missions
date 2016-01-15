@@ -1,0 +1,657 @@
+/*%FSM<COMPILE "C:\Bis\fsmeditor\scriptedFSM.cfg, Zone Restriction Assistant">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,50.000000,25.000000,150.000000,75.000000,0.000000,"Start"};
+item1[] = {"Triggers_ready",4,218,-325.000000,-50.000000,-225.000000,0.000000,0.000000,"Triggers ready"};
+item2[] = {"Loop",2,250,50.000000,100.000000,150.000000,150.000000,0.000000,"Loop"};
+item3[] = {"Someone_out",4,218,150.000000,325.000000,250.000000,375.000000,1.000000,"Someone out"};
+item4[] = {"Spawn_enemies",2,4346,-325.000000,575.000000,-225.000000,625.000000,0.000000,"Spawn enemies"};
+item5[] = {"Long_Delay",4,218,-125.000000,325.000000,-25.000000,375.000000,1.000000,"Long Delay"};
+item6[] = {"Dead_zone",4,218,0.000000,525.000000,100.000000,575.000000,2.000000,"Dead zone"};
+item7[] = {"Brutal_Kill",2,250,-75.000000,425.000000,25.000000,475.000000,0.000000,"Brutal Kill"};
+item8[] = {"Triggers_ready",4,218,400.000000,25.000000,500.000000,75.000000,0.000000,"Triggers ready"};
+item9[] = {"Init",2,250,475.000000,-50.000000,575.000000,0.000000,0.000000,"Init"};
+item10[] = {"Delay",4,218,0.000000,325.000000,100.000000,375.000000,0.000000,"Delay"};
+item11[] = {"Refresh",2,250,75.000000,425.000000,175.000000,475.000000,0.000000,"Refresh"};
+item12[] = {"Warning_zone",4,218,475.000000,575.000000,575.000000,625.000000,1.000000,"Warning zone"};
+item13[] = {"Loop",8,218,175.000000,50.000000,275.000000,100.000000,0.000000,"Loop"};
+item14[] = {"Delay",4,218,175.000000,150.000000,275.000000,200.000000,0.000000,"Delay"};
+item15[] = {"Complex_conditio",2,250,325.000000,100.000000,425.000000,150.000000,0.000000,"Complex condition"};
+link0[] = {0,8};
+link1[] = {1,2};
+link2[] = {2,14};
+link3[] = {3,11};
+link4[] = {4,5};
+link5[] = {4,6};
+link6[] = {5,2};
+link7[] = {6,7};
+link8[] = {7,10};
+link9[] = {8,9};
+link10[] = {9,1};
+link11[] = {10,2};
+link12[] = {11,6};
+link13[] = {11,10};
+link14[] = {11,12};
+link15[] = {12,4};
+link16[] = {13,2};
+link17[] = {14,15};
+link18[] = {15,3};
+link19[] = {15,13};
+globals[] = {25.000000,1,0,1,16777215,640,480,2,17,6316128,1,-395.499054,381.446686,921.624268,-201.325745,622,899,1};
+window[] = {2,-1,-1,-1,-1,994,-1159,13,147,3,639};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "Zone Restriction Assistant";
+  class States
+  {
+    /*%FSM<STATE "Start">*/
+    class Start
+    {
+      name = "Start";
+      init = /*%FSM<STATEINIT""">*/"_debug = false;" \n
+       "//--- Setting this variable to true will cause markers to stay visible" \n
+       "//_debug = true;" \n
+       "" \n
+       "_logic = _this select 0;" \n
+       "" \n
+       "_zora = false;" \n
+       "_lostunitsfull = [];" \n
+       "" \n
+       "if (isnil ""bis_zora_0"") then {" \n
+       "	debuglog ""Log: [ZoRA]: Missing 'BIS_zora_0' trigger."";" \n
+       "} else {" \n
+       "	_zora = true;" \n
+       "};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Triggers_ready">*/
+        class Triggers_ready
+        {
+          priority = 0.000000;
+          to="Init";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_zora && !isnil ""BIS_fnc_getfactions"";"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Loop">*/
+    class Loop
+    {
+      name = "Loop";
+      init = /*%FSM<STATEINIT""">*/"//--- Detect players" \n
+       "_players = [] call BIS_fnc_listPlayers;" \n
+       "" \n
+       "//--- Reload custom init" \n
+       "_bordersize = _logic getvariable ""bordersize"";" \n
+       "_factionlist = _logic getvariable ""factionlist"";" \n
+       "_maxgroups = _logic getvariable ""maxgroups"";" \n
+       "" \n
+       "//--- Check if bordersize changed" \n
+       "if (_bordersize != _bordersizeold) then {" \n
+       "	{" \n
+       "		_sizeX = (triggerarea _x select 0) + _bordersize;" \n
+       "		_sizeY = (triggerarea _x select 1) + _bordersize;" \n
+       "		_id = (_triglist find _x);" \n
+       "		_triggerDead = _triglistdead select _id;" \n
+       "		_triggerDead settriggerarea [" \n
+       "			 _sizeX," \n
+       "			 _sizeY," \n
+       "			 triggerarea _x select 2," \n
+       "			 triggerarea _x select 3" \n
+       "		];" \n
+       "		if (_debug) then {" \n
+       "			_marker = format [""BIS_zora_zonedead_%1"",_id];" \n
+       "			_marker setmarkersize [_sizeX,_sizeY];" \n
+       "		};" \n
+       "	} foreach _triglist;" \n
+       "};" \n
+       "_bordersizeold = _bordersize;" \n
+       "" \n
+       "//--- Null triggers" \n
+       "for ""_i"" from 0 to (count _triglist - 1) do {" \n
+       "	_current = _triglist select _i;" \n
+       "	_currentDead = _triglistDead select _i;" \n
+       "	_currentDead settriggertext (triggertext _current);" \n
+       "};" \n
+       "" \n
+       "" \n
+       "" \n
+       "//--- Reset lost units list" \n
+       "if (" \n
+       "	{" \n
+       "		_trig = _x;" \n
+       "		_isnull = triggertext _trig == ""null"";" \n
+       "		!(_isnull) && ({vehicle _x in list _trig} count _players) == {alive _x} count _players;" \n
+       "	} count _triglist > 0" \n
+       ") then {" \n
+       "	_logic setvariable [""unitslist"",[]];" \n
+       "};" \n
+       "if (_timeNowLoop == -1) then {_timeNowLoop = time};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Delay">*/
+        class Delay
+        {
+          priority = 0.000000;
+          to="Complex_conditio";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(time - _timeNowLoop) >= 1;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Spawn_enemies">*/
+    class Spawn_enemies
+    {
+      name = "Spawn_enemies";
+      init = /*%FSM<STATEINIT""">*/"private [""_alltrigs"",""_lostunits""];" \n
+       "_alltrigs = [];" \n
+       "{" \n
+       "		if (triggertext _x != ""null"") then {_alltrigs = _alltrigs + list _x};" \n
+       "} foreach _triglist;" \n
+       "" \n
+       "_lostunits = [];" \n
+       "{" \n
+       "	if (alive _x && !(vehicle _x in _alltrigs || vehicle _x in _lostunits)) then {_lostunits = _lostunits + [_x]};" \n
+       "} foreach _players;" \n
+       "_logic setvariable [""unitslist"",_lostunits];" \n
+       "{" \n
+       "	if (isnil {_x getvariable ""zora_groups""}) then {_x setvariable [""zora_groups"",[]]};" \n
+       "	if !(_x in _lostunitsfull) then {" \n
+       "		private [""_safepos"",""_side"", ""_allGroups"", ""_groups""];" \n
+       "" \n
+       "		//--- Get unit's thread" \n
+       "		_vehx = vehicle _x;" \n
+       "		_slopeCoef = 5;" \n
+       "		_garray = [];" \n
+       "		_debugType = ""N/A"";" \n
+       "" \n
+       "		_db_armor = _db select 0;" \n
+       "		_db_mechanized = _db select 1;" \n
+       "		_db_motorized = _db select 2;" \n
+       "		_db_infantry = _db select 3;" \n
+       "		_db_air = _db select 4;" \n
+       "" \n
+       "		_garray = if (_vehx == _x) then {" \n
+       "			//--- Soldier (Infantry)" \n
+       "			_db_infantry" \n
+       "		} else {" \n
+       "			if ((typeof _vehx) iskindof ""tank"") then {" \n
+       "				//--- Tank (Tanks + Air)" \n
+       "				_db_armor + _db_air" \n
+       "			} else {" \n
+       "				//--- Car (Mechanized + Motorized + Infantry)" \n
+       "				_db_mechanized + _db_motorized + _db_infantry" \n
+       "			};" \n
+       "		};" \n
+       "" \n
+       "		//--- 1/5 of last attempts contains helicopters for more fun ;)" \n
+       "		if (count (_x getvariable ""zora_groups"") > (_maxgroups * 0.8)) then {_garray = _garray + _db_air};" \n
+       "" \n
+       "		//--- Foolproofing" \n
+       "		if (count _garray == 0) then {_garray = _db_infantry};" \n
+       "" \n
+       "		//--- Initialization" \n
+       "		_faction = _factionlist call BIS_fnc_selectRandom;" \n
+       "		//_side = _allsides select (_allfactions find _faction);" \n
+       "		_side = [[_faction]] call bis_fnc_getfactions;" \n
+       "		_sideSel = [west,east,resistance] find _side;" \n
+       "" \n
+       "		//--- Create list of valid groups" \n
+       "		{" \n
+       "			_factiontemp = gettext ((_x select 0) >> ""faction"");" \n
+       "			if (_factionTemp != _faction) then {_garray = _garray - [_x]}" \n
+       "		} foreach _garray;" \n
+       "" \n
+       "		//--- Get random number (0 to max possible value)" \n
+       "		_garrayResult = [];" \n
+       "		_ranMax = 0;" \n
+       "		{" \n
+       "			_rarity = _x select 1;" \n
+       "			_ranMax = _rarity max _ranMax;" \n
+       "		} foreach _garray;" \n
+       "		_ran = random _ranMax;" \n
+       "" \n
+       "		//--- Get array of possible groups" \n
+       "		for ""_i"" from 0 to (count _garray - 1) do {" \n
+       "			_element = _garray select _i;" \n
+       "			_grptemp = _element select 0;" \n
+       "			_raritytemp = _element select 1;" \n
+       "			_factiontemp = gettext (_grptemp >> ""faction"");" \n
+       "			if (_ran < _raritytemp) then {" \n
+       "				_garrayResult = _garrayResult + [_element];" \n
+       "			}; " \n
+       "		};" \n
+       "" \n
+       "		//--- Select one group" \n
+       "		_group = (_garrayResult call BIS_fnc_selectRandom) select 0;" \n
+       "		_debugtype = _classes select (([_dbG,configname _group] call BIS_fnc_findNestedElement) select 0);" \n
+       "" \n
+       "		textLogFormat [""Log: %1"",_group];" \n
+       "		textLogFormat [""Log: %1"",_garrayResult];" \n
+       "" \n
+       "		//--- Retrieve lists of types, ranks and positions." \n
+       "		private [""_types"", ""_ranks"", ""_positions""];" \n
+       "		_types = [];" \n
+       "		_ranks = [];" \n
+       "		_positions = [];" \n
+       "" \n
+       "		for ""_i"" from 0 to ((count _group) - 1) do " \n
+       "		{" \n
+       "			private [""_item""];" \n
+       "			_item = _group select _i;" \n
+       "	" \n
+       "			if (isClass _item) then " \n
+       "			{" \n
+       "				_types = _types + [getText(_item >> ""vehicle"")];" \n
+       "				_ranks = _ranks + [getText(_item >> ""rank"")];" \n
+       "				_positions = _positions + [getArray(_item >> ""position"")];" \n
+       "			};" \n
+       "		};" \n
+       "" \n
+       "		//--- Spawn group" \n
+       "		_slopeCoef = [5,5,5,10,100] select (_classes find _debugtype);" \n
+       "		_safepos = [position _x, 500, 1000, 2, 0, _slopeCoef, 0,_triglist] call BIS_fnc_findSafePos;" \n
+       "		_grpP = [_safepos, _side, _types, _positions, _ranks] call BIS_fnc_spawnGroup;" \n
+       "		_fsm = [_grpP,_x,_group,_debugType] execfsm ""ca\modules\zora\data\fsms\zora_patrol.fsm"";" \n
+       "//		diag_debugfsm _fsm;" \n
+       "" \n
+       "		//--- Add group to unit's group list" \n
+       "		_grpList = _x getvariable ""zora_groups"";" \n
+       "		_x setvariable [""zora_groups"",_grplist + [_grpP]];" \n
+       "		if (count (_x getvariable ""zora_groups"") == _maxgroups) then {_lostunitsfull = _lostunitsfull + [_x]};" \n
+       "" \n
+       "		_totalgroups = _totalgroups + 1;" \n
+       "" \n
+       "		if (_debug) then {" \n
+       "			hint format [ ""[ZoRA]\nPrey: %1 (%2)\nFaction: %3 \nGroup: %4\n\n%5\n%6"",name _x,_debugType,_faction,gettext (_group >> ""name"")];" \n
+       "			textLogFormat [ ""Log: [ZoRA]: %1 - %2 '%3' spawned"",name _x,_faction,gettext (_group >> ""name"")];" \n
+       "		};" \n
+       "	};" \n
+       "} foreach _lostunits;" \n
+       "" \n
+       "_timeNow = time;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Dead_zone">*/
+        class Dead_zone
+        {
+          priority = 2.000000;
+          to="Brutal_Kill";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"//--- In Dead zone" \n
+           "(time - _timeNow) >= 1" \n
+           "" \n
+           "&&" \n
+           "" \n
+           "{" \n
+           "	_trig = _x;" \n
+           "		_isnull = triggertext _trig == ""null"";" \n
+           "		!(_isnull) && {vehicle _x in list _trig} count _players == {alive _x} count _players;" \n
+           "} count _triglistDead == 0" \n
+           "" \n
+           "&&" \n
+           "" \n
+           "!(BIS_Zora_pause);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Long_Delay">*/
+        class Long_Delay
+        {
+          priority = 1.000000;
+          to="Loop";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(time - _timeNow) >= (30 + random 30);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Brutal_Kill">*/
+    class Brutal_Kill
+    {
+      name = "Brutal_Kill";
+      init = /*%FSM<STATEINIT""">*/"private [""_alltrigs"",""_lostunits""];" \n
+       "_alltrigs = [];" \n
+       "{" \n
+       "	if (triggertext _x != ""null"") then {_alltrigs = _alltrigs + list _x};" \n
+       "} foreach _triglistDead;" \n
+       "" \n
+       "_lostunits = [];" \n
+       "{" \n
+       "	if (alive _x && !(vehicle _x in _alltrigs || vehicle _x in _lostunits)) then {_lostunits = _lostunits + [_x]};" \n
+       "} foreach _players;" \n
+       "" \n
+       "//--- KILL HIM!" \n
+       "{" \n
+       "	if (vehicle _x == _x) then {" \n
+       "	//--- On foot" \n
+       "		_x spawn {" \n
+       "			_dis = (0.2 + random 0.2);" \n
+       "			for ""_i"" from 0 to 3 do {" \n
+       "				if (alive _this) then {" \n
+       "					[_this,_i] spawn {" \n
+       "						_unit = _this select 0;" \n
+       "						_i = _this select 1;" \n
+       "						playsound ""Zora_AK74"";" \n
+       "						sleep 0.1;" \n
+       "						""B_762x51_noTracer"" createvehicle [(position _unit select 0),(position _unit select 1),0];" \n
+       "						_ran = _i + random 2;" \n
+       "						if (_ran> 3) then {_unit setdamage 1; _i = 10};" \n
+       "					};" \n
+       "				};" \n
+       "				sleep (0.1 + random 0.7);" \n
+       "			};" \n
+       "		};" \n
+       "	} else {" \n
+       "	//--- In vehicle" \n
+       "		_x spawn {" \n
+       "			playsound ""Zora_missile"";" \n
+       "			sleep (0.5 + random 0.5);" \n
+       "			""R_PG7V_AT"" createvehicle position vehicle _this;//[(position vehicle _this select 0),(position vehicle _this select 1),0];" \n
+       "			_this setdamage 1;" \n
+       "			vehicle _this setdamage 1;" \n
+       "		};" \n
+       "	};" \n
+       "" \n
+       "	//if !(_debug) then {_x setdamage 1};" \n
+       "" \n
+       "	textLogFormat [ ""Log: [ZoRA]: %1 killed out of warning zone %2."",name _x,position _x];" \n
+       "} foreach _lostunits;" \n
+       "" \n
+       "_timeNow = time;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Delay">*/
+        class Delay
+        {
+          priority = 0.000000;
+          to="Loop";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(time - _timeNow) >= 1.001;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Init">*/
+    class Init
+    {
+      name = "Init";
+      init = /*%FSM<STATEINIT""">*/"//--- Default values" \n
+       "_factionlist = [""GUE""];" \n
+       "_bordersize = 1000;" \n
+       "_maxgroups = 3;" \n
+       "_totalgroups = 0;" \n
+       "" \n
+       "//--- Load custom init" \n
+       "if (format [""%1"",_logic getvariable ""debug""] == ""<null>"") then {" \n
+       "	_logic setvariable [""debug"",_debug];" \n
+       "} else {" \n
+       "	_debug = _logic getvariable ""debug"";" \n
+       "};" \n
+       "if (format [""%1"",_logic getvariable ""bordersize""] == ""<null>"") then {_logic setvariable [""bordersize"",_bordersize]};" \n
+       "if (format [""%1"",_logic getvariable ""factionlist""] == ""<null>"") then {_logic setvariable [""factionlist"",_factionlist]};" \n
+       "if (format [""%1"",_logic getvariable ""maxgroups""] == ""<null>"") then {_logic setvariable [""maxgroups"",_maxgroups]};" \n
+       "_bordersize = _logic getvariable ""bordersize"";" \n
+       "_factionlist = _logic getvariable ""factionlist"";" \n
+       "_maxgroups = _logic getvariable ""maxgroups"";" \n
+       "" \n
+       "_bordersizeold = _bordersize;" \n
+       "" \n
+       "//--- Define sides of factions" \n
+       "_allfactions = [] call BIS_fnc_getfactions;" \n
+       "_allsides = [[]] call BIS_fnc_getfactions;" \n
+       "" \n
+       "//--- Find ZoRA triggers" \n
+       "_triglist = [];" \n
+       "for [{_n = 0},{_n < 100},{_n = _n + 1}] do {" \n
+       "	scopename ""for"";" \n
+       "	if !(isnil format [""BIS_zora_%1"",_n]) then {" \n
+       "		_triglist = _triglist + [call compile format  [""BIS_zora_%1"",_n]];" \n
+       "	} else {" \n
+       "		breakout ""for"";" \n
+       "	};" \n
+       "};" \n
+       "" \n
+       "_trigcount = count _triglist;" \n
+       "_triglistDead = [];" \n
+       "_shapelist = [];" \n
+       "" \n
+       "//--- Set trigger params and create dead zone triggers" \n
+       "for ""_n"" from 0 to (_trigcount - 1) do {" \n
+       "	_trigger = _triglist select _n;" \n
+       "	_sizeX = triggerarea _trigger select 0;" \n
+       "	_sizeY = triggerarea _trigger select 1;" \n
+       "	_dir = triggerarea _trigger select 2;" \n
+       "	_shape = triggerarea _trigger select 3;" \n
+       "	_shapestring = if (_shape) then {""RECTANGLE""} else {""ELLIPSE""};" \n
+       "" \n
+       "	_trigger settriggerarea [_sizeX,_sizeY,_dir,_shape];" \n
+       "	_trigger settriggeractivation [""ANY"",""PRESENT"",true];" \n
+       "" \n
+       "	_triggerDead = createtrigger[""EmptyDetector"", position _trigger];" \n
+       "	_triggerDead settriggerarea [_sizeX+_bordersize,_sizeY+_bordersize,_dir,_shape];" \n
+       "	_triggerDead settriggeractivation (triggeractivation _trigger);" \n
+       "	_triglistDead = _triglistDead + [_triggerDead];" \n
+       "" \n
+       "	if (_debug) then {" \n
+       "		_x1marker = createmarker [format [""BIS_zora_zone_%1"",_n], position _trigger];" \n
+       "		_x1marker setmarkerbrush ""solid"";" \n
+       "		_x1marker setmarkershape _shapestring;" \n
+       "		_x1marker setmarkersize [_sizeX,_sizeY];" \n
+       "		_x1marker setmarkercolor ""colorblack"";" \n
+       "		_x1marker setmarkerdir _dir;	" \n
+       "" \n
+       "		_x2marker = createmarker [format [""BIS_zora_zonedead_%1"",_n],position _trigger];" \n
+       "		_x2marker setmarkerbrush ""solid"";" \n
+       "		_x2marker setmarkershape _shapestring;" \n
+       "		_x2marker setmarkersize [(_sizeX)+_bordersize,(_sizeY)+_bordersize];" \n
+       "		_x2marker setmarkercolor ""colorwhite"";" \n
+       "		_x2marker setmarkerdir _dir;	" \n
+       "	};" \n
+       "};" \n
+       "BIS_Zora_MainScope setvariable [""triglist"",_triglist];" \n
+       "BIS_Zora_MainScope setvariable [""triglistdead"",_triglistdead];" \n
+       "_trigcountDead = count _triglistDead;" \n
+       "" \n
+       "" \n
+       "" \n
+       "//-------------------------------------------------------------------------------------------" \n
+       "//--- Create database of groups from CfgGroups to base spawned groups on." \n
+       "private [""_db""];" \n
+       "_db = [];" \n
+       "_dbG = [];" \n
+       "" \n
+       "private [""_cfgGroups""];" \n
+       "_cfgGroups = configFile >> ""CfgGroups"";" \n
+       "" \n
+       "// Extract all armor and infantry groups for BLUFOR, OPFOR and resistance." \n
+       "// Core made by Joris" \n
+       "private [""_cfgSide"", ""_cfgArmor"", ""_armor"", ""_cfgInfantry"", ""_infantry""];" \n
+       "_sides = [""West"", ""East"", ""Guerrila""];" \n
+       "_classes = [""Armored"",""Mechanized"",""Motorized"",""Infantry"",""Air""];" \n
+       "{" \n
+       "	_db = _db + [[]];" \n
+       "	_dbG = _dbG + [[]];" \n
+       "} foreach _classes;" \n
+       "" \n
+       "for ""_i"" from 0 to 4 do {" \n
+       "	_classtemp = _classes select _i;" \n
+       "	_arraytemp = _db select _i;" \n
+       "	_arrayGtemp = _db select _i;" \n
+       "	{" \n
+       "		_side = _x;" \n
+       "		{" \n
+       "			_cfgType = _cfgGroups >> _side >>  _x >> _classtemp;" \n
+       "			for ""_i"" from 0 to ((count _cfgType) - 1) do {" \n
+       "				private [""_class""];" \n
+       "				_class = _cfgType select _i;" \n
+       "				//Only take actual classes." \n
+       "				if (isClass (_class)) then {" \n
+       "					_faction = gettext (_class >> ""faction"");" \n
+       "					if (_faction in _factionlist) then {" \n
+       "						_rarity = getnumber (_class >> ""rarityGroup"");" \n
+       "						_arraytemp = _arraytemp + [[_class,_rarity]];" \n
+       "						_arrayGtemp = _arrayGtemp + [configname _class];" \n
+       "					};" \n
+       "				};" \n
+       "			};" \n
+       "		} foreach _allfactions;" \n
+       "	} foreach _sides;" \n
+       "	_db set [_i,_arraytemp];" \n
+       "	_dbG set [_i,_arrayGtemp];" \n
+       "};" \n
+       "" \n
+       "//xxx = _db;" \n
+       "" \n
+       "_timeNowLoop = -1;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Triggers_ready">*/
+        class Triggers_ready
+        {
+          priority = 0.000000;
+          to="Loop";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"/*{" \n
+           "	vehicle player in list _x;" \n
+           "} count _triglist > 0" \n
+           "&&" \n
+           "{" \n
+           "	vehicle player in list _x;" \n
+           "} count _triglistDead > 0" \n
+           "&&" \n
+           "*/" \n
+           "_zora;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Refresh">*/
+    class Refresh
+    {
+      name = "Refresh";
+      init = /*%FSM<STATEINIT""">*/"_timeNow = time;" \n
+       "_timeNowLoop = -1;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Dead_zone">*/
+        class Dead_zone
+        {
+          priority = 2.000000;
+          to="Brutal_Kill";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"//--- In Dead zone" \n
+           "(time - _timeNow) >= 1" \n
+           "" \n
+           "&&" \n
+           "" \n
+           "{" \n
+           "	_trig = _x;" \n
+           "		_isnull = triggertext _trig == ""null"";" \n
+           "		!(_isnull) && {vehicle _x in list _trig} count _players == {alive _x} count _players;" \n
+           "} count _triglistDead == 0" \n
+           "" \n
+           "&&" \n
+           "" \n
+           "!(BIS_Zora_pause);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Warning_zone">*/
+        class Warning_zone
+        {
+          priority = 1.000000;
+          to="Spawn_enemies";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"//--- Truly In Warning zone" \n
+           "(time - _timeNow) >= 1" \n
+           "" \n
+           "&&" \n
+           "" \n
+           "{" \n
+           "	_trig = _x;" \n
+           "		_isnull = triggertext _trig == ""null"";" \n
+           "		!(_isnull) && ({vehicle _x in list _trig} count _players) >= {alive _x} count _players;" \n
+           "} count _triglist == 0" \n
+           "" \n
+           "&&" \n
+           "" \n
+           "!(BIS_Zora_pause);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Delay">*/
+        class Delay
+        {
+          priority = 0.000000;
+          to="Loop";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(time - _timeNow) >= 1.001;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Complex_conditio">*/
+    class Complex_conditio
+    {
+      name = "Complex_conditio";
+      init = /*%FSM<STATEINIT""">*/"_timeNowLoop = time"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Someone_out">*/
+        class Someone_out
+        {
+          priority = 1.000000;
+          to="Refresh";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"//--- In Warning zone" \n
+           "{" \n
+           "	_trig = _x;" \n
+           "		_isnull = triggertext _trig == ""null"";" \n
+           "		!(_isnull) && ({vehicle _x in list _trig} count _players) >= {alive _x} count _players;" \n
+           "} count _triglist == 0"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Loop">*/
+        class Loop
+        {
+          priority = 0.000000;
+          to="Loop";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Start";
+  finalStates[] =
+  {
+  };
+};
+/*%FSM</COMPILE>*/

@@ -1,0 +1,312 @@
+/*%FSM<COMPILE "C:\Games\Steam\steamapps\common\arma 2\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, bomber">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"create_bomber",0,4346,-314.491699,-300.484741,-245.167206,-238.351135,0.000000,"create" \n "bomber"};
+item1[] = {"laser_exists",4,218,-127.039879,-296.103058,-44.333378,-243.293884,99.000000,"laser exists"};
+item2[] = {"active",2,250,-130.712280,-169.183899,-40.712364,-119.183937,0.000000,"active"};
+item3[] = {"no_laser",4,218,95.341248,-169.170746,185.341278,-119.170807,0.000000,"no laser"};
+item4[] = {"no_pilot",4,218,-324.891022,-169.032455,-234.891220,-119.032516,98.000000,"no pilot"};
+item5[] = {"bomb_dropped",4,218,-130.442139,-37.371487,-40.442123,12.628510,99.000000,"bomb" \n "dropped"};
+item6[] = {"standby",2,250,269.338684,-171.811691,359.338531,-121.811729,0.000000,"standby"};
+item7[] = {"time_out",4,218,269.593353,-42.022072,359.593353,7.977926,0.000000,"time out"};
+item8[] = {"RTB",2,250,-130.868134,106.880898,-40.868103,156.880905,0.000000,"RTB"};
+item9[] = {"exit",1,250,-307.314392,-35.187714,-252.704239,8.176669,0.000000,"exit"};
+item10[] = {"",7,210,309.979523,-273.474365,317.979553,-265.474365,0.000000,""};
+item11[] = {"",7,210,310.960327,128.365387,318.960327,136.365387,0.000000,""};
+item12[] = {"pilot_away",4,218,-324.852600,106.953918,-234.852615,156.953918,101.000000,"pilot" \n "away"};
+item13[] = {"",7,210,497.200439,-151.517700,505.200500,-143.517700,0.000000,""};
+item14[] = {"",7,210,497.047485,217.843750,505.047485,225.843750,0.000000,""};
+item15[] = {"",7,210,-283.713715,218.014465,-275.713715,226.014465,0.000000,""};
+link0[] = {0,1};
+link1[] = {0,4};
+link2[] = {1,2};
+link3[] = {2,3};
+link4[] = {2,4};
+link5[] = {2,5};
+link6[] = {3,6};
+link7[] = {4,9};
+link8[] = {5,8};
+link9[] = {6,7};
+link10[] = {6,10};
+link11[] = {6,13};
+link12[] = {7,11};
+link13[] = {8,12};
+link14[] = {10,1};
+link15[] = {11,8};
+link16[] = {12,9};
+link17[] = {13,14};
+link18[] = {14,15};
+link19[] = {15,12};
+globals[] = {0.000000,0,0,0,0,640,480,1,17,6316128,1,-454.770386,224.059174,183.482574,-288.192444,852,592,1};
+window[] = {0,-1,-1,-1,-1,887,150,1410,150,1,870};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "bomber";
+  class States
+  {
+    /*%FSM<STATE "create_bomber">*/
+    class create_bomber
+    {
+      name = "create_bomber";
+      init = /*%FSM<STATEINIT""">*/"//bon_lasertarget = _this;" \n
+       "bon_lasertarget = lasertarget player;" \n
+       "" \n
+       "firedBomb=false;" \n
+       "" \n
+       "_dropPosX = getPos bon_lasertarget select 0;" \n
+       "_dropPosY = getPos bon_lasertarget select 1;" \n
+       "_dropPosZ = getPos bon_lasertarget select 2;" \n
+       "" \n
+       "_planespawnpos = [_dropPosX+3000, _dropPosY, _dropPosZ + 1000];" \n
+       "" \n
+       "_PlaneG = creategroup bon_laser_side;" \n
+       "_plane = createVehicle  [bon_laser_planetype ,_planespawnpos,[], 0, ""FLY""];" \n
+       "_plane setPos [(getPos _plane select 0),(getPos _plane select 1),900];" \n
+       "" \n
+       "_vel = velocity _plane; _dir = direction _plane;" \n
+       "_plane setVelocity [(_vel select 0)+(sin _dir*200),(_vel select 1)+ (cos _dir*200),(_vel select 2)]; // added 200 of speed" \n
+       "" \n
+       "_crewtype = getArray (configFile >> ""CfgVehicles"" >> bon_laser_planetype >> ""typicalCargo"") select 0;" \n
+       "_pilot = _PlaneG createUnit [_crewtype,_planespawnpos,[],50,""FORM""]; _pilot setSkill 1;" \n
+       "_pilot moveinDriver _plane;" \n
+       "_pilot setDamage 0;" \n
+       "_pilot action [""gear_up"",_plane];" \n
+       "_pilot disableAI ""TARGET"";" \n
+       "_pilot disableAI ""AUTOTARGET"";" \n
+       "_plane flyinHeight 500;" \n
+       "_plane setSpeedMode ""full"";" \n
+       "_plane addEventHandler [""Fired"",{if((_this select 4)==""Bo_GBU12_LGB"") then{firedBomb=true}}];" \n
+       "" \n
+       "" \n
+       "if(isServer) then {" \n
+       "	[_plane,player] spawn {" \n
+       "		_bomber = _this select 0;" \n
+       "		_player = _this select 1;" \n
+       "		_pilot = driver _bomber;" \n
+       "" \n
+       "		While{damage _bomber < 1 && isPlayer _player && alive _pilot && vehicle _pilot != _pilot} do{sleep 5};" \n
+       "		sleep 20;" \n
+       "		deleteVehicle _bomber;" \n
+       "		sleep 1;" \n
+       "		deleteVehicle _pilot;" \n
+       "	};" \n
+       "} else {" \n
+       "	bon_laser_bomber = [_plane,player];" \n
+       "	publicVariable ""tfor_bomber"";" \n
+       "};" \n
+       "" \n
+       "" \n
+       "" \n
+       "" \n
+       "" \n
+       "// DEBUG: Track Bomber" \n
+       "if(bon_laser_DEBUG) then {" \n
+       "	[_pilot] spawn {" \n
+       "		_pilot = _this select 0;" \n
+       "		_marker = createMarker [""spam"",position _pilot];" \n
+       "		_marker setMarkerShape ""ICON"";" \n
+       "		_marker setMarkerType ""dot"";" \n
+       "		while{not isNull _pilot} do{" \n
+       "			_marker setMarkerPos getPos _pilot;" \n
+       "			_marker setMarkerText format[""%1"",round (getPos _pilot select 2)];" \n
+       "			sleep 1;" \n
+       "			cuttext [format[""assigned target:\n%1"",assignedTarget _pilot], ""PLAIN DOWN""];" \n
+       "		};" \n
+       "		deleteMarker _marker;" \n
+       "	};" \n
+       "};" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "laser_exists">*/
+        class laser_exists
+        {
+          priority = 99.000000;
+          to="active";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"not isNull bon_lasertarget"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "no_pilot">*/
+        class no_pilot
+        {
+          priority = 98.000000;
+          to="exit";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"isNull _pilot || isNull _plane || damage _plane >= 1 || not alive _pilot || vehicle _pilot == _pilot"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "active">*/
+    class active
+    {
+      name = "active";
+      init = /*%FSM<STATEINIT""">*/"[bon_lasertarget,_pilot] spawn {" \n
+       "	_target = _this select 0;" \n
+       "	_pilot = _this select 1;" \n
+       "" \n
+       "	player sideRadio ""sendinglaser"";" \n
+       "	sleep 3;" \n
+       "	_pilot sideRadio ""gotlock"";" \n
+       "" \n
+       "	While{already_serving && not isNull _target && not firedBomb} do{" \n
+       "		hintSilent format[""Distance Bomber %1m"",round (_target distance _pilot)];" \n
+       "		if(isNull assignedTarget _pilot) then {" \n
+       "			_pilot doTarget _target;" \n
+       "			_pilot doFire _target;" \n
+       "		};" \n
+       "		sleep 0.123;" \n
+       "	};" \n
+       "	 hintSilent """";" \n
+       "};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "bomb_dropped">*/
+        class bomb_dropped
+        {
+          priority = 99.000000;
+          to="RTB";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"firedbomb"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "no_pilot">*/
+        class no_pilot
+        {
+          priority = 98.000000;
+          to="exit";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"isNull _pilot || isNull _plane || damage _plane >= 1 || not alive _pilot || vehicle _pilot == _pilot"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "no_laser">*/
+        class no_laser
+        {
+          priority = 0.000000;
+          to="standby";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"isNull bon_lasertarget"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "standby">*/
+    class standby
+    {
+      name = "standby";
+      init = /*%FSM<STATEINIT""">*/"hint """";" \n
+       "_time=time;" \n
+       "_pilot sideRadio ""targetlost"";" \n
+       "_pilot doTarget ObjNull;" \n
+       "_pilot doFire ObjNull;" \n
+       "" \n
+       "[] spawn {" \n
+       "	While{isNull bon_lasertarget} do {" \n
+       "		//bon_lasertarget = [] call getMyLaserTarget;" \n
+       "		bon_lasertarget = lasertarget player;" \n
+       "		sleep 0.5;" \n
+       "	};" \n
+       "};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "pilot_away">*/
+        class pilot_away
+        {
+          priority = 101.000000;
+          to="exit";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"([getPos _pilot select 0,getPos _pilot select 1,0] distance [0,0,0]) < 500 || damage _plane >= 1 || not alive _pilot || vehicle _pilot == _pilot"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "laser_exists">*/
+        class laser_exists
+        {
+          priority = 99.000000;
+          to="active";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"not isNull bon_lasertarget"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "time_out">*/
+        class time_out
+        {
+          priority = 0.000000;
+          to="RTB";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _time+120"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "RTB">*/
+    class RTB
+    {
+      name = "RTB";
+      init = /*%FSM<STATEINIT""">*/"if(not firedbomb) then {" \n
+       "	[playerSide,""HQ""] sideChat ""Cancelling CAS, returning to base."";" \n
+       "} else {" \n
+       "	player sideRadio ""bomb_away"";" \n
+       "};" \n
+       "" \n
+       "_pilot doWatch ObjNull;" \n
+       "_PlaneG setCombatMode ""Blue"";" \n
+       "_PlaneG addWaypoint [[0,0,0],500];" \n
+       "_pilot flyInHeight 2000;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "pilot_away">*/
+        class pilot_away
+        {
+          priority = 101.000000;
+          to="exit";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"([getPos _pilot select 0,getPos _pilot select 1,0] distance [0,0,0]) < 500 || damage _plane >= 1 || not alive _pilot || vehicle _pilot == _pilot"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "exit">*/
+    class exit
+    {
+      name = "exit";
+      init = /*%FSM<STATEINIT""">*/"already_serving = false;" \n
+       "" \n
+       "[_plane,_pilot] spawn {" \n
+       "	sleep 20;" \n
+       "	deleteVehicle (_this select 0);" \n
+       "	sleep 1;" \n
+       "	deleteVehicle (_this select 1);" \n
+       "};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="create_bomber";
+  finalStates[] =
+  {
+    "exit",
+  };
+};
+/*%FSM</COMPILE>*/

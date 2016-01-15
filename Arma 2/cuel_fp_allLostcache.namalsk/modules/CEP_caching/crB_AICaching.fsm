@@ -1,0 +1,322 @@
+/*%FSM<COMPILE "C:\Program Files\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, crB AI Unit Caching">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Cache_Units",2,250,-319.457855,110.108513,-229.457825,160.108536,0.000000,"Cache Units"};
+item1[] = {"Initialise",0,4346,80.337387,-118.454193,170.337387,-68.454185,0.000000,"Initialise"};
+item2[] = {"End",1,250,-82.805527,-240.868668,7.194427,-190.868668,0.000000,"End"};
+item3[] = {"Wait_for_allUnits",8,218,78.001007,-51.445213,168.000977,-1.445242,0.000000,"Wait for allUnits and Players"};
+item4[] = {"Exit_if_not_serv",8,218,79.012520,-244.391373,169.012451,-194.391357,100.000000,"Exit if not server"};
+item5[] = {"Disable_Cache_",8,218,-82.282181,-131.278564,7.717731,-81.278587,100.000000,"Disable Cache?"};
+item6[] = {"Begin_Loop",3,250,-271.891785,-65.969986,-181.891785,-15.969986,0.000000,"Begin Loop"};
+item7[] = {"Cache_Units",8,218,-311.071014,8.048193,-221.070923,58.048141,0.000000,"Cache Units"};
+item8[] = {"Normal_Units",8,218,-210.090179,5.816881,-120.090073,55.816910,0.000000,"Normal Units"};
+item9[] = {"Normalise_Units",2,250,-207.739914,109.915543,-117.739868,159.915588,0.000000,"Normalise Units"};
+link0[] = {0,8};
+link1[] = {1,3};
+link2[] = {1,4};
+link3[] = {3,6};
+link4[] = {4,2};
+link5[] = {5,2};
+link6[] = {6,5};
+link7[] = {6,7};
+link8[] = {7,0};
+link9[] = {8,9};
+link10[] = {9,5};
+link11[] = {9,7};
+globals[] = {0.000000,0,0,0,0,640,480,2,27,6316128,1,-522.243042,409.539185,200.998718,-473.877808,1400,1014,1};
+window[] = {2,-1,-1,-32000,-32000,935,84,1524,84,3,1422};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "crB AI Unit Caching";
+  class States
+  {
+    /*%FSM<STATE "Cache_Units">*/
+    class Cache_Units
+    {
+      name = "Cache_Units";
+      init = /*%FSM<STATEINIT""">*/"		_cep_leader = leader _cep_grp;" \n
+       "		_cep_unitarray = (units _cep_leader) - [_cep_leader];" \n
+       "		{" \n
+       "			_cep_type = typeof _x;" \n
+       "			_cep_weap = weapons _x;" \n
+       "			_cep_mags = magazines _x;" \n
+       "			_cep_bkp = typeof (unitbackpack _x);" \n
+       "			_cep_bmg = getmagazinecargo (unitbackpack _x);" \n
+       "			_cep_bwp = getweaponcargo (unitbackpack _x);" \n
+       "			_cep_rnk = rank _x;" \n
+       "			_cep_pos = _cep_leader worldtomodel position _x;" \n
+       "			_cep_veh = assignedVehicle _x;" \n
+       "			_cep_vehpos = assignedVehicleRole _x;" \n
+       "			if (!(""Driver"" in _cep_vehpos)) then {" \n
+       "//player sideChat format[""%1,%2"", _x, _cep_vehpos];" \n
+       "				unassignVehicle _x;" \n
+       "//				doGetOut _x;" \n
+       "//				waitUntil{unitReady _x};" \n
+       "//player sideChat format[""%1"", [_cep_type, _cep_weap, _cep_mags, _cep_pos, _cep_veh, _cep_vehpos]];" \n
+       "				_cep_typearray = _cep_typearray + [[_cep_type, _cep_weap, _cep_mags, _cep_pos, _cep_veh, _cep_vehpos, _cep_bkp, _cep_bmg, _cep_bwp, _cep_rnk]];" \n
+       "				deletevehicle _x;" \n
+       "				_x = objNull;" \n
+       "			};" \n
+       "		} foreach _cep_unitarray;" \n
+       "		cep_unit_count = cep_unit_count + (count _cep_typearray);" \n
+       "		cep_tls = cep_tls + (count _cep_unitarray) + 1 - (count _cep_typearray);" \n
+       "" \n
+       "_cep_state = ""CACHED"";"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Normal_Units">*/
+        class Normal_Units
+        {
+          priority = 0.000000;
+          to="Normalise_Units";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_cep_state == ""CACHED"" &&" \n
+           "(" \n
+           "	(_cep_grp getVariable ""CEP_disableCache"") ||" \n
+           "	([[_cep_leader] call fTriggerUnits, leader _cep_leader] call fClosestUnit < _cep_cache_dist)" \n
+           ")"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Initialise">*/
+    class Initialise
+    {
+      name = "Initialise";
+      init = /*%FSM<STATEINIT""">*/"private [""_cep_leader"", ""_cep_grp"", ""_cep_unitarray"", ""_cep_typearray"", ""_cep_cache_dist""];" \n
+       "_cep_leader = _this select 0;" \n
+       "_cep_cache_dist = _this select 1;" \n
+       "" \n
+       "_cep_leader = leader _cep_leader;" \n
+       "_cep_grp = group _cep_leader;" \n
+       "" \n
+       "_cep_unitarray = units _cep_leader - [_cep_leader];" \n
+       "_cep_typearray = [];" \n
+       "" \n
+       "_disable = _cep_grp getVariable ""CEP_disableCache"";" \n
+       "_disable = if(isNil ""_disable"") then { false; } else {_disable;};" \n
+       "_cep_grp setVariable [""CEP_disableCache"", _disable];" \n
+       "" \n
+       "_cep_state = ""NORMAL"";" \n
+       "" \n
+       "fClosestUnit = {" \n
+       "	private[""_units"", ""_unit"", ""_dist"", ""_udist""];" \n
+       "	_units = _this select 0;" \n
+       "	_unit = _this select 1;" \n
+       "	_dist = 10^5;" \n
+       "	" \n
+       "	{" \n
+       "		_udist = _x distance _unit;" \n
+       "		if (_udist < _dist) then {_dist = _udist;};" \n
+       "	} forEach _units;" \n
+       "	_dist;" \n
+       "};" \n
+       "" \n
+       "fLOSUnit = {" \n
+       "	private[""_units"", ""_unit"", ""_dist"", ""_udist""];" \n
+       "	_units = _this select 0;" \n
+       "	_unit = _this select 1;" \n
+       "	_dist = 10^5;" \n
+       "	" \n
+       "	{" \n
+       "		_udist = _x distance _unit;" \n
+       "		if (_udist < _dist) then {_dist = _udist;};" \n
+       "	} forEach _units;" \n
+       "	_LOS;" \n
+       "};" \n
+       "" \n
+       "fTriggerUnits = {" \n
+       "	_cep_leader = _this select 0;" \n
+       "	_trigUnits = [];" \n
+       "	{" \n
+       "		if (side _x != civilian && side _cep_leader != civilian && side _x != side _cep_leader) then {" \n
+       "			_trigUnits = _trigUnits + [_x];" \n
+       "		};" \n
+       "	} forEach allUnits;" \n
+       "	_trigUnits = _trigUnits + [] call BIS_fnc_listPlayers;" \n
+       "	_trigUnits;" \n
+       "};" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Exit_if_not_serv">*/
+        class Exit_if_not_serv
+        {
+          priority = 100.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!isServer"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Wait_for_allUnits">*/
+        class Wait_for_allUnits
+        {
+          priority = 0.000000;
+          to="Begin_Loop";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"typeName allUnits == ""ARRAY"" && typeName playableUnits == ""ARRAY"""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "End">*/
+    class End
+    {
+      name = "End";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Begin_Loop">*/
+    class Begin_Loop
+    {
+      name = "Begin_Loop";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Disable_Cache_">*/
+        class Disable_Cache_
+        {
+          priority = 100.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_cep_grp getVariable ""CEP_disableCache"") &&" \n
+           "_cep_state == ""NORMAL"""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Cache_Units">*/
+        class Cache_Units
+        {
+          priority = 0.000000;
+          to="Cache_Units";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(_cep_grp getVariable ""CEP_disableCache"") &&" \n
+           "_cep_state == ""NORMAL"" &&" \n
+           "[[_cep_leader] call fTriggerUnits, leader _cep_leader] call fClosestUnit > _cep_cache_dist * 1.1" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Normalise_Units">*/
+    class Normalise_Units
+    {
+      name = "Normalise_Units";
+      init = /*%FSM<STATEINIT""">*/"		{" \n
+       "			_cep_unit_init = _x select 0;" \n
+       "			_cep_unit_weap = _x select 1;" \n
+       "			_cep_unit_mags = _x select 2;" \n
+       "			_cep_unit_offset = _x select 3;" \n
+       "			_cep_unit_veh = _x select 4;" \n
+       "			_cep_unit_vehpos = _x select 5;" \n
+       "			_cep_bkp = _x select 6;" \n
+       "			_cep_bmg = _x select 7;" \n
+       "			_cep_bwp = _x select 8;" \n
+       "			_cep_rnk = _x select 9;" \n
+       "" \n
+       "			_cep_unit_pos = _cep_leader modeltoworld _cep_unit_offset;" \n
+       "			_cep_myunit = (group _cep_leader) createUnit [_cep_unit_init, _cep_unit_pos, [], 0, ""NONE""];" \n
+       "" \n
+       "			removeallweapons _cep_myunit;" \n
+       "			removeAllItems _cep_myunit;" \n
+       "			{" \n
+       "				_cep_myunit addmagazine _x;" \n
+       "			} foreach _cep_unit_mags;" \n
+       "			{" \n
+       "				_cep_myunit addweapon _x;" \n
+       "			} foreach _cep_unit_weap;" \n
+       "" \n
+       "			if (_cep_bkp != """") then {" \n
+       "				_cep_myunit addbackpack _cep_bkp;" \n
+       "				clearweaponcargo (unitbackpack _cep_myunit);" \n
+       "				clearmagazinecargo (unitbackpack _cep_myunit);" \n
+       "			};" \n
+       "" \n
+       "			for ""_i"" from 0 to ((count (_cep_bmg select 0))-1) do {" \n
+       "				(unitbackpack _cep_myunit) addmagazinecargo [(_cep_bmg select 0) select _i,(_cep_bmg select 1) select _i];" \n
+       "			};" \n
+       "" \n
+       "			for ""_i"" from 0 to ((count (_cep_bwp select 0))-1) do {" \n
+       "				(unitbackpack _cep_myunit) addweaponcargo [(_cep_bwp select 0) select _i,(_cep_bwp select 1) select _i];" \n
+       "			};" \n
+       "" \n
+       "			_cep_myunit setunitrank _cep_rnk;" \n
+       "			if (count _cep_unit_vehpos != 0) then {" \n
+       "				switch(_cep_unit_vehpos select 0) do {" \n
+       "					case ""Driver"": {" \n
+       "						_cep_myunit moveInDriver _cep_unit_veh;" \n
+       "						_cep_myunit assignAsDriver _cep_unit_veh;" \n
+       "					};" \n
+       "					case ""Cargo"": {" \n
+       "						_cep_myunit moveInCargo _cep_unit_veh;" \n
+       "						_cep_myunit assignAsCargo _cep_unit_veh;" \n
+       "					};" \n
+       "					case ""Turret"": {" \n
+       "						_tp = _cep_unit_vehpos select 1;" \n
+       "						_cep_myunit moveInTurret [_cep_unit_veh, _tp];" \n
+       "						_cep_myunit assignAsGunner _cep_unit_veh;" \n
+       "					};" \n
+       "				};" \n
+       "			};" \n
+       "		} foreach _cep_typearray;" \n
+       "		cep_unit_count = cep_unit_count - (count _cep_typearray);" \n
+       "		cep_tls = cep_tls - ((count _cep_unitarray) + 1 - (count _cep_typearray));" \n
+       "		_cep_typearray = [];" \n
+       "		if((_cep_grp getVariable ""CEP_disableCache"")) then {		" \n
+       "			cep_cached_grps = cep_cached_grps - [_cep_grp];" \n
+       "			_exit = true;" \n
+       "		};" \n
+       "_cep_state = ""NORMAL"";"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Disable_Cache_">*/
+        class Disable_Cache_
+        {
+          priority = 100.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_cep_grp getVariable ""CEP_disableCache"") &&" \n
+           "_cep_state == ""NORMAL"""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Cache_Units">*/
+        class Cache_Units
+        {
+          priority = 0.000000;
+          to="Cache_Units";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(_cep_grp getVariable ""CEP_disableCache"") &&" \n
+           "_cep_state == ""NORMAL"" &&" \n
+           "[[_cep_leader] call fTriggerUnits, leader _cep_leader] call fClosestUnit > _cep_cache_dist * 1.1" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Initialise";
+  finalStates[] =
+  {
+    "End",
+  };
+};
+/*%FSM</COMPILE>*/

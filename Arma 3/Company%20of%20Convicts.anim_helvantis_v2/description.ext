@@ -1,0 +1,60 @@
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 64;
+};
+disabledAI = 1;
+
+// ===  Mission name etc settings
+OnLoadName = "Company of Convicts";// Mission name (short)
+onLoadMission="Serve your Sentence with your Life"; // Longer description
+loadScreen = "img\Penal_Legion.jpg"; // custom load image
+author="Destroyox";
+
+// ===  Respawn settings
+respawndelay = 30;
+respawnDialog = 0;
+// if you don't want respawns, see config .sqf
+respawn = "BASE"; // don't edit respawn type unless you know what youre doing
+
+// === Debriefing
+class CfgDebriefing {
+	class End1 {
+		title = "Mission Success";
+		description = "You have completed the mission.";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "flag_nato";
+		//pictureColor[] = {};
+	};
+	class End2 {
+		title = "Mission Failure";
+		description = "You have failed the mission, better luck next time";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "loc_Church";
+		//pictureColor[] = {};
+	};
+};
+
+// includes the dialogs and cfgFunctions
+#include "fparma.hpp"
+
+class Extended_PreInit_EventHandlers {
+	class FPARMA {
+		init = "[] call compile preProcessFileLineNumbers 'base\init.sqf'";
+	};
+};
+
+// === DO NOT EDIT
+showCompass   = 1;
+showGPS       = 1;
+showMap       = 1;
+showWatch     = 1;
+enableItemsDropping = 0;
+onLoadIntroTime=false;
+onLoadMissionTime=false;
+enableDebugConsole = 1;
+allowFunctionsLog = 0;
+joinUnassigned = 1;

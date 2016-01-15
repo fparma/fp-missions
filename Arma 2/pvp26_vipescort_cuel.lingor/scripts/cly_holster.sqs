@@ -1,0 +1,44 @@
+;CLY Holster written by Celery
+;Enables a player to holster and unholster his sidearm.
+;
+;Execute in the init script with [] exec "cly_holster"
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+?isDedicated:exit
+
+#start
+@alive player
+?count _this>0:goto "holster"
+_unit=player
+
+?isNil {_unit getVariable "CLY_holsteredgun"}:_unit setVariable ["CLY_holsteredgun","",true]
+_holster=_unit addAction ["Holster sidearm","cly_holster.sqs",nil,2.5,false,true,"","_this==_target and getNumber (configFile/'CfgWeapons'/(currentWeapon _this)/'type')==2 and _this getVariable 'CLY_holsteredgun'==''"]
+_unholster=_unit addAction ["Unholster sidearm","cly_holster.sqs",nil,2.5,false,true,"","_this==_target and {getNumber (configFile/'CfgWeapons'/_x/'type')==2} count weapons _this==0 and _this getVariable 'CLY_holsteredgun'!=''"]
+
+@!alive _unit or _unit!=player
+{_unit removeAction _x} forEach [_holster,_unholster]
+?!alive _unit and _unit getVariable "CLY_holsteredgun"!="":_unit addWeapon _unit getVariable "CLY_holsteredgun";_unit setVariable ["CLY_holsteredgun",nil,true]
+goto "start"
+
+#holster
+_unit=_this select 0
+?isNil {_unit getVariable "CLY_holsteredgun"}:exit
+?_unit getVariable "CLY_holsteredgun"!="":goto "unholster"
+
+_gun=currentWeapon player
+_type=getNumber (configFile/"CfgWeapons"/(currentWeapon player)/"type")
+?_type!=2:exit
+
+_unit setVariable ["CLY_holsteredgun",_gun,true]
+_unit removeWeapon _gun
+_unit addWeapon _gun
+~0.5
+_unit removeWeapon _gun
+exit
+
+#unholster
+_gun=_unit getVariable "CLY_holsteredgun"
+_unit addWeapon _gun
+_unit selectWeapon _gun
+_unit setVariable ["CLY_holsteredgun","",true]
+exit

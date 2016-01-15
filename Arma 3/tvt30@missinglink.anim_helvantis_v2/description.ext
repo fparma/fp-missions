@@ -1,0 +1,130 @@
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 64;
+};
+disabledAI = 1;
+// settings for respawn
+respawndelay = 4;
+respawnDialog = 0;
+respawn = "BASE";
+
+// settings for mission name etc
+////////////////////////////////////////////
+// example loadName: Operation MyMission
+OnLoadName = "TVT - MISSING LINK";
+onLoadMission="Protect or Arm the tempest";
+author="Cuel | 2014";
+// custom load screen?
+loadScreen = "fp_misc\img\fp_logo.paa";
+////////////////////////////////////////////
+
+// dont edit/ //
+showCompass   = 1;
+showGPS       = 1;
+showMap       = 1;
+showWatch     = 1;
+enableItemsDropping = 0;
+onLoadIntroTime=false;
+onLoadMissionTime=false;
+enableDebugConsole = 1;
+////////////////////////////////////////////
+
+#include "src\dialogs\common.hpp"
+#include "src\dialogs\data_download.hpp"
+
+
+// Precompile all FP specific functions
+class CfgFunctions
+{
+	#include "src\fp_functions.hpp"
+};
+
+class cfgSounds
+{
+	tracks[]={};
+
+	class nuke
+	{
+		name = "";
+		sound[] = {"nuke\nuke.ogg", db+0, 1.0};
+		titles[] = {};
+	};
+	class start
+	{
+		name = "";
+		sound[] = {"start.ogg", db+0, 1.0};
+		titles[] = {};
+	};
+};
+
+// Used to remove the timer that is always visible. Remove if not using JRM
+respawnTemplates[] = {"FP_jrm_respawn"};
+class CfgRespawnTemplates
+{
+	// Class used in respawnTemplates entry
+	class FP_jrm_respawn
+	{
+		respawnDialog = 0; // MUST BE ZERO, hides the timer
+	};
+};
+
+
+class CfgDebriefing
+{
+	class End1
+	{
+		title = "Blufor wins";
+		description = "Opfor eliminated and tempest secured";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "flag_nato";
+		//pictureColor[] = {};
+	};
+	class End2
+	{
+		title = "Opfor wins";
+		description = "Tempest secured and blufor eliminated";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "rhs_flag_vdv";
+		//pictureColor[] = {};
+	};
+	class End3
+	{
+		title = "Blufor wins";
+		description = "Reinforcements arrived";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "flag_nato";
+		//pictureColor[] = {};
+	};
+	class End4
+	{
+		title = "Opfor wins";
+		description = "Tempest device armed";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "rhs_flag_vdv";
+		//pictureColor[] = {};
+	};
+};
+
+class Params
+{
+	class Daytime
+	{
+		title = "Time of day";
+		texts[] = {"Day", "Night"};
+		values[] = {0,1};
+		default = 0;
+	};
+	class FP_reinforcements
+	{
+		title = "Time until reinforcements";
+		texts[] = {"10 m", "15 m", "20 m", "25 m"};
+		values[] = {0,1, 2, 3};
+		default = 1;
+	};
+};

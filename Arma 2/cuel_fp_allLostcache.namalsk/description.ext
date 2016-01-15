@@ -1,0 +1,51 @@
+// Mission Header
+class Header
+{
+  gameType = Coop;
+  minPlayers = 1;
+  maxPlayers = 20;
+};
+enableSaving = [false,false];
+loadScreen = "img\loading.paa";
+OnLoadMission = "Somewhere on Namalsk...";
+OnLoadIntro = "Somewhere on Namalsk...";
+OnLoadIntroTime = false;
+OnLoadMissionTime = false;
+
+respawn = "BASE";
+respawndelay = 5;
+disabledAI = 0;
+
+#include "revive_sqf\dialogs\config.cpp"
+#include "revive_sqf\dialogs\define.hpp"
+#include "revive_sqf\dialogs\rev_cam_dialog.hpp"
+#include "revive_sqf\dialogs\respawn_button_1.hpp"
+#include "revive_sqf\dialogs\respawn_button_2.hpp"
+#include "revive_sqf\dialogs\respawn_button_3.hpp"
+#include "revive_sqf\dialogs\respawn_button_4.hpp"
+#include "revive_sqf\dialogs\respawn_button_1b.hpp"
+#include "revive_sqf\dialogs\respawn_button_1c.hpp"
+#include "revive_sqf\dialogs\respawn_button_2b.hpp"
+#include "revive_sqf\dialogs\respawn_button_3b.hpp"
+#include "revive_sqf\dialogs\respawn_button_4b.hpp"
+#include "revive_sqf\dialogs\respawn_button_1map.hpp"
+#include "revive_sqf\dialogs\respawn_button_2map.hpp"
+#include "revive_sqf\dialogs\respawn_button_3map.hpp"
+#include "revive_sqf\dialogs\respawn_button_4map.hpp"
+#include "revive_sqf\dialogs\OK_map.hpp"
+#include "revive_sqf\dialogs\dead_cam_dialog.hpp"
+#include "revive_sqf\dialogs\rev_cam_dialog_blank.hpp"
+
+//needed for revive script otherwise IT WILL BREAk
+class Params
+{
+        class Revive
+        {
+		// paramsArray[1]
+                title = "Number of Revives:";
+                values[] = {2000,1000,20,10,7,5};
+                texts[] = {"No Revive","Infinite - Cadet","20 - Easy ","10 - Normal","7  - Hard","5  - Extreme"};
+                default = 10;
+        };
+};
+

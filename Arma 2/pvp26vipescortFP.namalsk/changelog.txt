@@ -1,0 +1,11 @@
+v0.2 
+
+-added one armored suv w/ minigun (does not respawn, should it?)
+-hopefully improved loadout script, didn't run the first time we tried but it should now. it was running from the unit init line but now it's running from the initplayer script, so it should work for jip's aswell.
+
+-spawn protection markers
+-changed deserted vehicle respawn timer to 500 seconds (from 150)
+-vip animations (suitcase, laptop) should now be broadcasted to clients
+-might have fixed opfor being able to see vip marker. don't know why this was happening, probably something to do with the server being a listen server
+-assassins now keep their guns when they respawn 
+-lowered amount of weapons for assassins

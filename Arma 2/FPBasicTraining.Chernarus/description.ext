@@ -1,0 +1,23 @@
+onLoadIntro="P R E P A R E   Y O U R S E L F";
+onLoadIntroTime=true;
+onLoadMission="P R E P A R E   Y O U R S E L F";
+onLoadMissionTime=true;
+
+//Mission and map
+disabledAI = 1;
+
+// Mission Header
+class Header
+{
+  gameType = Coop;
+  minPlayers = 1;
+  maxPlayers = 25;
+};
+
+
+// description.ext settings for respawn
+///////////////////////////////////////////////////////////////////////////////////////////
+respawn = "BASE";
+respawndelay = 10;
+respawnDialog = true;
+///////////////////////////////////////////////////////////////////////////////////////////

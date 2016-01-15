@@ -1,0 +1,12 @@
+if (!isServer) exitWith {};
+sleep 0.2+(random 1);
+_unit = _this;
+_v = _unit getVariable "blown";
+if (_v) exitWith {};
+_unit setVariable ["blown", true];
+_unit setDamage 1;
+sleep (random 1); 
+"R_57mm_HE" createVehicle (getPos _unit); 
+sleep 1; 
+[-1, {smokeFX = [_this, 5, time, false, true] spawn BIS_Effects_Burn;},_unit] call CBA_fnc_globalExecute;
+if (true) exitWith {};

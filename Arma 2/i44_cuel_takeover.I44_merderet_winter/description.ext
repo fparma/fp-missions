@@ -1,0 +1,15 @@
+class Header
+{
+ gameType = COOP; 
+ minPlayers = 1;  
+ maxPlayers = 20; 
+};
+enableSaving = [false,false];
+OnLoadMission = "Operation Takeover";
+OnLoadIntro = "Operation Takeover";
+OnLoadIntroTime = false;
+OnLoadMissionTime = false;
+
+respawn = "BASE";
+respawndelay = 20;
+disabledAI = 1;

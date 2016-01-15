@@ -1,0 +1,2119 @@
+version=12;
+class Mission
+{
+	addOns[]=
+	{
+		"A3_Characters_F_BLUFOR",
+		"a3_characters_f_beta",
+		"a3_map_altis",
+		"A3_Static_F",
+		"a3_static_f_gamma",
+		"A3_Boat_F_Boat_Transport_01",
+		"A3_Soft_F_MRAP_01",
+		"A3_Signs_F",
+		"A3_Structures_F_EPA_Mil_Scrapyard",
+		"A3_Structures_F_Mil_Shelters",
+		"A3_Structures_F_Items_Vessels",
+		"A3_Structures_F_Civ_InfoBoards",
+		"A3_Structures_F_EPA_Civ_Camping",
+		"A3_Structures_F_Furniture",
+		"a3_characters_f",
+		"A3_Modules_F",
+		"A3_Modules_F_Curator_Curator",
+		"ace_map",
+		"map_vr",
+		"aia_misc_e_config",
+		"3DEN",
+		"A3_Soft_F_MRAP_03",
+		"A3_Soft_F_Truck",
+		"A3_Air_F_Beta_Heli_Transport_02",
+		"ace_medical",
+		"A3_Armor_F_EPB_APC_tracked_03",
+		"A3_Armor_F_EPB_MBT_03",
+		"A3_Armor_F_APC_Wheeled_03",
+		"ace_respawn",
+		"A3_Air_F_EPB_Heli_Light_03",
+		"A3_Modules_F_Intel",
+		"ace_repair",
+		"A3_Soft_F_Quadbike",
+		"A3_Weapons_F_Ammoboxes",
+		"fp_hawk",
+		"A3_Soft_F_HEMTT",
+		"ace_weather"
+	};
+	addOnsAuto[]=
+	{
+		"A3_Modules_F",
+		"3DEN",
+		"a3_modules_f_curator_curator",
+		"ace_medical",
+		"A3_Characters_F",
+		"A3_Characters_F_BLUFOR",
+		"A3_Static_F_Gamma",
+		"a3_static_f",
+		"ace_respawn",
+		"ace_map",
+		"A3_Modules_F_Intel",
+		"fp_hawk",
+		"ace_weather",
+		"aia_misc_e_config",
+		"A3_Signs_F",
+		"A3_Structures_F_EPA_Mil_Scrapyard",
+		"A3_Structures_F_Mil_Shelters",
+		"A3_Structures_F_Items_Vessels",
+		"A3_Structures_F_Civ_InfoBoards",
+		"A3_Structures_F_EPA_Civ_Camping",
+		"A3_Structures_F_Furniture",
+		"A3_Boat_F_Boat_Transport_01",
+		"A3_Soft_F_Truck",
+		"A3_Air_F_Beta_Heli_Transport_02",
+		"A3_Soft_F_MRAP_03",
+		"A3_Soft_F_MRAP_01",
+		"A3_Air_F_EPB_Heli_Light_03",
+		"ace_repair",
+		"A3_Soft_F_Quadbike",
+		"A3_Weapons_F_Ammoboxes",
+		"A3_Soft_F_HEMTT",
+		"a3_map_altis"
+	};
+	randomSeed=11895797;
+	class Intel
+	{
+		briefingName="CO40 - Operation Austerity Measures v1.1";
+		overviewText="It's time for Greece to pay denbts.";
+		resistanceWest=0;
+		resistanceEast=1;
+		timeOfChanges=28800;
+		startFog=0.07;
+		startWind=0.14999999;
+		startWindDir=155;
+		startGust=0.19999999;
+		forecastFog=0.07;
+		forecastWind=0.14999999;
+		forecastWaves=0;
+		forecastGust=0.19999999;
+		forecastWindDir=155;
+		windForced=1;
+		year=2020;
+		month=9;
+		day=30;
+		hour=5;
+		minute=20;
+		startFogDecay=0;
+		forecastFogDecay=0;
+	};
+	class Groups
+	{
+		items=23;
+		class Item0
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={19356.012,197.41324,9726.4893};
+					special="NONE";
+					id=0;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.2;
+					text="server";
+				};
+			};
+		};
+		class Item1
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={19358.443,197.40771,9726.1904};
+					class args
+					{
+						items=4;
+						class Item0
+						{
+							value="gm";
+							parentCls="ModuleCurator_F";
+							typeName="Owner";
+						};
+						class Item1
+						{
+							value="";
+							parentCls="ModuleCurator_F";
+							typeName="Name";
+						};
+						class Item2
+						{
+							value="3";
+							parentCls="ModuleCurator_F";
+							typeName="Addons";
+						};
+						class Item3
+						{
+							value="0";
+							parentCls="ModuleCurator_F";
+							typeName="Forced";
+						};
+					};
+					id=1;
+					side="LOGIC";
+					vehicle="ModuleCurator_F";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+					syncId=0;
+					synchronizations[]={1};
+				};
+			};
+		};
+		class Item2
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={19353.264,197.41162,9728.3535};
+					class args
+					{
+						items=13;
+						class Item0
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="level";
+						};
+						class Item1
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="medicSetting";
+						};
+						class Item2
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="allowLitterCreation";
+						};
+						class Item3
+						{
+							value="1800";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="litterCleanUpDelay";
+						};
+						class Item4
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="enableScreams";
+						};
+						class Item5
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="playerDamageThreshold";
+						};
+						class Item6
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="AIDamageThreshold";
+						};
+						class Item7
+						{
+							value="0";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="enableUnconsciousnessAI";
+						};
+						class Item8
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="remoteControlledAI";
+						};
+						class Item9
+						{
+							value="0";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="preventInstaDeath";
+						};
+						class Item10
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="bleedingCoefficient";
+						};
+						class Item11
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="painCoefficient";
+						};
+						class Item12
+						{
+							value="1";
+							parentCls="ACE_moduleMedicalSettings";
+							typeName="keepLocalSettingsSynced";
+						};
+					};
+					id=2;
+					side="LOGIC";
+					vehicle="ACE_moduleMedicalSettings";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item3
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={19358.162,197.45883,9728.5986};
+					id=3;
+					side="LOGIC";
+					vehicle="HeadlessClient_F";
+					leader=1;
+					skill=0.60000002;
+					text="HC";
+					description="headless client";
+				};
+			};
+		};
+		class Item4
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={21615.66,6.9008741,9222.5459};
+					azimut=265.64899;
+					id=4;
+					side="WEST";
+					vehicle="B_Soldier_SL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.5;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""ACE_MapTools"";  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""tf_rt1523g_big_bwmod"";  this addItemToVest ""Laserbatteries"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Laserdesignator"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_2"";  this linkItem ""ItemGPS""; this setGroupID [""ANTON""];}";
+					description="Anton SQL [Ratcliff]";
+				};
+				class Item1
+				{
+					position[]={21617.18,5.866982,9224.6973};
+					azimut=265.64899;
+					id=5;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";  }";
+					description="Rifleman [Jonathan1321]";
+				};
+				class Item2
+				{
+					position[]={21617.947,6.2516012,9222.792};
+					azimut=265.64899;
+					id=6;
+					side="WEST";
+					vehicle="B_medic_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 20 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 9 do {this addItemToUniform ""ACE_morphine"";};  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 3 do {this addItemToVest ""ACE_morphine"";};  for ""_i"" from 1 to 4 do {this addItemToVest ""ACE_fieldDressing"";};  this addItemToVest ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToVest ""SmokeShell"";};  this addItemToVest ""ACE_HandFlare_White"";  for ""_i"" from 1 to 6 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  this addBackpack ""B_FieldPack_oli"";  for ""_i"" from 1 to 5 do {this addItemToBackpack ""ACE_bloodIV"";};  for ""_i"" from 1 to 50 do {this addItemToBackpack ""ACE_fieldDressing"";};  for ""_i"" from 1 to 20 do {this addItemToBackpack ""ACE_morphine"";};  for ""_i"" from 1 to 20 do {this addItemToBackpack ""ACE_epinephrine"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36K"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_4"";  this linkItem ""ItemGPS"";    }";
+					description="Medic [TornadoAP]";
+				};
+				class Item3
+				{
+					position[]={21623.75,5.2587795,9219.9502};
+					azimut=265.64899;
+					id=7;
+					side="WEST";
+					vehicle="B_soldier_AR_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addItemToVest ""rhs_200rnd_556x45_M_SAW"";  this addBackpack ""B_AssaultPack_rgr"";  for ""_i"" from 1 to 2 do {this addItemToBackpack ""rhs_200rnd_556x45_M_SAW"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""rhs_weap_m249_pip_L"";  this addPrimaryWeaponItem ""RH_ta01nsn_2D"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_9"";  this linkItem ""ItemGPS"";  }";
+					description="Autorifleman [Destroyox]";
+				};
+				class Item4
+				{
+					position[]={21622.092,5.4811912,9221.3994};
+					azimut=265.64899;
+					id=8;
+					side="WEST";
+					vehicle="B_Soldier_TL_F";
+					player="PLAY CDG";
+					rank="SERGEANT";
+					skill=0.5;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""ACE_MapTools"";  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""tf_rt1523g_bwmod"";  this addItemToVest ""Laserbatteries"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Laserdesignator"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_2"";  this linkItem ""ItemGPS"";  }";
+					description="Anton FTL [Habasch]";
+				};
+				class Item5
+				{
+					position[]={21622.451,4.9883199,9222.6113};
+					azimut=265.64899;
+					id=9;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS""; }";
+					description="Rifleman [leek]";
+				};
+				class Item6
+				{
+					position[]={21616.906,6.8937621,9221.4521};
+					azimut=-132.88901;
+					id=10;
+					side="WEST";
+					vehicle="B_soldier_LAT_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""B_TacticalPack_rgr"";  for ""_i"" from 1 to 4 do {this addItemToBackpack ""RPG32_F"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""launch_RPG32_F"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";}";
+					description="Rifleman (AT) [Helari]";
+				};
+				class Item7
+				{
+					position[]={21623.895,4.7391014,9221.3691};
+					azimut=-119.015;
+					id=11;
+					side="WEST";
+					vehicle="B_soldier_AA_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""B_TacticalPack_rgr"";  this addItemToBackpack ""CUP_Stinger_M"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""CUP_launch_FIM92Stinger"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";}";
+					description="Rifleman (AA) [Ramez]";
+				};
+				class Item8
+				{
+					position[]={21620.975,4.3658762,9229.4727};
+					azimut=265.64899;
+					id=12;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";  }";
+					description="Auxillary Rifleman";
+				};
+				class Item9
+				{
+					position[]={21620.389,4.6378489,9227.4951};
+					azimut=265.64899;
+					id=13;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";  }";
+					description="Auxillary Rifleman";
+				};
+			};
+		};
+		class Item5
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={19351.824,196.02861,9686.0781};
+					azimut=217.476;
+					id=14;
+					side="WEST";
+					vehicle="B_officer_F";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="COLONEL";
+					skill=0.5;
+					text="gm";
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""U_O_CombatUniform_ocamo"";  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 3 do {this addItemToUniform ""ACE_morphine"";};  for ""_i"" from 1 to 2 do {this addItemToUniform ""Chemlight_green"";};  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  for ""_i"" from 1 to 2 do {this addItemToUniform ""MiniGrenade"";};  this addItemToUniform ""ACE_HandFlare_Green"";  this addItemToUniform ""SmokeShellPurple"";  this addVest ""V_PlateCarrierIAGL_dgtl"";  this addItemToVest ""ACE_MapTools"";  this addItemToVest ""ACE_Flashlight_XL50"";  this addItemToVest ""ACE_Clacker"";  for ""_i"" from 1 to 5 do {this addItemToVest ""ACE_CableTie"";};  this addItemToVest ""ACE_microDAGR"";  this addItemToVest ""ACE_HuntIR_monitor"";  for ""_i"" from 1 to 3 do {this addItemToVest ""RH_6Rnd_45ACP_Mag"";};  for ""_i"" from 1 to 5 do {this addItemToVest ""SmokeShell"";};  for ""_i"" from 1 to 5 do {this addItemToVest ""SmokeShellPurple"";};  this addItemToVest ""ACE_HandFlare_White"";  this addItemToVest ""ACE_HandFlare_Red"";  this addItemToVest ""ACE_HandFlare_Green"";  this addItemToVest ""ACE_HandFlare_Yellow"";  this addBackpack ""tf_rt1523g_bwmod"";  for ""_i"" from 1 to 30 do {this addItemToBackpack ""ACE_fieldDressing"";};  for ""_i"" from 1 to 10 do {this addItemToBackpack ""ACE_morphine"";};  for ""_i"" from 1 to 10 do {this addItemToBackpack ""ACE_epinephrine"";};  this addHeadgear ""H_PilotHelmetHeli_I"";  this addGoggles ""G_Bandanna_beast"";    comment ""Add weapons"";  this addWeapon ""RH_ttracker_g"";  this addWeapon ""ACE_Vector"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_2"";  this linkItem ""ItemGPS"";  this linkItem ""NVGoggles_INDEP""; this allowDamage false; this setGroupID [""ZEUS""];}";
+					description="Game Master [IrishBandit]";
+					syncId=1;
+					synchronizations[]={0};
+				};
+			};
+		};
+		class Item6
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={19365.947,195.32808,9677.1768};
+					azimut=245.05901;
+					id=15;
+					side="WEST";
+					vehicle="B_Soldier_SL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="MAJOR";
+					skill=0.5;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""ACE_MapTools"";  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""tf_rt1523g_big_bwmod"";  this addItemToVest ""Laserbatteries"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Laserdesignator"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_2"";  this linkItem ""ItemGPS""; this setGroupID [""ZUGFUHRER""];}";
+					description="Platoon Leader [Cuel]";
+				};
+				class Item1
+				{
+					position[]={19368.014,195.20554,9676.1924};
+					azimut=256.02899;
+					id=16;
+					side="WEST";
+					vehicle="B_medic_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 20 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 9 do {this addItemToUniform ""ACE_morphine"";};  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 3 do {this addItemToVest ""ACE_morphine"";};  for ""_i"" from 1 to 4 do {this addItemToVest ""ACE_fieldDressing"";};  this addItemToVest ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToVest ""SmokeShell"";};  this addItemToVest ""ACE_HandFlare_White"";  for ""_i"" from 1 to 6 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  this addBackpack ""B_FieldPack_oli"";  for ""_i"" from 1 to 5 do {this addItemToBackpack ""ACE_bloodIV"";};  for ""_i"" from 1 to 50 do {this addItemToBackpack ""ACE_fieldDressing"";};  for ""_i"" from 1 to 20 do {this addItemToBackpack ""ACE_morphine"";};  for ""_i"" from 1 to 20 do {this addItemToBackpack ""ACE_epinephrine"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36K"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_4"";  this linkItem ""ItemGPS"";    }";
+					description="Platoon Medic [diwako]";
+				};
+			};
+		};
+		class Item7
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={21713.873,15.521497,7486.5283};
+					azimut=-129.399;
+					id=17;
+					side="GUER";
+					vehicle="I_HMG_01_high_F";
+					leader=1;
+					skill=0.60000002;
+					description="headless client";
+				};
+			};
+		};
+		class Item8
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={19367.012,195.86609,9685.9922};
+					azimut=-178.07899;
+					id=18;
+					side="WEST";
+					vehicle="B_engineer_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.60000002;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""ACE_MapTools"";  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""tf_rt1523g_big_bwmod"";  this addItemToVest ""Laserbatteries"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Laserdesignator"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_2"";  this linkItem ""ItemGPS""; this setGroupID [""PIONIER""];}";
+					description="Pionier SQL [DrFragg]";
+				};
+				class Item1
+				{
+					position[]={19368.242,195.88237,9687.3662};
+					azimut=-178.07899;
+					id=19;
+					side="WEST";
+					vehicle="B_engineer_F";
+					player="PLAY CDG";
+					skill=0.60000002;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""B_AssaultPack_rgr"";  this addItemToBackpack ""ToolKit"";  this addItemToBackpack ""ACE_wirecutter"";  this addItemToBackpack ""ACE_Clacker"";  this addItemToBackpack ""ACE_DefusalKit"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_2"";  this linkItem ""ItemGPS"";}";
+					description="Engineer [Holt]";
+				};
+				class Item2
+				{
+					position[]={19367.092,196.10002,9689.3564};
+					azimut=-178.07899;
+					id=20;
+					side="WEST";
+					vehicle="B_engineer_F";
+					player="PLAY CDG";
+					skill=0.60000002;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""B_AssaultPack_rgr"";  this addItemToBackpack ""ToolKit"";  this addItemToBackpack ""ACE_wirecutter"";  this addItemToBackpack ""ACE_Clacker"";  this addItemToBackpack ""ACE_DefusalKit"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_2"";  this linkItem ""ItemGPS"";}";
+					description="Engineer [jonoPorter]";
+				};
+				class Item3
+				{
+					position[]={19365.652,196.05592,9687.7236};
+					azimut=-178.07899;
+					id=21;
+					side="WEST";
+					vehicle="B_engineer_F";
+					player="PLAY CDG";
+					skill=0.60000002;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""B_AssaultPack_rgr"";  this addItemToBackpack ""ToolKit"";  this addItemToBackpack ""ACE_wirecutter"";  this addItemToBackpack ""ACE_Clacker"";  this addItemToBackpack ""ACE_DefusalKit"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_2"";  this linkItem ""ItemGPS"";}";
+					description="Engineer [CSLeader]";
+				};
+			};
+		};
+		class Item9
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={19360.414,195.76407,9681.5049};
+					azimut=-123.968;
+					id=22;
+					side="WEST";
+					vehicle="B_Soldier_SL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.5;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""ACE_MapTools"";  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""tf_rt1523g_big_bwmod"";  this addItemToVest ""Laserbatteries"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Laserdesignator"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_2"";  this linkItem ""ItemGPS""; this setGroupID [""JAGER""];  }";
+					description="Jager SQL [Tomoe]";
+				};
+				class Item1
+				{
+					position[]={19360.861,195.88,9683.4268};
+					azimut=256.02899;
+					id=23;
+					side="WEST";
+					vehicle="B_spotter_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""U_B_FullGhillie_lsh"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_RangeCard"";  this addItemToUniform ""ACE_HandFlare_White"";  for ""_i"" from 1 to 3 do {this addItemToUniform ""hlc_20rnd_762x51_Mk316_G3"";};  this addItemToUniform ""Laserbatteries"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addItemToVest ""SmokeShell"";  this addItemToVest ""SmokeShellYellow"";  this addItemToVest ""SmokeShellRed"";  this addItemToVest ""SmokeShellGreen"";  this addItemToVest ""SmokeShellPurple"";  this addItemToVest ""SmokeShellBlue"";  this addItemToVest ""SmokeShellOrange"";  for ""_i"" from 1 to 5 do {this addItemToVest ""hlc_20rnd_762x51_Mk316_G3"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""hlc_rifle_g3ka4"";  this addPrimaryWeaponItem ""RH_ta01nsn_2D"";  this addPrimaryWeaponItem ""bipod_01_F_blk"";  this addWeapon ""RH_usp"";  this addWeapon ""Laserdesignator"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_7"";  this linkItem ""ItemGPS"";}";
+					description="Recon Spotter [zez]";
+				};
+				class Item2
+				{
+					position[]={19359.342,195.86641,9682.6563};
+					azimut=256.02899;
+					id=24;
+					side="WEST";
+					vehicle="B_sniper_F";
+					player="PLAY CDG";
+					rank="SERGEANT";
+					skill=0.5;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""U_B_FullGhillie_lsh"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""ACE_RangeCard"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  for ""_i"" from 1 to 3 do {this addItemToUniform ""hlc_5rnd_300WM_mk248_AWM"";};  this addItemToUniform ""Laserbatteries"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  for ""_i"" from 1 to 6 do {this addItemToVest ""hlc_5rnd_300WM_mk248_AWM"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""hlc_rifle_awMagnum_OD_ghillie"";  this addPrimaryWeaponItem ""RH_leu_mk4"";  this addWeapon ""RH_usp"";  this addWeapon ""Laserdesignator"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_6"";  this linkItem ""ItemGPS""; this setGroupID [""JAGER""]; }";
+					description="Recon Sniper [Mallow]";
+				};
+				class Item3
+				{
+					position[]={19362.414,195.79352,9682.1006};
+					azimut=-122.83;
+					id=25;
+					side="WEST";
+					vehicle="B_medic_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 20 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 9 do {this addItemToUniform ""ACE_morphine"";};  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 3 do {this addItemToVest ""ACE_morphine"";};  for ""_i"" from 1 to 4 do {this addItemToVest ""ACE_fieldDressing"";};  this addItemToVest ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToVest ""SmokeShell"";};  this addItemToVest ""ACE_HandFlare_White"";  for ""_i"" from 1 to 6 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  this addBackpack ""B_FieldPack_oli"";  for ""_i"" from 1 to 5 do {this addItemToBackpack ""ACE_bloodIV"";};  for ""_i"" from 1 to 50 do {this addItemToBackpack ""ACE_fieldDressing"";};  for ""_i"" from 1 to 20 do {this addItemToBackpack ""ACE_morphine"";};  for ""_i"" from 1 to 20 do {this addItemToBackpack ""ACE_epinephrine"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36K"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_4"";  this linkItem ""ItemGPS"";    }";
+					description="Recon Medic [Tinter]";
+				};
+			};
+		};
+		class Item10
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={19350.82,197.38905,9728.5322};
+					class args
+					{
+						items=2;
+						class Item0
+						{
+							value="1";
+							parentCls="ACE_ModuleRespawn";
+							typeName="SavePreDeathGear";
+						};
+						class Item1
+						{
+							value="1";
+							parentCls="ACE_ModuleRespawn";
+							typeName="RemoveDeadBodiesDisconnected";
+						};
+					};
+					id=26;
+					side="LOGIC";
+					vehicle="ACE_ModuleRespawn";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item11
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={19356.141,197.43846,9728.3545};
+					class args
+					{
+						items=3;
+						class Item0
+						{
+							value="1";
+							parentCls="ACE_ModuleBlueForceTracking";
+							typeName="Enabled";
+						};
+						class Item1
+						{
+							value="8";
+							parentCls="ACE_ModuleBlueForceTracking";
+							typeName="Interval";
+						};
+						class Item2
+						{
+							value="1";
+							parentCls="ACE_ModuleBlueForceTracking";
+							typeName="HideAiGroups";
+						};
+					};
+					id=27;
+					side="LOGIC";
+					vehicle="ACE_ModuleBlueForceTracking";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item12
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={19357.555,197.45073,9732.0459};
+					class args
+					{
+						items=5;
+						class Item0
+						{
+							value="3";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Owner";
+						};
+						class Item1
+						{
+							value="";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Subject";
+						};
+						class Item2
+						{
+							value="Situation";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="PresetTitle";
+						};
+						class Item3
+						{
+							value="Friendly Forces";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Title";
+						};
+						class Item4
+						{
+							value="Anton - Alpha, Berta - Bravo, Caesar - Charlie, Pionier - Engineers Jager - Recon Zugfuhrer - Command";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Description";
+						};
+					};
+					id=28;
+					side="LOGIC";
+					vehicle="ModuleCreateDiaryRecord_F";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item13
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={19350.422,197.39034,9732.2861};
+					class args
+					{
+						items=5;
+						class Item0
+						{
+							value="3";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Owner";
+						};
+						class Item1
+						{
+							value="";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Subject";
+						};
+						class Item2
+						{
+							value="Situation";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="PresetTitle";
+						};
+						class Item3
+						{
+							value="";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Title";
+						};
+						class Item4
+						{
+							value="Golden Dawn took power in Greece, and made their economy recover through the power of facism. They refuse to pay back their denbts with all the money they've made. You must get the denbt money. Jager, Pionier, and Zugfuhrer have established FOB Gesichtpunsch ahead of the main assault, while infantry squads Anton, Breta, and Caesar have landed on the beaches of Lemnos. We are attacking in the morning, so many lazy greek soldiers will be asleep, and there will be little civilian presence, but the greeks will throw everything they have at you once they realize you're stealing their money, so expect heavier resistance as you progress. Golden Dawn is also reported to have bought some equipment from Iran, so stay vigilant for any advanced enemy assets.";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Description";
+						};
+					};
+					id=29;
+					side="LOGIC";
+					vehicle="ModuleCreateDiaryRecord_F";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item14
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={19356.025,197.4382,9732.1191};
+					class args
+					{
+						items=5;
+						class Item0
+						{
+							value="3";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Owner";
+						};
+						class Item1
+						{
+							value="";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Subject";
+						};
+						class Item2
+						{
+							value="Mission";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="PresetTitle";
+						};
+						class Item3
+						{
+							value="Resupply";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Title";
+						};
+						class Item4
+						{
+							value="The southern airfield has Greek Anti-Air emplacements. Neutralize all three MIM23 emplacements at the airfield so we can send a resupply drop. Once you have secured the airfield, we will drop supplies at FOB Gesichtpunsch. We will be supplying you with an AMV7-Marshall as part of the supply drop.";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Description";
+						};
+					};
+					id=30;
+					side="LOGIC";
+					vehicle="ModuleCreateDiaryRecord_F";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item15
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={19352.5,197.4091,9731.8115};
+					class args
+					{
+						items=5;
+						class Item0
+						{
+							value="3";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Owner";
+						};
+						class Item1
+						{
+							value="";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Subject";
+						};
+						class Item2
+						{
+							value="Mission";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="PresetTitle";
+						};
+						class Item3
+						{
+							value="";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Title";
+						};
+						class Item4
+						{
+							value="Your mission is to retrieve three caches of denbt money hidden in southeastern Lemnos. The Greek government have been moving the money via civilian box trucks. Secure them. You must then secure air transport from the primary airport held by the Greek government. Exfiltrate southeast to the SMS Angela Merkel for debrief. At least one money truck must be extracted for mission success. High Command has sattelite and drone surveillance in the AO, and will provide intel and support during the mission.";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Description";
+						};
+					};
+					id=31;
+					side="LOGIC";
+					vehicle="ModuleCreateDiaryRecord_F";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item16
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={21125.48,20.632961,7493.4194};
+					azimut=-348.23013;
+					id=32;
+					side="GUER";
+					vehicle="fp_mim23_I";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item17
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={21061.877,24.387239,7191.6504};
+					azimut=-162.67598;
+					id=33;
+					side="GUER";
+					vehicle="fp_mim23_I";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item18
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={20894.563,26.836847,7296.1323};
+					azimut=-83.969803;
+					id=34;
+					side="GUER";
+					vehicle="fp_mim23_I";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item19
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={19354.305,197.42444,9731.873};
+					class args
+					{
+						items=5;
+						class Item0
+						{
+							value="3";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Owner";
+						};
+						class Item1
+						{
+							value="";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Subject";
+						};
+						class Item2
+						{
+							value="Situation";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="PresetTitle";
+						};
+						class Item3
+						{
+							value="Respawn";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Title";
+						};
+						class Item4
+						{
+							value="Prevent Instant Death is on, Respawn is at FOB Gesichtpunsch.";
+							parentCls="ModuleCreateDiaryRecord_F";
+							typeName="Description";
+						};
+					};
+					id=35;
+					side="LOGIC";
+					vehicle="ModuleCreateDiaryRecord_F";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item20
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={22202.189,4.3772264,8470.3232};
+					azimut=186.87801;
+					id=36;
+					side="WEST";
+					vehicle="B_Soldier_SL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.5;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""ACE_MapTools"";  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""tf_rt1523g_big_bwmod"";  this addItemToVest ""Laserbatteries"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Laserdesignator"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_2"";  this linkItem ""ItemGPS""; this setGroupID [""BERTA""];}";
+					description="Berta SQL [Toad]";
+				};
+				class Item1
+				{
+					position[]={22200,3.8418458,8472.001};
+					azimut=186.87801;
+					id=37;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";  }";
+					description="Rifleman [Moral]";
+				};
+				class Item2
+				{
+					position[]={22201.641,3.9479978,8472.2393};
+					azimut=186.87801;
+					id=38;
+					side="WEST";
+					vehicle="B_medic_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 20 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 9 do {this addItemToUniform ""ACE_morphine"";};  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 3 do {this addItemToVest ""ACE_morphine"";};  for ""_i"" from 1 to 4 do {this addItemToVest ""ACE_fieldDressing"";};  this addItemToVest ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToVest ""SmokeShell"";};  this addItemToVest ""ACE_HandFlare_White"";  for ""_i"" from 1 to 6 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  this addBackpack ""B_FieldPack_oli"";  for ""_i"" from 1 to 5 do {this addItemToBackpack ""ACE_bloodIV"";};  for ""_i"" from 1 to 50 do {this addItemToBackpack ""ACE_fieldDressing"";};  for ""_i"" from 1 to 20 do {this addItemToBackpack ""ACE_morphine"";};  for ""_i"" from 1 to 20 do {this addItemToBackpack ""ACE_epinephrine"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36K"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_4"";  this linkItem ""ItemGPS"";    }";
+					description="Medic [Fartparty]";
+				};
+				class Item3
+				{
+					position[]={22204.117,3.2057178,8477.2949};
+					azimut=186.87801;
+					id=39;
+					side="WEST";
+					vehicle="B_soldier_AR_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addItemToVest ""rhs_200rnd_556x45_M_SAW"";  this addBackpack ""B_AssaultPack_rgr"";  for ""_i"" from 1 to 2 do {this addItemToBackpack ""rhs_200rnd_556x45_M_SAW"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""rhs_weap_m249_pip_L"";  this addPrimaryWeaponItem ""RH_ta01nsn_2D"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_9"";  this linkItem ""ItemGPS""; }";
+					description="Autorifleman [Vannkoker]";
+				};
+				class Item4
+				{
+					position[]={22203.59,3.2935205,8475.29};
+					azimut=186.87801;
+					id=40;
+					side="WEST";
+					vehicle="B_Soldier_TL_F";
+					player="PLAY CDG";
+					rank="SERGEANT";
+					skill=0.5;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""ACE_MapTools"";  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""tf_rt1523g_bwmod"";  this addItemToVest ""Laserbatteries"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Laserdesignator"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_2"";  this linkItem ""ItemGPS"";  }";
+					description="Berta FTL [MrDemonic]";
+				};
+				class Item5
+				{
+					position[]={22205.854,3.3405859,8475.0635};
+					azimut=186.87801;
+					id=41;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";  }";
+					description="Rifleman [SuicideZ]";
+				};
+				class Item6
+				{
+					position[]={22203.863,4.0790353,8472.2061};
+					azimut=-211.66;
+					id=42;
+					side="WEST";
+					vehicle="B_soldier_LAT_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""B_TacticalPack_rgr"";  for ""_i"" from 1 to 4 do {this addItemToBackpack ""RPG32_F"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""launch_RPG32_F"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";}";
+					description="Rifleman (AT) [fippe]";
+				};
+				class Item7
+				{
+					position[]={22205.727,3.2471032,8476.8848};
+					azimut=-197.786;
+					id=43;
+					side="WEST";
+					vehicle="B_soldier_AA_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""B_TacticalPack_rgr"";  this addItemToBackpack ""CUP_Stinger_M"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""CUP_launch_FIM92Stinger"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";}";
+					description="Rifleman (AA) [kaukassus]";
+				};
+				class Item8
+				{
+					position[]={22197.17,3.0645251,8477.2598};
+					azimut=186.87801;
+					id=44;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";  }";
+					description="Auxillary Rifleman";
+				};
+				class Item9
+				{
+					position[]={22198.99,3.1620824,8476.2988};
+					azimut=186.87801;
+					id=45;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";  }";
+					description="Auxillary Rifleman";
+				};
+			};
+		};
+		class Item21
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={21932.396,5.1999483,6475.1509};
+					azimut=314.371;
+					id=46;
+					side="WEST";
+					vehicle="B_Soldier_SL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.5;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""ACE_MapTools"";  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""tf_rt1523g_big_bwmod"";  this addItemToVest ""Laserbatteries"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Laserdesignator"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_2"";  this linkItem ""ItemGPS""; this setGroupID [""CAESAR""];}";
+					description="Caesar SQL";
+				};
+				class Item1
+				{
+					position[]={21934.6,5.0946002,6475.4819};
+					azimut=314.371;
+					id=47;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";  }";
+					description="Rifleman";
+				};
+				class Item2
+				{
+					position[]={21933.924,4.8529177,6473.5391};
+					azimut=314.371;
+					id=48;
+					side="WEST";
+					vehicle="B_medic_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 20 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 9 do {this addItemToUniform ""ACE_morphine"";};  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 3 do {this addItemToVest ""ACE_morphine"";};  for ""_i"" from 1 to 4 do {this addItemToVest ""ACE_fieldDressing"";};  this addItemToVest ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToVest ""SmokeShell"";};  this addItemToVest ""ACE_HandFlare_White"";  for ""_i"" from 1 to 6 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  this addBackpack ""B_FieldPack_oli"";  for ""_i"" from 1 to 5 do {this addItemToBackpack ""ACE_bloodIV"";};  for ""_i"" from 1 to 50 do {this addItemToBackpack ""ACE_fieldDressing"";};  for ""_i"" from 1 to 20 do {this addItemToBackpack ""ACE_morphine"";};  for ""_i"" from 1 to 20 do {this addItemToBackpack ""ACE_epinephrine"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36K"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_4"";  this linkItem ""ItemGPS"";    }";
+					description="Medic";
+				};
+				class Item3
+				{
+					position[]={21936.768,4.4404187,6469.6948};
+					azimut=314.371;
+					id=49;
+					side="WEST";
+					vehicle="B_soldier_AR_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addItemToVest ""rhs_200rnd_556x45_M_SAW"";  this addBackpack ""B_AssaultPack_rgr"";  for ""_i"" from 1 to 2 do {this addItemToBackpack ""rhs_200rnd_556x45_M_SAW"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""rhs_weap_m249_pip_L"";  this addPrimaryWeaponItem ""RH_ta01nsn_2D"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_9"";  this linkItem ""ItemGPS"";  }";
+					description="Autorifleman";
+				};
+				class Item4
+				{
+					position[]={21935.098,4.5660653,6470.3843};
+					azimut=314.371;
+					id=50;
+					side="WEST";
+					vehicle="B_Soldier_TL_F";
+					player="PLAY CDG";
+					rank="SERGEANT";
+					skill=0.5;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""ACE_MapTools"";  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""tf_rt1523g_bwmod"";  this addItemToVest ""Laserbatteries"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Laserdesignator"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_2"";  this linkItem ""ItemGPS"";  }";
+					description="Caesar FTL";
+				};
+				class Item5
+				{
+					position[]={21938.01,4.407958,6471.4097};
+					azimut=314.371;
+					id=51;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";  }";
+					description="Rifleman";
+				};
+				class Item6
+				{
+					position[]={21932.025,4.8161755,6472.4414};
+					azimut=-84.166901;
+					id=52;
+					side="WEST";
+					vehicle="B_soldier_LAT_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""B_TacticalPack_rgr"";  for ""_i"" from 1 to 4 do {this addItemToBackpack ""RPG32_F"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""launch_RPG32_F"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";}";
+					description="Rifleman (AT)";
+				};
+				class Item7
+				{
+					position[]={21935.314,4.5029726,6468.3438};
+					azimut=-70.2929;
+					id=53;
+					side="WEST";
+					vehicle="B_soldier_AA_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addBackpack ""B_TacticalPack_rgr"";  this addItemToBackpack ""CUP_Stinger_M"";  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""CUP_launch_FIM92Stinger"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";}";
+					description="Rifleman (AA)";
+				};
+				class Item8
+				{
+					position[]={21931.965,4.637907,6468.6025};
+					azimut=314.371;
+					id=54;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";  }";
+					description="Auxillary Rifleman";
+				};
+				class Item9
+				{
+					position[]={21930.096,4.6116982,6467.7378};
+					azimut=314.371;
+					id=55;
+					side="WEST";
+					vehicle="B_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="if (local this) then {comment ""Exported from Arsenal by IrishBandit"";    comment ""Remove existing items"";  removeAllWeapons this;  removeAllItems this;  removeAllAssignedItems this;  removeUniform this;  removeVest this;  removeBackpack this;  removeHeadgear this;  removeGoggles this;    comment ""Add containers"";  this forceAddUniform ""FP_Uniform_Flecktarn"";  for ""_i"" from 1 to 10 do {this addItemToUniform ""ACE_fieldDressing"";};  for ""_i"" from 1 to 5 do {this addItemToUniform ""ACE_morphine"";};  this addItemToUniform ""HandGrenade"";  for ""_i"" from 1 to 2 do {this addItemToUniform ""SmokeShell"";};  this addItemToUniform ""ACE_HandFlare_White"";  this addVest ""FP_Carrier_GreenPatchless"";  for ""_i"" from 1 to 8 do {this addItemToVest ""CUP_30Rnd_556x45_G36"";};  for ""_i"" from 1 to 2 do {this addItemToVest ""RH_12Rnd_45cal_usp"";};  this addHeadgear ""FP_Helmet_Flecktarn"";  this addGoggles ""G_Balaclava_lowprofile"";    comment ""Add weapons"";  this addWeapon ""CUP_arifle_G36A"";  this addWeapon ""RH_usp"";  this addWeapon ""Binocular"";    comment ""Add items"";  this linkItem ""ItemMap"";  this linkItem ""ItemCompass"";  this linkItem ""ItemWatch"";  this linkItem ""tf_anprc152_3"";  this linkItem ""ItemGPS"";  }";
+					description="Auxillary Rifleman";
+				};
+			};
+		};
+		class Item22
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={19348.51,197.41794,9728.375};
+					class args
+					{
+						items=6;
+						class Item0
+						{
+							value="1";
+							parentCls="ace_weather_ModuleSettings";
+							typeName="enableServerController";
+						};
+						class Item1
+						{
+							value="0";
+							parentCls="ace_weather_ModuleSettings";
+							typeName="useACEWeather";
+						};
+						class Item2
+						{
+							value="1";
+							parentCls="ace_weather_ModuleSettings";
+							typeName="syncRain";
+						};
+						class Item3
+						{
+							value="1";
+							parentCls="ace_weather_ModuleSettings";
+							typeName="syncWind";
+						};
+						class Item4
+						{
+							value="1";
+							parentCls="ace_weather_ModuleSettings";
+							typeName="syncMisc";
+						};
+						class Item5
+						{
+							value="60";
+							parentCls="ace_weather_ModuleSettings";
+							typeName="serverUpdateInterval";
+						};
+					};
+					id=56;
+					side="LOGIC";
+					vehicle="ace_weather_ModuleSettings";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+	};
+	class Vehicles
+	{
+		items=44;
+		class Item0
+		{
+			position[]={19372.475,195.12033,9677.6445};
+			azimut=44.985733;
+			id=57;
+			side="EMPTY";
+			vehicle="FlagCarrierGermany_EP1";
+			leader=1;
+			skill=0.2;
+			text="fp_flag";
+		};
+		class Item1
+		{
+			position[]={19372.32,196.01163,9690.7744};
+			azimut=-309.59882;
+			id=58;
+			side="EMPTY";
+			vehicle="Land_Sign_WarningMilitaryVehicles_F";
+			leader=1;
+			skill=0;
+			description="man";
+		};
+		class Item2
+		{
+			position[]={19368.82,196.31915,9696.6553};
+			azimut=-141.1913;
+			id=59;
+			side="EMPTY";
+			vehicle="Land_PaperBox_closed_F";
+			leader=1;
+			skill=0;
+			description="man";
+		};
+		class Item3
+		{
+			position[]={19373.842,195.87222,9690.9277};
+			azimut=-141.1913;
+			id=60;
+			side="EMPTY";
+			vehicle="Land_Pallet_MilBoxes_F";
+			leader=1;
+			skill=0;
+			description="man";
+		};
+		class Item4
+		{
+			position[]={19371.113,196.16571,9693.6807};
+			azimut=-72.739502;
+			id=61;
+			side="EMPTY";
+			vehicle="Land_ScrapHeap_1_F";
+			leader=1;
+			skill=0;
+			description="man";
+		};
+		class Item5
+		{
+			position[]={19370.646,196.177,9693.9219};
+			azimut=38.808727;
+			id=62;
+			side="EMPTY";
+			vehicle="CamoNet_BLUFOR_F";
+			leader=1;
+			skill=0.2;
+			description="man";
+		};
+		class Item6
+		{
+			position[]={19367.225,196.23273,9694.9902};
+			azimut=-114.23934;
+			id=63;
+			side="EMPTY";
+			vehicle="Land_WaterTank_F";
+			leader=1;
+			skill=0;
+			description="man";
+		};
+		class Item7
+		{
+			position[]={19372.178,194.73918,9670.9414};
+			azimut=493.33871;
+			id=64;
+			side="EMPTY";
+			vehicle="CamoNet_BLUFOR_F";
+			skill=0.2;
+			init="this allowDamage false; this enableSimulation false;";
+		};
+		class Item8
+		{
+			position[]={19374.092,194.74544,9672.1963};
+			azimut=457.94733;
+			id=65;
+			side="EMPTY";
+			vehicle="MapBoard_altis_F";
+			skill=0;
+			init="this allowDamage false; this enableSimulation false;";
+		};
+		class Item9
+		{
+			position[]={19371.135,194.74767,9670.7852};
+			azimut=313.33878;
+			id=66;
+			side="EMPTY";
+			vehicle="Land_WoodenTable_large_F";
+			skill=0;
+			init="this allowDamage false; this enableSimulation false;";
+		};
+		class Item10
+		{
+			position[]={19372.051,194.81262,9671.9463};
+			azimut=139.45996;
+			id=67;
+			side="EMPTY";
+			vehicle="Land_ChairPlastic_F";
+			skill=0;
+			init="this allowDamage false; this enableSimulation false;";
+		};
+		class Item11
+		{
+			position[]={19370.633,194.62512,9668.9014};
+			azimut=286.34241;
+			id=68;
+			side="EMPTY";
+			vehicle="Land_ChairPlastic_F";
+			skill=0;
+			init="this allowDamage false; this enableSimulation false;";
+		};
+		class Item12
+		{
+			position[]={19369.252,194.75569,9670.3877};
+			azimut=335.39526;
+			id=69;
+			side="EMPTY";
+			vehicle="Land_ChairPlastic_F";
+			skill=0;
+			init="this allowDamage false; this enableSimulation false;";
+		};
+		class Item13
+		{
+			position[]={19374.709,195.39279,9685.1875};
+			azimut=244.09763;
+			id=70;
+			side="EMPTY";
+			vehicle="MASH_EP1";
+			leader=1;
+			skill=0.2;
+			description="Commander (Game master)";
+		};
+		class Item14
+		{
+			position[]={19372.887,195.24069,9681.4375};
+			azimut=110.97856;
+			id=71;
+			side="EMPTY";
+			vehicle="FlagCarrierRedCross_EP1";
+			leader=1;
+			skill=0.2;
+			text="fp_flag_1";
+			init="this setflagTexture ""flag.jpg"";";
+		};
+		class Item15
+		{
+			position[]={22213.785,0,8510.4229};
+			azimut=515.16559;
+			id=72;
+			side="EMPTY";
+			vehicle="B_Boat_Transport_01_F";
+			leader=1;
+			lock="LOCKED";
+			skill=0.5;
+			fuel=0;
+		};
+		class Item16
+		{
+			position[]={22203.168,0,8509.6318};
+			azimut=573.85553;
+			id=73;
+			side="EMPTY";
+			vehicle="B_Boat_Transport_01_F";
+			leader=1;
+			lock="LOCKED";
+			skill=0.5;
+			fuel=0;
+		};
+		class Item17
+		{
+			position[]={21657.051,0,9226.8486};
+			azimut=591.651;
+			id=74;
+			side="EMPTY";
+			vehicle="B_Boat_Transport_01_F";
+			leader=1;
+			lock="LOCKED";
+			skill=0.5;
+			fuel=0;
+		};
+		class Item18
+		{
+			position[]={21653.805,0,9236.9902};
+			azimut=650.34198;
+			id=75;
+			side="EMPTY";
+			vehicle="B_Boat_Transport_01_F";
+			leader=1;
+			lock="LOCKED";
+			skill=0.5;
+			fuel=0;
+		};
+		class Item19
+		{
+			position[]={21955.754,0.26736331,6459.1694};
+			azimut=254.16469;
+			id=76;
+			side="EMPTY";
+			vehicle="B_Boat_Transport_01_F";
+			leader=1;
+			lock="LOCKED";
+			skill=0.5;
+			fuel=0;
+		};
+		class Item20
+		{
+			position[]={21956.645,0.88331062,6469.7847};
+			azimut=312.85461;
+			id=77;
+			side="EMPTY";
+			vehicle="B_Boat_Transport_01_F";
+			leader=1;
+			lock="LOCKED";
+			skill=0.5;
+			fuel=0;
+		};
+		class Item21
+		{
+			position[]={20750.871,37.557457,6780.8076};
+			azimut=591.651;
+			id=78;
+			side="EMPTY";
+			vehicle="C_Van_01_box_F";
+			leader=1;
+			lock="UNLOCKED";
+			skill=0.5;
+		};
+		class Item22
+		{
+			position[]={14751.248,17.91,16718.229};
+			azimut=790.72601;
+			id=79;
+			side="EMPTY";
+			vehicle="I_Heli_Transport_02_F";
+			leader=1;
+			lock="UNLOCKED";
+			skill=0.5;
+			init="this addEventHandler [""HandleDamage"", {false}]; ";
+		};
+		class Item23
+		{
+			position[]={21717.338,15.030643,7497.6475};
+			azimut=926.29199;
+			id=80;
+			side="EMPTY";
+			vehicle="C_Van_01_box_F";
+			leader=1;
+			lock="UNLOCKED";
+			skill=0.5;
+		};
+		class Item24
+		{
+			position[]={20466.191,38.095646,8890.9072};
+			azimut=516.526;
+			id=81;
+			side="EMPTY";
+			vehicle="C_Van_01_box_F";
+			leader=1;
+			lock="UNLOCKED";
+			skill=0.5;
+		};
+		class Item25
+		{
+			position[]={20756.582,29.520521,7235.478};
+			azimut=500.43997;
+			id=82;
+			side="EMPTY";
+			vehicle="I_MRAP_03_F";
+			leader=1;
+			lock="UNLOCKED";
+			skill=0.5;
+		};
+		class Item26
+		{
+			position[]={14732.31,17.91,16697.832};
+			azimut=790.72601;
+			id=83;
+			side="EMPTY";
+			vehicle="I_Heli_Transport_02_F";
+			leader=1;
+			lock="UNLOCKED";
+			skill=0.5;
+			init="this addEventHandler [""HandleDamage"", {false}]; ";
+		};
+		class Item27
+		{
+			position[]={14710.457,17.91,16673.066};
+			azimut=790.72601;
+			id=84;
+			side="EMPTY";
+			vehicle="I_Heli_Transport_02_F";
+			leader=1;
+			lock="UNLOCKED";
+			skill=0.5;
+			init="this addEventHandler [""HandleDamage"", {false}]; ";
+		};
+		class Item28
+		{
+			position[]={19329.391,195.73933,9696.3262};
+			azimut=-133.78687;
+			id=85;
+			side="EMPTY";
+			vehicle="B_MRAP_01_F";
+			skill=0.60000002;
+		};
+		class Item29
+		{
+			position[]={19334.859,195.71852,9692.6602};
+			azimut=-165.19521;
+			id=86;
+			side="EMPTY";
+			vehicle="B_MRAP_01_F";
+			skill=0.60000002;
+		};
+		class Item30
+		{
+			position[]={20800.785,29.085777,7223.5762};
+			azimut=313.33899;
+			id=87;
+			side="EMPTY";
+			vehicle="I_Heli_light_03_F";
+			leader=1;
+			lock="LOCKED";
+			skill=0.2;
+		};
+		class Item31
+		{
+			position[]={19369.91,196.07333,9690.8486};
+			azimut=217.476;
+			id=88;
+			side="EMPTY";
+			vehicle="ACE_Wheel";
+			leader=1;
+			skill=0.5;
+			description="Game Master";
+		};
+		class Item32
+		{
+			position[]={19367.037,196.20589,9692.9082};
+			azimut=217.476;
+			id=89;
+			side="EMPTY";
+			vehicle="ACE_Wheel";
+			leader=1;
+			skill=0.5;
+			description="Game Master";
+		};
+		class Item33
+		{
+			position[]={19365.447,196.28824,9694.6113};
+			azimut=217.476;
+			id=90;
+			side="EMPTY";
+			vehicle="ACE_Wheel";
+			leader=1;
+			skill=0.5;
+			description="Game Master";
+		};
+		class Item34
+		{
+			position[]={19371.924,195.93399,9689.373};
+			azimut=217.476;
+			id=91;
+			side="EMPTY";
+			vehicle="ACE_Wheel";
+			leader=1;
+			skill=0.5;
+			description="Game Master";
+		};
+		class Item35
+		{
+			position[]={19368.592,196.13145,9691.625};
+			azimut=-28.488831;
+			id=92;
+			side="EMPTY";
+			vehicle="ACE_Track";
+			leader=1;
+			skill=0.5;
+			description="Game Master";
+		};
+		class Item36
+		{
+			position[]={19371.23,196.02702,9690.8145};
+			azimut=296.10895;
+			id=93;
+			side="EMPTY";
+			vehicle="ACE_Track";
+			leader=1;
+			skill=0.5;
+			description="Game Master";
+		};
+		class Item37
+		{
+			position[]={19367.391,196.17316,9691.6279};
+			azimut=249.22508;
+			id=94;
+			side="EMPTY";
+			vehicle="ACE_Track";
+			leader=1;
+			skill=0.5;
+			description="Game Master";
+		};
+		class Item38
+		{
+			position[]={19340.475,196.07106,9693.8232};
+			azimut=217.476;
+			id=95;
+			side="EMPTY";
+			vehicle="B_Quadbike_01_F";
+			leader=1;
+			skill=0.5;
+			description="Game Master";
+		};
+		class Item39
+		{
+			position[]={19342.621,196.08095,9692.4922};
+			azimut=185.59392;
+			id=96;
+			side="EMPTY";
+			vehicle="B_Quadbike_01_F";
+			leader=1;
+			skill=0.5;
+			description="Game Master";
+		};
+		class Item40
+		{
+			position[]={20810.24,29.013014,7208.0146};
+			azimut=-171.97844;
+			id=97;
+			side="EMPTY";
+			vehicle="Box_IND_AmmoOrd_F";
+			skill=0.60000002;
+		};
+		class Item41
+		{
+			position[]={20806.361,29.008585,7203.2188};
+			azimut=-224.72542;
+			id=98;
+			side="EMPTY";
+			vehicle="Box_IND_AmmoOrd_F";
+			skill=0.60000002;
+		};
+		class Item42
+		{
+			position[]={19350.875,194.25024,9662.752};
+			azimut=549.77002;
+			id=99;
+			side="EMPTY";
+			vehicle="B_Truck_01_transport_F";
+			leader=1;
+			skill=0.5;
+		};
+		class Item43
+		{
+			position[]={19361.561,194.53757,9665.8066};
+			azimut=483.64474;
+			id=100;
+			side="EMPTY";
+			vehicle="B_Truck_01_covered_F";
+			leader=1;
+			skill=0.5;
+		};
+	};
+	class Markers
+	{
+		items=27;
+		class Item0
+		{
+			position[]={19375.029,195.25276,9683.8594};
+			name="respawn_west";
+			type="b_hq";
+			colorName="ColorWEST";
+			angle=244.09763;
+		};
+		class Item1
+		{
+			position[]={19374.693,195.3373,9684.5537};
+			name="respawn_east";
+			type="b_hq";
+			colorName="ColorEAST";
+			angle=244.09763;
+		};
+		class Item2
+		{
+			position[]={19375.201,195.32634,9684.8115};
+			name="respawn_guerrila";
+			type="b_hq";
+			colorName="ColorGUER";
+			angle=244.09763;
+		};
+		class Item3
+		{
+			position[]={19375.625,195.23615,9684.1172};
+			name="respawn_civilian";
+			type="b_hq";
+			colorName="ColorCIV";
+			angle=244.09763;
+		};
+		class Item4
+		{
+			position[]={19349.168,195.30824,9677.5791};
+			name="FOB";
+			text="FOB Gesichtpunsch";
+			type="Faction_CUP_Germany";
+			angle=0.82718533;
+		};
+		class Item5
+		{
+			position[]={22207.676,0.04475823,8503.6016};
+			name="landing1";
+			text="Berta Landing";
+			type="mil_arrow";
+			colorName="ColorWEST";
+			angle=184.948;
+		};
+		class Item6
+		{
+			position[]={21650.512,0.13713747,9231.9434};
+			name="landing2";
+			text="Anton Landing";
+			type="mil_arrow";
+			colorName="ColorWEST";
+			angle=-98.004204;
+		};
+		class Item7
+		{
+			position[]={21954.145,0.70110232,6464.9297};
+			name="landing1_1";
+			text="Caesar Landing";
+			type="mil_arrow";
+			colorName="ColorWEST";
+			angle=-76.052696;
+		};
+		class Item8
+		{
+			position[]={20797.252,35.965546,6776.8306};
+			name="AAF1";
+			type="n_motor_inf";
+			colorName="ColorGUER";
+		};
+		class Item9
+		{
+			position[]={21694.318,14.979905,7595.9448};
+			name="AAF1_1";
+			type="n_motor_inf";
+			colorName="ColorGUER";
+		};
+		class Item10
+		{
+			position[]={20573.537,35.595612,8901.8672};
+			name="AAF1_2";
+			type="n_motor_inf";
+			colorName="ColorGUER";
+		};
+		class Item11
+		{
+			position[]={20266.883,50.239208,11700.041};
+			name="AAF1_3";
+			type="n_mech_inf";
+			colorName="ColorGUER";
+		};
+		class Item12
+		{
+			position[]={19395.102,38.313099,13274.217};
+			name="AAF1_3_1";
+			type="n_inf";
+			colorName="ColorGUER";
+		};
+		class Item13
+		{
+			position[]={18132.586,23.694384,15212.098};
+			name="AAF1_3_3";
+			type="n_motor_inf";
+			colorName="ColorGUER";
+		};
+		class Item14
+		{
+			position[]={16316.937,21.966167,17201.689};
+			name="AAF1_3_4";
+			type="n_mech_inf";
+			colorName="ColorGUER";
+		};
+		class Item15
+		{
+			position[]={14678.772,17.91,16632.1};
+			name="AAF1_3_5";
+			type="n_air";
+			colorName="ColorGUER";
+		};
+		class Item16
+		{
+			position[]={14309.542,17.950966,15930.133};
+			name="AAF1_3_6";
+			type="n_plane";
+			colorName="ColorGUER";
+		};
+		class Item17
+		{
+			position[]={16634.654,16.185781,16088.854};
+			name="AAF1_3_1_1";
+			type="n_inf";
+			colorName="ColorGUER";
+		};
+		class Item18
+		{
+			position[]={18783.031,32.593693,16626.887};
+			name="AAF1_3_1_2";
+			type="n_motor_inf";
+			colorName="ColorGUER";
+		};
+		class Item19
+		{
+			position[]={30048.205,-0.40836385,812.62573};
+			name="exfil";
+			text="Exfil";
+			type="mil_end";
+			colorName="ColorWEST";
+		};
+		class Item20
+		{
+			position[]={14714.007,17.91,16750.846};
+			name="plane";
+			text="Secure Aircraft";
+			type="mil_pickup";
+			colorName="ColorWEST";
+		};
+		class Item21
+		{
+			position[]={20519.188,34.134449,8864.8662};
+			name="objective";
+			text="Secure Denbt Money";
+			type="mil_objective";
+			colorName="ColorWEST";
+		};
+		class Item22
+		{
+			position[]={20786.676,38.007206,6722.0488};
+			name="objective_1";
+			text="Secure Denbt Money";
+			type="mil_objective";
+			colorName="ColorWEST";
+		};
+		class Item23
+		{
+			position[]={21713.434,15.146836,7546.1021};
+			name="objective_2";
+			text="Secure Denbt Money";
+			type="mil_objective";
+			colorName="ColorWEST";
+		};
+		class Item24
+		{
+			position[]={21113.049,20.979052,7303.4937};
+			name="objective_1_1";
+			text="Secure Airfield";
+			type="mil_objective";
+			colorName="ColorWEST";
+		};
+		class Item25
+		{
+			position[]={20778.146,29.490374,7201.6167};
+			name="AAF1_4";
+			type="n_inf";
+			colorName="ColorGUER";
+		};
+		class Item26
+		{
+			position[]={20818.479,28.896633,7230.1299};
+			name="AAF1_3_5_1";
+			type="n_air";
+			colorName="ColorGUER";
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"a3_map_stratis",
+		"a3_map_altis",
+		"map_vr"
+	};
+	addOnsAuto[]=
+	{
+		"a3_map_altis"
+	};
+	randomSeed=8961784;
+	class Intel
+	{
+		startWeather=0;
+		startWind=0;
+		forecastWeather=0;
+		forecastWind=0;
+		forecastWaves=0;
+		year=2035;
+		month=7;
+		day=6;
+		hour=12;
+		minute=0;
+		startFogDecay=0;
+		forecastFogDecay=0;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"a3_map_stratis",
+		"a3_map_altis",
+		"map_vr"
+	};
+	addOnsAuto[]=
+	{
+		"a3_map_altis"
+	};
+	randomSeed=11319044;
+	class Intel
+	{
+		startWeather=0;
+		startWind=0;
+		forecastWeather=0;
+		forecastWind=0;
+		forecastWaves=0;
+		year=2035;
+		month=7;
+		day=6;
+		hour=12;
+		minute=0;
+		startFogDecay=0;
+		forecastFogDecay=0;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"a3_map_stratis",
+		"a3_map_altis",
+		"map_vr"
+	};
+	addOnsAuto[]=
+	{
+		"a3_map_altis"
+	};
+	randomSeed=13537339;
+	class Intel
+	{
+		startWeather=0;
+		startWind=0;
+		forecastWeather=0;
+		forecastWind=0;
+		forecastWaves=0;
+		year=2035;
+		month=7;
+		day=6;
+		hour=12;
+		minute=0;
+		startFogDecay=0;
+		forecastFogDecay=0;
+	};
+};

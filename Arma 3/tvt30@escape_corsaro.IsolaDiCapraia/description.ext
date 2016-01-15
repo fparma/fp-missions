@@ -1,0 +1,56 @@
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 64;
+};
+disabledAI = 1;
+// settings for respawn
+respawndelay = 4;
+respawnDialog = 0;
+respawn = "BASE"; 
+
+// settings for mission name etc
+////////////////////////////////////////////
+// example loadName: Operation MyMission
+OnLoadName = "FP TEMPLATE 1.0";
+onLoadMission="description.ext to change!";
+author="Cuel | 2015";
+// custom load screen?
+loadScreen = "fp_misc\img\fp_logo.paa";
+////////////////////////////////////////////
+
+
+// dont edit/ //
+showCompass   = 1; 
+showGPS       = 1; 
+showMap       = 1; 
+showWatch     = 1; 
+enableItemsDropping = 0;
+onLoadIntroTime=false;
+onLoadMissionTime=false;
+enableDebugConsole = 1;
+////////////////////////////////////////////
+
+#include "src\dialogs\common.hpp"
+#include "src\dialogs\data_download.hpp"
+#include "src\dialogs\gui_spectator.hpp"
+#include "src\spect\config.hpp"
+
+
+// Precompile all FP specific functions
+class CfgFunctions
+{
+	#include "src\fp_functions.hpp"
+};
+
+// Used to remove the timer that is always visible. Remove if not using JRM
+respawnTemplates[] = {"FP_jrm_respawn"};
+class CfgRespawnTemplates
+{
+	// Class used in respawnTemplates entry
+	class FP_jrm_respawn
+	{
+		respawnDialog = 0; // MUST BE ZERO, hides the timer
+	};
+};

@@ -1,0 +1,86 @@
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 64;
+};
+disabledAI = 1;
+
+//////////////////////////////////////////// Respawn settings ////////////////////////////////////////////
+
+respawndelay = 4;
+respawnDialog = 1;
+respawn = "BASE";
+
+//////////////////////////////////////////// Mission name etc settings ////////////////////////////////////////////
+// Mission name (short)
+OnLoadName = "OPERATION CRUSADER";
+
+// Longer description
+onLoadMission="The attack on Elektrozavodsk";
+
+// custom load screen
+loadScreen = "load.jpg";
+
+author="Cuel | 2015";
+
+//////////////////////////////////////////// Debriefing settings ////////////////////////////////////////////
+
+class CfgDebriefing
+{
+	class End1
+	{
+		title = "Mission Success";
+		description = "Elektro have been cleared of all Russians and is now under US control.";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "flag_USA";
+		//pictureColor[] = {};
+	};
+	class End2
+	{
+		title = "Mission Failure";
+		description = "Russians are still in control of Elektro.";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "Faction_RU";
+		//pictureColor[] = {};
+	};
+};
+
+
+// Used to remove the timer that is always visible. Can be removed if not jip respawn manager is used
+respawnTemplates[] = {"FP_jrm_respawn"};
+class CfgRespawnTemplates
+{
+	// Class used in respawnTemplates entry
+	class FP_jrm_respawn
+	{
+		respawnDialog = 0; // MUST BE ZERO, hides the timer
+	};
+};
+
+//////////////////////////////////////////// DO NOT EDIT ////////////////////////////////////////////
+
+// Precompile all FP specific functions
+class CfgFunctions
+{
+	#include "src\fp_functions.hpp"
+};
+
+
+showCompass   = 1;
+showGPS       = 1;
+showMap       = 1;
+showWatch     = 1;
+enableItemsDropping = 0;
+onLoadIntroTime=false;
+onLoadMissionTime=false;
+enableDebugConsole = 1;
+allowFunctionsLog = 1;
+joinUnassigned = 1;
+
+#include "src\dialogs\common.hpp"
+#include "src\dialogs\data_download.hpp"
+#include "src\dialogs\gui_spectator.hpp"
+#include "src\spect\config.hpp"

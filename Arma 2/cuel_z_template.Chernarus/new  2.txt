@@ -1,0 +1,37 @@
+/*
+if (time < 5) then {
+	if (leader (group player) == player) then {
+		_pos = randPos;
+		while { count (_pos isFlatEmpty [20,0,0.2,20,0,false,objNull]) == 0 || getTerrainHeightASL _pos <= 2 } do {
+			_pos = randPos;
+		}; 
+		player setPosATL _pos;
+		player setVariable ["cuel_grpmove",_pos,true];
+	}else{
+		_l = leader (group player);
+		waitUntil {!isNil {_l getVariable "cuel_grpmove"};};
+		_pos = _l getVariable "cuel_grpmove";
+		_tp = [0,0,0];
+		while {count (_tp - [0]) == 0} do {
+			_tp = _pos findEmptyPosition[ 10 , 100 , typeOf player];
+		};
+		player setPosATL _tp;
+	};
+}else{
+	if (leader (group player) == player) then {
+		_pos = randPos;
+		while { count (_pos isFlatEmpty [20,0,0.2,20,0,false,objNull]) == 0 || getTerrainHeightASL _pos <= 2 } do {
+			_pos = randPos;
+		}; 
+		player setPosATL _pos;
+		player setVariable ["cuel_grpmove",_pos,true];
+	}else{
+		_pos = getPosATL (leader(group player));
+		_tp = [0,0,0];
+		while {count (_tp - [0]) == 0} do {
+			_tp = _pos findEmptyPosition[ 10 , 100 , typeOf player];
+		};
+		player setPosATL _tp;
+	};
+};
+*/

@@ -1,0 +1,79 @@
+version=12;
+class Mission {
+addOns[]= {};
+addOnsAuto[]= {};
+class Intel{};
+class Vehicles {
+items=5;
+class Item0 {
+position[]={14832.643555,5.58456,12749.810547};
+azimut=288.378;
+offsetY=5.58456;
+id=0;
+side="EMPTY";
+vehicle="WoodChair";
+skill=0.6;
+init="this setVectorDirAndUp [[-0.948996,0.315287,0],[0,0,1]];this setposATL [14832.643555,12749.810547,5.58456];";
+};
+class Item1 {
+position[]={14833.504883,5.61654,12749.423828};
+azimut=321.539;
+offsetY=5.61654;
+id=1;
+side="EMPTY";
+vehicle="Desk";
+skill=0.6;
+init="this setVectorDirAndUp [[-0.62198,0.783033,0],[0,0,1]];this setposATL [14833.504883,12749.423828,5.61654];";
+};
+class Item2 {
+position[]={14832.0566406,5.64657,12756.637695};
+azimut=50.7259;
+offsetY=5.64657;
+id=2;
+side="EMPTY";
+vehicle="Land_WaterCooler_01_old_F";
+skill=0.6;
+init="this setVectorDirAndUp [[0.774126,0.633031,0],[0,0,1]];this setposATL [14832.0566406,12756.637695,5.64657];";
+};
+class Item3 {
+position[]={14833.908203,6.40505,12749.926758};
+azimut=0;
+offsetY=6.40505;
+id=3;
+side="EMPTY";
+vehicle="Land_Ammobox_rounds_F";
+skill=0.6;
+init="this setVectorDirAndUp [[0,1,0],[0,0,1]];this setposATL [14833.908203,12749.926758,6.40505];";
+};
+class Item4 {
+position[]={14833.62793,6.41585,12749.455078};
+azimut=322.75;
+offsetY=6.41585;
+id=4;
+side="EMPTY";
+vehicle="Land_Laptop_device_F";
+skill=0.6;
+init="this setVectorDirAndUp [[-0.605287,0.796007,0],[0,0,1]];this setposATL [14833.62793,12749.455078,6.41585];";
+};
+};
+};
+class Intro {
+addOns[]={};
+addOnsAuto[]={};
+randomSeed=2744005;
+class Intel{};
+};
+class OutroWin
+{
+addOns[]={};
+addOnsAuto[]={};
+randomSeed=2744005;
+class Intel{};
+};
+class OutroLoose
+{
+addOns[]={};
+addOnsAuto[]={};
+randomSeed=2744005;
+class Intel{};
+};

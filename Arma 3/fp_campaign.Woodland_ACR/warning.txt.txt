@@ -1,0 +1,8 @@
+Do not double click the HQ or the cargo houses / watch towers in the base!
+
+It will cause their models to change, this is because: arma. deal w/ it.
+
+:)
+
+might happen to other objects in the base, be careful
+

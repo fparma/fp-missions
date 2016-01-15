@@ -1,0 +1,40 @@
+0 fadesound 0;
+titleCut [" ","BLACK OUT",2]
+titleCut ["","BLACK IN",1]
+_cam = "camera" camCreate [(position cam2 select 0),(position cam2 select 1),12]
+_cam cameraEffect ["Internal", "Back"]
+_cam camSetTarget zu23
+_cam camCommit 0
+~5
+2 fadesound 1;
+_cam camSetPos  [(position cam1 select 0),(position cam1 select 1),3]
+_cam camSetTarget crashheli
+_cam camSetFov 0.4;
+_cam camCommit 2
+~2
+~3
+3 fadesound 0;
+~2
+~1
+titleCut [" ","BLACK OUT",2]
+agony switchMove "AinjPpneMstpSnonWrflDnon";
+~1
+titleCut [" ","BLACK FADED",5]
+_cam camSetPos  [(position cam3 select 0),(position cam3 select 1),4]
+_cam camSetTarget wreck
+_cam camSetFov 0.6;
+_cam camCommit 0
+~1
+0 fadesound 1;
+6 fadesound 0;
+titleCut ["","BLACK IN",1]
+~6
+titleCut ["Operation Cold Zulu","BLACK OUT",5]
+~5
+introDone = true; publicVariable "introDone";
+_cam cameraEffect ["Terminate", "Back"];
+camDestroy _cam;
+10 fadesound 1;
+~1
+titleCut ["Operation Cold Zulu","BLACK IN",2]
+

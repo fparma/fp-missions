@@ -1,0 +1,17 @@
+// Mission Header
+class Header
+{
+  gameType = Coop;
+  minPlayers = 1;
+  maxPlayers = 20;
+};
+enableSaving = [false,false];
+loadScreen = "img\loading.paa";
+OnLoadMission = "Somewhere on Namalsk...";
+OnLoadIntro = "Somewhere on Namalsk...";
+OnLoadIntroTime = false;
+OnLoadMissionTime = false;
+
+respawn = "BASE";
+respawndelay = 30;
+disabledAI = 0;

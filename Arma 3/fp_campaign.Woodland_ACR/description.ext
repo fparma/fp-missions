@@ -1,0 +1,48 @@
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 64;
+};
+disabledAI = 1;
+
+//////////////////////////////////////////// Respawn settings ////////////////////////////////////////////
+
+respawndelay = 4;
+respawnDialog = 1;
+respawn = "BASE";
+
+//////////////////////////////////////////// Mission name etc settings ////////////////////////////////////////////
+// Mission name (short)
+OnLoadName = "FP CAMPAIGN 1.0";
+
+// Longer description
+onLoadMission="description.ext to change!";
+
+// custom load screen
+loadScreen = "fp_misc\img\fp_logo.paa";
+
+author="";
+
+//////////////////////////////////////////// DO NOT EDIT ////////////////////////////////////////////
+
+showCompass   = 1;
+showGPS       = 1;
+showMap       = 1;
+showWatch     = 1;
+enableItemsDropping = 0;
+onLoadIntroTime=false;
+onLoadMissionTime=false;
+enableDebugConsole = 1;
+allowFunctionsLog = 1;
+joinUnassigned = 1;
+
+corpseManagerMode = 2;
+corpseLimit = 16;
+corpseRemovalMinTime = 300; //seconds
+corpseRemovalMaxTime = 1200; //seconds
+
+wreckManagerMode = 1;
+wreckLimit = 10;
+wreckRemovalMinTime = 500; //seconds
+wreckRemovalMaxTime = 1200; //seconds

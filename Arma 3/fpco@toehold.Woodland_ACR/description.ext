@@ -1,0 +1,105 @@
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 64;
+};
+disabledAI = 1;
+
+//////////////////////////////////////////// Respawn settings ////////////////////////////////////////////
+
+respawndelay = 4;
+respawnDialog = 1;
+respawn = "BASE";
+disableChannels[]={0, 1};
+
+//////////////////////////////////////////// Mission name etc settings ////////////////////////////////////////////
+// Mission name (short)
+OnLoadName = "OP Toehold";
+
+// Longer description
+onLoadMission="Defend Chernogorsk for as long as you can<br/><br/>No respawn<br/>Max unconscious time 2 minutes";
+
+// custom load screen
+loadScreen = "fp_misc\img\fp_logo.paa";
+
+author="Cuel, Mallow, Tinter | 2015";
+
+//////////////////////////////////////////// Debriefing settings ////////////////////////////////////////////
+
+class CfgDebriefing
+{
+	class End1
+	{
+		title = "Mission End";
+		description = "Chernogorsk was evacuated but is now under Soviet control...";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "fp_misc\img\fp_logo.paa";
+		//pictureColor[] = {};
+	};
+	class End2
+	{
+		title = "Mission Failure";
+		description = "You have failed the mission";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "loc_Church";
+		//pictureColor[] = {};
+	};
+};
+
+class cfgSounds {
+	class fp_indeep
+	{
+		name = "indeep";
+		sound[] = {"indeep.ogg", db+10, 1.0};
+	   titles[] = {};
+	};	
+};
+
+// Used to remove the timer that is always visible. Can be removed if not jip respawn manager is used
+respawnTemplates[] = {"FP_jrm_respawn"};
+class CfgRespawnTemplates
+{
+	// Class used in respawnTemplates entry
+	class FP_jrm_respawn
+	{
+		respawnDialog = 0; // MUST BE ZERO, hides the timer
+	};
+};
+
+//////////////////////////////////////////// DO NOT EDIT ////////////////////////////////////////////
+
+// Precompile all FP specific functions
+class CfgFunctions
+{
+	#include "src\fp_functions.hpp"
+};
+
+
+showCompass   = 1;
+showGPS       = 1;
+showMap       = 1;
+showWatch     = 1;
+enableItemsDropping = 0;
+onLoadIntroTime=false;
+onLoadMissionTime=false;
+enableDebugConsole = 1;
+allowFunctionsLog = 1;
+joinUnassigned = 1;
+
+corpseManagerMode = 2;
+corpseLimit = 16;
+corpseRemovalMinTime = 60; //seconds
+corpseRemovalMaxTime = 1200; //seconds
+
+wreckManagerMode = 1;
+wreckLimit = 10;
+wreckRemovalMinTime = 400; //seconds
+wreckRemovalMaxTime = 1200; //seconds
+
+#include "src\dialogs\common.hpp"
+#include "src\dialogs\data_download.hpp"
+#include "src\dialogs\gui_spectator.hpp"
+#include "src\spect\config.hpp"

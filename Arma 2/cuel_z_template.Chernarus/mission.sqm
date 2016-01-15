@@ -1,0 +1,389 @@
+version=11;
+class Mission
+{
+	addOns[]=
+	{
+		"ace_sys_wounds",
+		"ace_sys_playerhud",
+		"ace_main",
+		"cba_main",
+		"acex_usnavy_c_weapon",
+		"CATracked2_T90",
+		"acex_usnavy_veh_ah1",
+		"acex_c_weapon",
+		"chernarus",
+		"cacharacters_e"
+	};
+	addOnsAuto[]=
+	{
+		"ace_sys_wounds",
+		"ace_sys_playerhud",
+		"ace_main",
+		"cacharacters_e",
+		"acex_usnavy_c_weapon",
+		"CATracked2_T90",
+		"acex_usnavy_veh_ah1",
+		"acex_c_weapon",
+		"chernarus"
+	};
+	randomSeed=12577381;
+	class Intel
+	{
+		briefingName="Zombies Revisited";
+		startWeather=0.25;
+		forecastWeather=0.25;
+		year=2008;
+		month=10;
+		day=11;
+		hour=9;
+		minute=20;
+	};
+	class Groups
+	{
+		items=7;
+		class Item0
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6797.9795,289.11426,7699.5532};
+					azimut=-0.60122919;
+					id=0;
+					side="LOGIC";
+					vehicle="ACE_Wounds_Logic";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item1
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6698.9731,293.66614,7699.3003};
+					azimut=-0.60122919;
+					id=1;
+					side="LOGIC";
+					vehicle="ACE_SYS_PRespawn_Logic";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item2
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6698.0503,287.38654,7598.7881};
+					azimut=-0.60122919;
+					special="NONE";
+					id=2;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.2;
+					text="server";
+				};
+			};
+		};
+		class Item3
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={-189.31914,0.14410168,832.91113};
+					azimut=364.31;
+					special="NONE";
+					id=3;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.2;
+					text="generatorminxy";
+				};
+			};
+		};
+		class Item4
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={14148.558,148.09914,15108.962};
+					azimut=364.31;
+					special="NONE";
+					id=4;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.2;
+					text="generatormaxxy";
+				};
+			};
+		};
+		class Item5
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6798.8579,283.40649,7600.791};
+					azimut=-0.60122919;
+					id=10;
+					side="LOGIC";
+					vehicle="ACE_Required_Logic";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item6
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=3;
+				class Item0
+				{
+					position[]={6557.4453,293.95029,7694.4937};
+					azimut=181.377;
+					special="NONE";
+					id=11;
+					side="WEST";
+					vehicle="US_Soldier_SL_EP1";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="CAPTAIN";
+					skill=0.60000002;
+					description="Zombie Survivor";
+				};
+				class Item1
+				{
+					position[]={6560.2593,294.289,7699.2085};
+					azimut=181.377;
+					special="NONE";
+					id=12;
+					side="WEST";
+					vehicle="US_Soldier_Medic_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					description="Zombie Survivor";
+				};
+				class Item2
+				{
+					position[]={6554.8979,294.34201,7699.7979};
+					azimut=181.377;
+					special="NONE";
+					id=13;
+					side="WEST";
+					vehicle="US_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					description="Zombie Survivor";
+				};
+			};
+		};
+	};
+	class Vehicles
+	{
+		items=5;
+		class Item0
+		{
+			position[]={6586.4116,292.32071,7671.7617};
+			azimut=219.79768;
+			id=5;
+			side="EMPTY";
+			vehicle="ACE_WeaponBox_USMC";
+			leader=1;
+			skill=0.60000002;
+			description=" ";
+		};
+		class Item1
+		{
+			position[]={6566.7153,292.3739,7672.3452};
+			azimut=178.57979;
+			id=6;
+			side="EMPTY";
+			vehicle="T90";
+			leader=1;
+			lock="UNLOCKED";
+			skill=0.60000002;
+			init="this addEventHandler [""fired"", {_this spawn cuel_weaponFired}];";
+			description=" ";
+		};
+		class Item2
+		{
+			position[]={6555.0625,292.50241,7673.7148};
+			azimut=178.57979;
+			special="CARGO";
+			id=7;
+			side="EMPTY";
+			vehicle="ACE_AH1Z_AGM_AGM_W";
+			leader=1;
+			lock="UNLOCKED";
+			skill=0.60000002;
+			description=" ";
+		};
+		class Item3
+		{
+			position[]={6586.9268,292.04391,7667.7046};
+			azimut=123.17274;
+			id=8;
+			side="EMPTY";
+			vehicle="ACE_WeaponBox_BIS_US";
+			leader=1;
+			skill=0.60000002;
+			description=" ";
+		};
+		class Item4
+		{
+			position[]={6585.4199,291.82501,7664.481};
+			azimut=123.17274;
+			id=9;
+			side="EMPTY";
+			vehicle="ACE_WeaponBox_Launchers_BIS_US";
+			leader=1;
+			skill=0.60000002;
+			description=" ";
+		};
+	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={6575.8662,294.35751,7700.1138};
+			name="respawn_west";
+			type="Empty";
+			angle=-0.60122919;
+		};
+	};
+	class Sensors
+	{
+		items=3;
+		class Item0
+		{
+			position[]={6752.7598,288.60956,7650.5498};
+			angle=-0.60122901;
+			interruptable=1;
+			age="UNKNOWN";
+			text="DEBUG";
+			expCond="CLY_debug";
+			expActiv="onMapSingleClick {(vehicle player) setpos _pos}";
+			class Effects
+			{
+			};
+		};
+		class Item1
+		{
+			position[]={6449.3296,285.51895,7513.1006};
+			activationBy="BRAVO";
+			interruptable=1;
+			age="UNKNOWN";
+			expActiv="0 = [thisTrigger,30] execVM ""zombie_scripts\cly_z_horde.sqf"";";
+			class Effects
+			{
+			};
+		};
+		class Item2
+		{
+			position[]={6276.0625,301.05768,7721.2856};
+			activationBy="DELTA";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			expActiv="copyToClipboard format [""%1"", typeOf (nearestBuilding player)];";
+			class Effects
+			{
+			};
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"chernarus"
+	};
+	addOnsAuto[]=
+	{
+		"chernarus"
+	};
+	randomSeed=375385;
+	class Intel
+	{
+		startWeather=0.25;
+		forecastWeather=0.25;
+		year=2008;
+		month=10;
+		day=11;
+		hour=9;
+		minute=20;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"chernarus"
+	};
+	addOnsAuto[]=
+	{
+		"chernarus"
+	};
+	randomSeed=4781926;
+	class Intel
+	{
+		startWeather=0.25;
+		forecastWeather=0.25;
+		year=2008;
+		month=10;
+		day=11;
+		hour=9;
+		minute=20;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"chernarus"
+	};
+	addOnsAuto[]=
+	{
+		"chernarus"
+	};
+	randomSeed=14432988;
+	class Intel
+	{
+		startWeather=0.25;
+		forecastWeather=0.25;
+		year=2008;
+		month=10;
+		day=11;
+		hour=9;
+		minute=20;
+	};
+};

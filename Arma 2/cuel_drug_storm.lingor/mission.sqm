@@ -1,0 +1,280 @@
+version=11;
+class Mission
+{
+	addOns[]=
+	{
+		"ibr_lingor",
+		"ibr_lcivilian_patch",
+		"lingor_objects",
+		"CAWheeled"
+	};
+	addOnsAuto[]=
+	{
+		"ibr_lcivilian_patch",
+		"lingor_objects",
+		"CAWheeled",
+		"ibr_lingor"
+	};
+	randomSeed=102903;
+	class Intel
+	{
+		startWeather=0.1;
+		forecastWeather=0.1;
+		year=2010;
+		month=8;
+		day=8;
+		hour=8;
+		minute=0;
+	};
+	class Groups
+	{
+		items=1;
+		class Item0
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=12;
+				class Item0
+				{
+					position[]={7628.7554,5,2079.3147};
+					azimut=440.54501;
+					id=0;
+					side="EAST";
+					vehicle="ibr_drg_man1";
+					player="PLAYER COMMANDER";
+					leader=1;
+					skill=0.60000002;
+					init="grpDrugs = this;";
+				};
+				class Item1
+				{
+					position[]={7652.3535,5,2082.6372};
+					azimut=249.05803;
+					special="NONE";
+					id=3;
+					side="EAST";
+					vehicle="ibr_drg_man2";
+					player="PLAY CDG";
+					skill=0.60000002;
+				};
+				class Item2
+				{
+					position[]={7660.0615,5,2073.1116};
+					azimut=248.43983;
+					special="NONE";
+					id=4;
+					side="EAST";
+					vehicle="ibr_drg_man3";
+					player="PLAY CDG";
+					skill=0.60000002;
+				};
+				class Item3
+				{
+					position[]={7661.7803,5,2064.0781};
+					azimut=662.43475;
+					special="NONE";
+					id=5;
+					side="EAST";
+					vehicle="ibr_drg_man3";
+					player="PLAY CDG";
+					skill=0.60000002;
+				};
+				class Item4
+				{
+					position[]={7627.811,5,2067.5942};
+					azimut=413.58344;
+					special="NONE";
+					id=6;
+					side="EAST";
+					vehicle="ibr_drg_man4";
+					player="PLAY CDG";
+					skill=0.60000002;
+				};
+				class Item5
+				{
+					position[]={7633.8604,5,2059.0862};
+					azimut=360.31293;
+					special="NONE";
+					id=7;
+					side="EAST";
+					vehicle="ibr_drg_man4";
+					player="PLAY CDG";
+					skill=0.60000002;
+				};
+				class Item6
+				{
+					position[]={7654.2969,5,2049.2922};
+					azimut=343.56683;
+					special="NONE";
+					id=8;
+					side="EAST";
+					vehicle="ibr_drg_man5";
+					player="PLAY CDG";
+					skill=0.60000002;
+				};
+				class Item7
+				{
+					position[]={7641.2563,5,2086.7183};
+					azimut=533.01678;
+					special="NONE";
+					id=9;
+					side="EAST";
+					vehicle="ibr_drg_man6";
+					player="PLAY CDG";
+					skill=0.60000002;
+				};
+				class Item8
+				{
+					position[]={7640.8076,5,2054.2886};
+					azimut=413.58344;
+					special="NONE";
+					id=10;
+					side="EAST";
+					vehicle="ibr_drg_man7";
+					player="PLAY CDG";
+					skill=0.60000002;
+				};
+				class Item9
+				{
+					position[]={7647.3154,5,2050.4321};
+					azimut=394.27802;
+					special="NONE";
+					id=11;
+					side="EAST";
+					vehicle="ibr_drg_man1";
+					player="PLAY CDG";
+					skill=0.60000002;
+				};
+				class Item10
+				{
+					position[]={7659.0776,5,2053.8521};
+					azimut=312.22299;
+					special="NONE";
+					id=12;
+					side="EAST";
+					vehicle="ibr_drg_man2";
+					player="PLAY CDG";
+					skill=0.60000002;
+				};
+				class Item11
+				{
+					position[]={7657.4927,5,2078.2939};
+					azimut=220;
+					special="NONE";
+					id=13;
+					side="EAST";
+					vehicle="ibr_drg_man2";
+					player="PLAY CDG";
+					skill=0.60000002;
+				};
+			};
+		};
+	};
+	class Vehicles
+	{
+		items=2;
+		class Item0
+		{
+			position[]={7585.8091,5,2093.9814};
+			azimut=305;
+			id=1;
+			side="EMPTY";
+			vehicle="flag_arl";
+			skill=0.60000002;
+		};
+		class Item1
+		{
+			position[]={7649.9717,5,2071.4814};
+			azimut=305;
+			id=2;
+			side="EMPTY";
+			vehicle="UralCivil2";
+			skill=0.60000002;
+			text="drugtruck";
+		};
+	};
+	class Sensors
+	{
+		items=1;
+		class Item0
+		{
+			position[]={7596.7583,5,2104.2939};
+			activationBy="EAST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			expCond="car in thislist";
+			expActiv="_xhandle = [grpDrugs,unit] execvm ""Eject.sqf"";";
+			class Effects
+			{
+			};
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"ibr_lingor"
+	};
+	addOnsAuto[]=
+	{
+		"ibr_lingor"
+	};
+	randomSeed=2477108;
+	class Intel
+	{
+		startWeather=0.1;
+		forecastWeather=0.1;
+		year=2010;
+		month=8;
+		day=8;
+		hour=8;
+		minute=0;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"ibr_lingor"
+	};
+	addOnsAuto[]=
+	{
+		"ibr_lingor"
+	};
+	randomSeed=2999815;
+	class Intel
+	{
+		startWeather=0.1;
+		forecastWeather=0.1;
+		year=2010;
+		month=8;
+		day=8;
+		hour=8;
+		minute=0;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"ibr_lingor"
+	};
+	addOnsAuto[]=
+	{
+		"ibr_lingor"
+	};
+	randomSeed=16082911;
+	class Intel
+	{
+		startWeather=0.1;
+		forecastWeather=0.1;
+		year=2010;
+		month=8;
+		day=8;
+		hour=8;
+		minute=0;
+	};
+};

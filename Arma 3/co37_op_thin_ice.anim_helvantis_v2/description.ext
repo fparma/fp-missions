@@ -1,0 +1,84 @@
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 64;
+};
+disabledAI = 1;
+
+// includes the dialogs and cfgFunctions
+#include "fparma.hpp"
+
+//////////////////////////////////////////// Respawn settings ////////////////////////////////////////////
+
+respawndelay = 4;
+respawnDialog = 0;
+respawn = "BASE"; // don't edit respawn type unless you know what youre doing
+
+//////////////////////////////////////////// Mission name etc settings ////////////////////////////////////////////
+// Mission name (short)
+OnLoadName = "THIN ICE";
+
+// Longer description
+onLoadMission="Insurgents take on the Russian Bear";
+
+// custom load screen
+loadScreen = "fp_misc\img\fp_logo.paa";
+
+author="Cuel | 2015";
+
+//////////////////////////////////////////// Debriefing settings ////////////////////////////////////////////
+
+class CfgDebriefing
+{
+	class End1
+	{
+		title = "Mission Success";
+		description = "You have completed the mission.";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "flag_nato";
+		//pictureColor[] = {};
+	};
+	class End2
+	{
+		title = "Mission Failure";
+		description = "You have failed the mission, better luck next time";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "loc_Church";
+		//pictureColor[] = {};
+	};
+};
+
+//////////////////////////////////////////// DO NOT EDIT ////////////////////////////////////////////
+
+showCompass   = 1;
+showGPS       = 1;
+showMap       = 1;
+showWatch     = 1;
+enableItemsDropping = 0;
+onLoadIntroTime=false;
+onLoadMissionTime=false;
+enableDebugConsole = 1;
+allowFunctionsLog = 0;
+joinUnassigned = 1;
+
+
+class CfgSounds
+{
+	sounds[] = {};
+	class winter
+	{
+		name = "sound from addon";
+		// start path to sound file in AddOn with @
+		sound[] = {"winter.ogg", 0.6, 1};
+		titles[] = {0,""};
+	};
+};
+
+class Extended_InitPost_EventHandlers {
+    class CAManBase {
+        class CUL_gear { init = "_this call CUL_fnc_makeWinterUnit;"; };
+    };
+};

@@ -1,0 +1,326 @@
+version=12;
+class Mission
+{
+	addOns[]=
+	{
+		"isoladicapraia",
+		"A3_Characters_F_OPFOR",
+		"a3_characters_f"
+	};
+	addOnsAuto[]=
+	{
+		"A3_Characters_F_OPFOR",
+		"a3_characters_f",
+		"isoladicapraia"
+	};
+	randomSeed=9298705;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.1;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2010;
+		month=6;
+		day=1;
+		hour=11;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+	class Groups
+	{
+		items=3;
+		class Item0
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=5;
+				class Item0
+				{
+					position[]={6593.5396,43.68898,6518.0737};
+					azimut=153.49699;
+					id=0;
+					side="EAST";
+					vehicle="O_Soldier_SL_F";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.5;
+					init="[this,""SQL""] call FP_fnc_getGear";
+				};
+				class Item1
+				{
+					position[]={6591.0605,43.480865,6518.5605};
+					azimut=153.49699;
+					id=1;
+					side="EAST";
+					vehicle="O_Soldier_AR_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="[this,""AR""] call FP_fnc_getGear ";
+				};
+				class Item2
+				{
+					position[]={6590.3218,43.409485,6518.2534};
+					azimut=153.49699;
+					id=2;
+					side="EAST";
+					vehicle="O_Soldier_LAT_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="[this,""AT""] call FP_fnc_getGear ";
+				};
+				class Item3
+				{
+					position[]={6592.0674,43.578182,6518.96};
+					azimut=153.49699;
+					id=3;
+					side="EAST";
+					vehicle="O_medic_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="[this,""MED""] call FP_fnc_getGear";
+				};
+				class Item4
+				{
+					position[]={6589.6709,43.327801,6517.959};
+					azimut=153.49699;
+					id=4;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="[this,""RIFLEMAN""] call FP_fnc_getGear ";
+				};
+			};
+		};
+		class Item1
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=5;
+				class Item0
+				{
+					position[]={6600.1904,44.315498,6520.1875};
+					azimut=153.49699;
+					id=5;
+					side="EAST";
+					vehicle="O_Soldier_SL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.5;
+					init="[this,""SQL""] call FP_fnc_getGear";
+				};
+				class Item1
+				{
+					position[]={6597.7114,44.055874,6520.6743};
+					azimut=153.49699;
+					id=6;
+					side="EAST";
+					vehicle="O_Soldier_AR_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="[this,""AR""] call FP_fnc_getGear ";
+				};
+				class Item2
+				{
+					position[]={6596.9727,44.010281,6520.3672};
+					azimut=153.49699;
+					id=7;
+					side="EAST";
+					vehicle="O_Soldier_LAT_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="[this,""AT""] call FP_fnc_getGear ";
+				};
+				class Item3
+				{
+					position[]={6598.7183,44.119167,6521.0737};
+					azimut=153.49699;
+					id=8;
+					side="EAST";
+					vehicle="O_medic_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="[this,""MED""] call FP_fnc_getGear";
+				};
+				class Item4
+				{
+					position[]={6596.3218,43.971718,6520.0728};
+					azimut=153.49699;
+					id=9;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="[this,""RIFLEMAN""] call FP_fnc_getGear ";
+				};
+			};
+		};
+		class Item2
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=5;
+				class Item0
+				{
+					position[]={6604.7622,44.666225,6522.1299};
+					azimut=153.49699;
+					id=10;
+					side="EAST";
+					vehicle="O_Soldier_SL_F";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.5;
+					init="[this,""SQL""] call FP_fnc_getGear";
+				};
+				class Item1
+				{
+					position[]={6602.2832,44.472736,6522.6167};
+					azimut=153.49699;
+					id=11;
+					side="EAST";
+					vehicle="O_Soldier_AR_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="[this,""AR""] call FP_fnc_getGear ";
+				};
+				class Item2
+				{
+					position[]={6601.5444,44.416073,6522.3096};
+					azimut=153.49699;
+					id=12;
+					side="EAST";
+					vehicle="O_Soldier_LAT_F";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.44999999;
+					init="[this,""AT""] call FP_fnc_getGear ";
+				};
+				class Item3
+				{
+					position[]={6603.29,44.550049,6523.0161};
+					azimut=153.49699;
+					id=13;
+					side="EAST";
+					vehicle="O_medic_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="[this,""MED""] call FP_fnc_getGear";
+				};
+				class Item4
+				{
+					position[]={6600.8936,44.36615,6522.0151};
+					azimut=153.49699;
+					id=14;
+					side="EAST";
+					vehicle="O_Soldier_F";
+					player="PLAY CDG";
+					skill=0.40000001;
+					init="[this,""RIFLEMAN""] call FP_fnc_getGear ";
+				};
+			};
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"isoladicapraia"
+	};
+	addOnsAuto[]=
+	{
+		"isoladicapraia"
+	};
+	randomSeed=11726234;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.1;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2010;
+		month=6;
+		day=1;
+		hour=11;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"isoladicapraia"
+	};
+	addOnsAuto[]=
+	{
+		"isoladicapraia"
+	};
+	randomSeed=11906318;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.1;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2010;
+		month=6;
+		day=1;
+		hour=11;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"isoladicapraia"
+	};
+	addOnsAuto[]=
+	{
+		"isoladicapraia"
+	};
+	randomSeed=4685493;
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.1;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2010;
+		month=6;
+		day=1;
+		hour=11;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+};

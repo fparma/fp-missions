@@ -1,0 +1,17 @@
+// Mission Header
+class Header
+{
+  gameType = Team;
+  minPlayers = 1;
+  maxPlayers = 24;
+};
+enableSaving = [false,false];
+//loadScreen = "img\loading.paa";
+OnLoadMission = "TvT PVP 24, Chernarus. by cuel";
+OnLoadIntro = "TvT PVP 24, Chernarus. by cuel";
+OnLoadIntroTime = false;
+OnLoadMissionTime = false;
+
+respawn = "BASE";
+respawndelay = 10;
+disabledAI = 1;

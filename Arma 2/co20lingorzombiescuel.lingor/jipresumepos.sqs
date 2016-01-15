@@ -1,0 +1,16 @@
+;This script updates the position to which joining players will teleport
+
+;?!isServer:exit
+;@!isNil "CLY_players"
+
+
+;#loop
+;~1
+;_originalcrew=[]
+;{if (_x distance getMarkerPos "start">20 and getPos _x select 2<1 and !surfaceIsWater getPos _x and vehicle _x==_x) then {_originalcrew=_originalcrew+[_x]}} forEach CLY_players
+;?count _originalcrew==0:goto "loop"
+
+;_newpos=getPosATL (_originalcrew select (floor random count _originalcrew))
+;~1
+;?{alive _x} count (_newpos nearObjects ["Man",1.5])==0:CLY_jipresumepos=_newpos;publicVariable "CLY_jipresumepos"
+;goto "loop"

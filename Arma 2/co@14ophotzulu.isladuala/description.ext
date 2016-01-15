@@ -1,0 +1,34 @@
+//Mission and map
+disabledAI = 1;
+
+// Mission Header
+class Header
+{
+  gameType = Coop;
+  minPlayers = 1;
+  maxPlayers = 14;
+};
+
+
+// description.ext settings for respawn
+///////////////////////////////////////////////////////////////////////////////////////////
+respawn = "BASE";
+respawndelay = 10;
+respawnDialog = true;
+///////////////////////////////////////////////////////////////////////////////////////////
+
+#include "civilians\cfgCivilianActions.hpp"
+
+class CfgSounds {
+	sounds[] = {};
+	class BTK_Gasmask_Geiger {
+		name="BTK_Gasmask_Geiger";
+		sound[]={"BTK\Gasmask\Geiger.ogg",0.05,1.0};
+		titles[]={};
+	};
+			class barrelsbeep {
+		name="barrelsbeep";
+		sound[]={"sound\barrelsbeep.ogg",0.02,1.0};
+		titles[]={};
+	};
+};

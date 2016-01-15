@@ -1,0 +1,1022 @@
+version=11;
+class Mission
+{
+	addOns[]=
+	{
+		"cacharacters_e",
+		"namalsk",
+		"ca_modules_clouds",
+		"ns_modules",
+		"ca_modules_functions",
+		"ns_mutants",
+		"ca_modules_e_weather",
+		"cacharacters2"
+	};
+	addOnsAuto[]=
+	{
+		"cacharacters_e",
+		"ca_modules_clouds",
+		"ns_modules",
+		"ca_modules_functions",
+		"ns_mutants",
+		"ca_modules_e_weather",
+		"cacharacters2",
+		"namalsk"
+	};
+	randomSeed=7980041;
+	class Intel
+	{
+		resistanceWest=0;
+		startWeather=0;
+		startFog=0.33146945;
+		forecastWeather=0;
+		forecastFog=0.35709506;
+		year=2012;
+		month=2;
+		day=29;
+		hour=22;
+		minute=45;
+	};
+	class Groups
+	{
+		items=17;
+		class Item0
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={4613.918,18.257416,10411.542};
+					azimut=180.591;
+					special="NONE";
+					id=0;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="COLONEL";
+					skill=0.60000002;
+					text="unit";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Alpha - Leader";
+				};
+				class Item1
+				{
+					position[]={4611.8721,17.002655,10406.94};
+					azimut=-1.68803;
+					special="NONE";
+					id=6;
+					side="WEST";
+					vehicle="GER_Soldier_Medic_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_5";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Alpha - Medic";
+				};
+				class Item2
+				{
+					position[]={4612.9795,16.96792,10406.932};
+					azimut=4.2551899;
+					special="NONE";
+					id=4;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_3";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Alpha";
+				};
+				class Item3
+				{
+					position[]={4614.1416,16.933346,10406.929};
+					azimut=-0.086823396;
+					special="NONE";
+					id=3;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_2";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Alpha";
+				};
+				class Item4
+				{
+					position[]={4615.3677,16.898439,10406.931};
+					azimut=359.23199;
+					special="NONE";
+					id=2;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_1";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Alpha";
+				};
+				class Item5
+				{
+					position[]={4616.4707,16.866442,10406.931};
+					azimut=359.02701;
+					special="NONE";
+					id=5;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_4";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Alpha";
+				};
+			};
+		};
+		class Item1
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4250.7471,0.55968457,10295.572};
+					id=1;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.60000002;
+					text="server";
+					description="Server Logic";
+				};
+			};
+		};
+		class Item2
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={4621.3096,17.956097,10411.237};
+					azimut=172.286;
+					special="NONE";
+					id=7;
+					side="WEST";
+					vehicle="GER_Soldier_TL_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="MAJOR";
+					skill=0.60000002;
+					text="unit_6";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Beta - Leader";
+				};
+				class Item1
+				{
+					position[]={4619.2227,16.811028,10407.017};
+					azimut=0.815014;
+					special="NONE";
+					id=8;
+					side="WEST";
+					vehicle="GER_Soldier_Medic_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_7";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Beta - Medic";
+				};
+				class Item2
+				{
+					position[]={4620.1357,16.786947,10407.024};
+					azimut=355.00299;
+					special="NONE";
+					id=9;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_8";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Beta";
+				};
+				class Item3
+				{
+					position[]={4621.0518,16.767344,10407.049};
+					azimut=1.06688;
+					special="NONE";
+					id=10;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_9";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Beta";
+				};
+				class Item4
+				{
+					position[]={4622.0635,16.726454,10407.009};
+					azimut=357.716;
+					special="NONE";
+					id=11;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_10";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Beta";
+				};
+				class Item5
+				{
+					position[]={4622.9585,16.705072,10407.024};
+					azimut=-0.167037;
+					special="NONE";
+					id=12;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_11";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Beta";
+				};
+			};
+		};
+		class Item3
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={4627.3394,17.750481,10411.13};
+					azimut=180.313;
+					special="NONE";
+					id=13;
+					side="WEST";
+					vehicle="GER_Soldier_TL_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="MAJOR";
+					skill=0.60000002;
+					text="unit_12";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Charlie - Leader";
+				};
+				class Item1
+				{
+					position[]={4625.7163,16.719654,10407.355};
+					azimut=2.2065301;
+					special="NONE";
+					id=14;
+					side="WEST";
+					vehicle="GER_Soldier_Medic_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_13";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Charlie - Medic";
+				};
+				class Item2
+				{
+					position[]={4626.562,16.691202,10407.342};
+					azimut=-0.00028991699;
+					special="NONE";
+					id=15;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_14";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Charlie";
+				};
+				class Item3
+				{
+					position[]={4627.457,16.673079,10407.369};
+					azimut=4.49757;
+					special="NONE";
+					id=16;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_15";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Charlie";
+				};
+				class Item4
+				{
+					position[]={4628.3423,16.645666,10407.363};
+					azimut=-4.3566198;
+					special="NONE";
+					id=17;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_16";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Charlie";
+				};
+				class Item5
+				{
+					position[]={4629.0107,16.617554,10407.333};
+					azimut=4.3015499;
+					special="NONE";
+					id=18;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_17";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Charlie";
+				};
+			};
+		};
+		class Item4
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={4633.2192,17.498446,10410.845};
+					azimut=182.356;
+					special="NONE";
+					id=19;
+					side="WEST";
+					vehicle="GER_Soldier_TL_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="MAJOR";
+					skill=0.60000002;
+					text="unit_18";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Delta - Leader";
+				};
+				class Item1
+				{
+					position[]={4631.2158,16.54554,10407.305};
+					azimut=366.927;
+					special="NONE";
+					id=20;
+					side="WEST";
+					vehicle="GER_Soldier_Medic_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_19";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Delta - Medic";
+				};
+				class Item2
+				{
+					position[]={4632.1641,16.514984,10407.294};
+					azimut=360.44501;
+					special="NONE";
+					id=21;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_20";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Delta";
+				};
+				class Item3
+				{
+					position[]={4633.104,16.476828,10407.256};
+					azimut=1.84834;
+					special="NONE";
+					id=22;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_21";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Delta";
+				};
+				class Item4
+				{
+					position[]={4633.9756,16.440216,10407.216};
+					azimut=0.40203899;
+					special="NONE";
+					id=23;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_22";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Delta";
+				};
+				class Item5
+				{
+					position[]={4634.8906,16.410633,10407.205};
+					azimut=363.35101;
+					special="NONE";
+					id=24;
+					side="WEST";
+					vehicle="GER_Soldier_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					text="unit_23";
+					init="null = [this, ""Basic""] execVM ""loadout.sqf""";
+					description="Cleansing Team Delta";
+				};
+			};
+		};
+		class Item5
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4318.0552,0.51381028,10331.853};
+					id=25;
+					side="LOGIC";
+					vehicle="BIS_clouds_Logic";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item6
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4317.9058,0.64755267,10378.892};
+					id=26;
+					side="LOGIC";
+					vehicle="Mutants_NS_MUT";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item7
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4317.5698,0.34972543,10230.217};
+					id=27;
+					side="LOGIC";
+					vehicle="FunctionsManager";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item8
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={9030.625,8.7993011,10129.67};
+					azimut=360.88699;
+					special="NONE";
+					id=28;
+					side="GUER";
+					vehicle="ns_bloodsucker";
+					leader=1;
+					rank="COLONEL";
+					skill=0.60000002;
+					text="ns_mut_leader";
+				};
+			};
+		};
+		class Item9
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4318.9106,1.3550839,10276.458};
+					id=29;
+					side="LOGIC";
+					vehicle="WeatherPostprocessManager";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+					init="this setvariable [""intensity"",1.1]";
+				};
+			};
+		};
+		class Item10
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4244.2178,0.34234431,10364.112};
+					special="NONE";
+					id=30;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.60000002;
+					init="nul = call compile preprocessFile ""scripts\UPSMON\!R\markerAlpha.sqf""; ";
+				};
+			};
+		};
+		class Item11
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={4496.0835,2.9993243,11270.318};
+					azimut=-111.93581;
+					id=31;
+					side="GUER";
+					vehicle="ns_bloodsucker";
+					leader=1;
+					rank="MAJOR";
+					skill=0.60000002;
+					init="nul=[this,""lubjanskMarker"",""nomove"",""delete:"",300,""TEMPLATE:"",2] execVM ""scripts\upsmon.sqf"";";
+				};
+				class Item1
+				{
+					position[]={4505.8755,2.1753981,11260.998};
+					azimut=-111.93631;
+					id=32;
+					side="GUER";
+					vehicle="ns_bloodsucker";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item2
+				{
+					position[]={4503.9614,2.4437101,11265.786};
+					azimut=-111.93631;
+					id=33;
+					side="GUER";
+					vehicle="ns_bloodsucker";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item3
+				{
+					position[]={4502.3853,2.6645856,11269.938};
+					azimut=-111.93631;
+					id=34;
+					side="GUER";
+					vehicle="ns_bloodsucker";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item4
+				{
+					position[]={4500.0947,2.9856536,11276.121};
+					azimut=-111.93631;
+					id=35;
+					side="GUER";
+					vehicle="ns_bloodsucker";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item5
+				{
+					position[]={4498.4653,2.998801,11280.636};
+					azimut=-111.93631;
+					id=36;
+					side="GUER";
+					vehicle="ns_bloodsucker";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item12
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=16;
+				class Item0
+				{
+					position[]={4835.7104,13.139327,10814.831};
+					azimut=-243.939;
+					id=37;
+					side="GUER";
+					vehicle="NS_zombie1";
+					leader=1;
+					rank="MAJOR";
+					skill=0.60000002;
+					init="nul=[this,""area1"",""nomove"",""delete:"",300,""TEMPLATE:"",1] execVM ""scripts\upsmon.sqf"";";
+				};
+				class Item1
+				{
+					position[]={4824.375,12.733502,10849.969};
+					azimut=47.740299;
+					id=48;
+					side="GUER";
+					vehicle="NS_zombie2";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item2
+				{
+					position[]={4811.8447,12.733141,10857.153};
+					azimut=47.740299;
+					id=49;
+					side="GUER";
+					vehicle="NS_zombie2";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item3
+				{
+					position[]={4814.1509,12.733141,10850.632};
+					azimut=-138.41336;
+					id=38;
+					side="GUER";
+					vehicle="NS_zombie1";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item4
+				{
+					position[]={4795.0176,13.101809,10837.544};
+					azimut=-243.93893;
+					id=39;
+					side="GUER";
+					vehicle="NS_zombie1";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item5
+				{
+					position[]={4790.1807,13.53938,10818.554};
+					azimut=-341.20206;
+					id=40;
+					side="GUER";
+					vehicle="NS_zombie1";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item6
+				{
+					position[]={4784.4414,13.832914,10814.472};
+					azimut=47.740299;
+					id=51;
+					side="GUER";
+					vehicle="NS_zombie2";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item7
+				{
+					position[]={4811.5039,13.105614,10817.75};
+					azimut=47.740299;
+					id=52;
+					side="GUER";
+					vehicle="NS_zombie2";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item8
+				{
+					position[]={4817.3457,12.956558,10830.656};
+					azimut=-243.93893;
+					id=41;
+					side="GUER";
+					vehicle="NS_zombie1";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item9
+				{
+					position[]={4845.3765,13.134912,10815.213};
+					azimut=225.72379;
+					id=45;
+					side="GUER";
+					vehicle="NS_zombie3";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item10
+				{
+					position[]={4837.208,13.29775,10801.114};
+					azimut=-68.480492;
+					id=44;
+					side="GUER";
+					vehicle="NS_zombie3";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item11
+				{
+					position[]={4814.772,13.053951,10790.987};
+					azimut=47.740299;
+					id=42;
+					side="GUER";
+					vehicle="NS_zombie3";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item12
+				{
+					position[]={4822.3813,12.837244,10783.378};
+					azimut=-45.817738;
+					id=43;
+					side="GUER";
+					vehicle="NS_zombie3";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item13
+				{
+					position[]={4849.8989,12.787498,10845.294};
+					azimut=298.17014;
+					id=47;
+					side="GUER";
+					vehicle="NS_zombie3";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item14
+				{
+					position[]={4847.9399,12.774176,10846.447};
+					azimut=-44.977989;
+					id=46;
+					side="GUER";
+					vehicle="NS_zombie3";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+				class Item15
+				{
+					position[]={4848.3701,13.05292,10822.313};
+					azimut=47.740299;
+					id=50;
+					side="GUER";
+					vehicle="NS_zombie2";
+					rank="MAJOR";
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item13
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4793.541,14.356726,10775.297};
+					azimut=-143.07001;
+					id=53;
+					side="EAST";
+					vehicle="RU_Soldier_GL";
+					leader=1;
+					rank="MAJOR";
+					skill=0.60000002;
+					health=0;
+					init="removeAllWeapons this;";
+				};
+			};
+		};
+		class Item14
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4789.4761,14.615122,10771.665};
+					azimut=-98.38131;
+					id=54;
+					side="EAST";
+					vehicle="RU_Soldier_GL";
+					leader=1;
+					rank="MAJOR";
+					skill=0.60000002;
+					health=0;
+					init="removeAllWeapons this;";
+				};
+			};
+		};
+		class Item15
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4818.9937,13.080756,10819.902};
+					azimut=-143.07001;
+					id=55;
+					side="EAST";
+					vehicle="RU_Soldier_AR";
+					leader=1;
+					rank="MAJOR";
+					skill=0.60000002;
+					health=0;
+					init="removeAllWeapons this;";
+				};
+			};
+		};
+		class Item16
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4817.3564,13.11743,10816.727};
+					azimut=-284.82288;
+					id=56;
+					side="EAST";
+					vehicle="RU_Soldier_LAT";
+					leader=1;
+					rank="MAJOR";
+					skill=0.60000002;
+					health=0;
+					init="removeAllWeapons this;";
+				};
+			};
+		};
+	};
+	class Markers
+	{
+		items=6;
+		class Item0
+		{
+			position[]={5890.9609,52.0616,8495.207};
+			name="center";
+			type="Empty";
+		};
+		class Item1
+		{
+			position[]={5293.7754,377.78091,7190.3398};
+			name="boot_hill";
+			type="Empty";
+		};
+		class Item2
+		{
+			position[]={6232.0444,16.678286,11777.945};
+			name="respawn_west";
+			type="Empty";
+		};
+		class Item3
+		{
+			position[]={4834.2529,12.877385,10837.511};
+			name="area1";
+			markerType="RECTANGLE";
+			type="Empty";
+			a=28;
+			b=48;
+			angle=32.3535;
+		};
+		class Item4
+		{
+			position[]={4822.9453,13.281995,10802.479};
+			name="task1marker";
+			type="Empty";
+		};
+		class Item5
+		{
+			position[]={4467.7329,3,11212.332};
+			name="lubjanskMarker";
+			markerType="RECTANGLE";
+			type="Empty";
+			colorName="ColorRed";
+			fillName="FDiagonal";
+			a=80;
+			b=50;
+			angle=75;
+		};
+	};
+	class Sensors
+	{
+		items=2;
+		class Item0
+		{
+			position[]={4830.3965,12.885906,10836.773};
+			a=80;
+			b=60;
+			angle=-57.809799;
+			rectangular=1;
+			activationBy="GUER";
+			activationType="NOT PRESENT";
+			interruptable=1;
+			age="UNKNOWN";
+			expActiv="armyBaseClear = true; publicVariable ""armyBaseClear"";";
+			class Effects
+			{
+			};
+		};
+		class Item1
+		{
+			position[]={4827.1699,10.353088,10716.488};
+			a=0;
+			b=0;
+			interruptable=1;
+			age="UNKNOWN";
+			expCond="armyBaseClear";
+			expActiv="_nil = execVM ""obj\task1.sqf"";";
+			class Effects
+			{
+			};
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"namalsk"
+	};
+	addOnsAuto[]=
+	{
+		"namalsk"
+	};
+	randomSeed=7533776;
+	class Intel
+	{
+		startWeather=0;
+		forecastWeather=0;
+		year=1999;
+		month=7;
+		hour=16;
+		minute=5;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"namalsk"
+	};
+	addOnsAuto[]=
+	{
+		"namalsk"
+	};
+	randomSeed=6604583;
+	class Intel
+	{
+		startWeather=0;
+		forecastWeather=0;
+		year=1999;
+		month=7;
+		hour=16;
+		minute=5;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"namalsk"
+	};
+	addOnsAuto[]=
+	{
+		"namalsk"
+	};
+	randomSeed=4154575;
+	class Intel
+	{
+		startWeather=0;
+		forecastWeather=0;
+		year=1999;
+		month=7;
+		hour=16;
+		minute=5;
+	};
+};

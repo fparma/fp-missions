@@ -1,0 +1,9 @@
+car1 setVehicleLock "UNLOCKED";
+car2 setVehicleLock "UNLOCKED";
+car3 setVehicleLock "UNLOCKED";
+car4 setVehicleLock "UNLOCKED";
+car5 setVehicleLock "UNLOCKED";
+car6 setVehicleLock "UNLOCKED";
+car7 setVehicleLock "UNLOCKED";
+car8 setVehicleLock "UNLOCKED";
+"carmark1" setmarkerAlphaLocal 1;

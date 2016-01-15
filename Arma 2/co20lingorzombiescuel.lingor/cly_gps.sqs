@@ -1,0 +1,15 @@
+_markers=[]
+_characters=["CIV_EuroMan01_EP1","FR_Cooper","CIV_EuroMan02_EP1","Dr_Hladik_EP1","TK_Aziz_EP1","Haris_Press_EP1","Policeman","RU_Soldier_Pilot","TK_CIV_Worker01_EP1","Rocker4"]
+_colors=["ColorBlack","ColorBlue","ColorGreen","ColorWhite","ColorRed","ColorYellow","ColorPink","ColorBrown","ColorKhaki","ColorOrange"]
+
+for "_x" from 1 to 30 do {_marker=createMarkerLocal [format ["pmarker%1",_x],[0,0,0]];_marker setMarkerTypeLocal "Dot";_marker setMarkerSizeLocal [0.5,0.5];_marker setMarkerAlphaLocal 0;_markers set [count _markers,_marker]}
+
+
+
+#loop
+_players=if (!isNil "CLY_players") then {CLY_players} else {playableUnits};
+{_x setMarkerAlphaLocal 0} forEach _markers
+?"ItemGPS" in items player:{_marker=_markers select (_players find _x);_color="ColorOrange";if (typeOf _x in _characters) then {_color=_colors select ( _characters find typeOf _x)};_marker setMarkerColorLocal _color;_marker setMarkerAlphaLocal 1;_marker setMarkerPosLocal getPos vehicle _x} forEach _players;"geocachemarker" setMarkerAlphaLocal 1
+?!("ItemGPS" in items player):"geocachemarker" setMarkerAlphaLocal 0
+~0.5
+goto "loop"

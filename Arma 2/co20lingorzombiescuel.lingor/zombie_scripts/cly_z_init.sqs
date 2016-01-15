@@ -1,0 +1,62 @@
+;Zombie init script
+;This script turns a unit into a zombie
+
+?!isServer:exit
+@time>0.3
+
+_zombie=_this select 0
+_zombietype=_this select 1
+_victim=_this select 2
+_horde=_this select 3
+_radius=_this select 4
+_pos=_this select 5
+
+removeAllWeapons _zombie
+removeAllItems _zombie
+removeBackpack _zombie
+_zombie addRating -10000
+_zombie setBehaviour "CARELESS"
+_zombie setCombatMode "BLUE"
+_zombie setSpeedMode "LIMITED"
+_zombie allowFleeing 0
+_zombie setSkill 1
+_zombie disableAI "TARGET"
+_zombie disableAI "AUTOTARGET"
+_zombie disableAI "FSM"
+_zombie switchMove "amovpercmstpsnonwnondnon"
+_zombie setUnitPos "UP"
+?_zombietype in ["crawler","sneaker","ambusher","passive crawler"]:_zombie setUnitPos "DOWN"
+_zombie setDir random 360
+_zombie setVariable ["BIS_noCoreConversations",true,true]
+_zombie setVariable ["victim",_victim]
+_zombie setVariable ["zombietype",_zombietype,true]
+_zombie setVariable ["horde",_horde]
+
+;Custom zombie damage handling
+_zombie spawn CLY_zombiehandledamage
+;_armored=_zombietype in ["armored","slow armored"] or typeOf _zombie in CLY_armoredzombieclasses
+;?!_armored:_zombie addEventHandler ["HandleDamage",{_unit=_this select 0;_damage=_this select 2;if (_this select 3!=_unit) then {_unit setVariable ["victim",_this select 3]};switch (_this select 1) do {case "":{damage _unit+_damage*0.1};case "head_hit":{_damage*2};case "body":{damage _unit+_damage*0.2};case "hands":{_damage};case "legs":{damage _unit+_damage*0.45}}}]
+;?_armored:_zombie addEventHandler ["HandleDamage",{_unit=_this select 0;_damage=_this select 2;if (_this select 3!=_unit) then {_unit setVariable ["victim",_this select 3]};switch (_this select 1) do {case "":{damage _unit+_damage*0.05};case "head_hit":{damage _unit+_damage*0.2};case "body":{damage _unit+_damage*0.1};case "hands":{_damage};case "legs":{}}}]
+
+;Set face
+[_zombie] exec "zombie_scripts\cly_z_textures.sqs"
+
+~1
+?!isNil "_pos":_zombie setPosATL _pos
+_zombie enableSimulation true
+
+[_zombie,_zombietype,_radius] execVM "zombie_scripts\cly_z_routines.sqf"
+
+
+;Debug markers
+?!CLY_debug:exit
+_marker=createMarkerLocal [format ["zmarker%1",random 100000],getPos _zombie]
+_marker setMarkerTypeLocal "Dot"
+_marker setMarkerColorLocal "ColorBrown"
+_marker setMarkerSizeLocal [0.3,0.3]
+
+#loop
+~1
+?!alive _zombie:deleteMarkerLocal _marker;exit
+_marker setMarkerPosLocal getPos _zombie
+goto "loop"

@@ -1,0 +1,11 @@
+_player = _this select 0;
+_player sideChat "Deploying reinforcements. . .";
+sleep 2;
+_player sideChat "3";
+sleep 1;
+_player sideChat "2";
+sleep 1;
+_player sideChat "1";
+sleep 1;
+_player setpos (getMarkerPos "currentfob");
+_player sideChat "Done!";

@@ -1,0 +1,81 @@
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 64;
+};
+disabledAI = 1;
+// settings for respawn
+respawndelay = 4;
+respawnDialog = 1;
+respawn = "BASE"; // remove this line if using custom spect
+
+// Custom spectator script, remove "BASE" above
+/** remove this line
+	respawn = "Bird";
+	respawnTemplates[] = {"FP_SPECT"};	
+	class CfgRespawnTemplates
+	{
+		class FP_SPECT
+		{
+			onPlayerRespawn = "src\spect\fn_camInit.sqf";
+		};
+	};
+remove this line */
+
+// settings for mission name etc
+////////////////////////////////////////////
+// example loadName: Operation MyMission
+OnLoadName = "Convoy Operations";
+onLoadMission="AAF forces attempt to cross 20km of hostile FIA territory. Version 0.3";
+author="inebriaticxp | 2015";
+// custom load screen?
+loadScreen = "fp_misc\img\fp_logo.paa";
+////////////////////////////////////////////
+
+
+// dont edit/ //
+showCompass   = 1; 
+showGPS       = 1; 
+showMap       = 1; 
+showWatch     = 1; 
+enableItemsDropping = 0;
+onLoadIntroTime=false;
+onLoadMissionTime=false;
+enableDebugConsole = 1;
+////////////////////////////////////////////
+
+#include "src\dialogs\common.hpp"
+#include "src\dialogs\data_download.hpp"
+#include "src\dialogs\gui_spectator.hpp"
+#include "src\spect\config.hpp"
+#include "spectator\spectating.hpp"
+
+
+// Precompile all FP specific functions
+class CfgFunctions
+{
+	#include "src\fp_functions.hpp"
+};
+
+class CfgDebriefing
+{
+	class End1
+	{
+		title = "Mission Success";
+		description = "You have completed the mission.";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "fp_misc\img\fp_logo.paa";
+		//pictureColor[] = {};
+	};	
+	class End2
+	{
+		title = "Mission Failure";
+		description = "You have failed the mission, better luck next time";
+		subtitle = "";
+		//pictureBackground = "";
+		picture = "fp_misc\img\fp_logo.paa";
+		//pictureColor[] = {};
+	};
+};

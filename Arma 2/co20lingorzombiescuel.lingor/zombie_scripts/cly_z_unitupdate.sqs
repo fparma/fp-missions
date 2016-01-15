@@ -1,0 +1,20 @@
+;This script updates the player units, the universal victim list and cleans up unitless groups
+
+?!isServer:exit
+@!isNil "CLY_deadcharacters"
+
+#loop
+CLY_zombievictims=[]
+CLY_players=playableUnits
+{if (!isPlayer _x or !isNil {_x getVariable "spectating"} or typeOf _x in CLY_deadcharacters) then {CLY_players=CLY_players-[_x]}} forEach CLY_players
+?!isMultiplayer:CLY_players=[player]
+?!isNil "germanshepherd":if (alive germanshepherd and isNil {germanshepherd getVariable "victim"} and isNil {germanshepherd getVariable "spectating"}) then {CLY_players set [count CLY_players,germanshepherd];CLY_players=CLY_players-[germanshepherdhuman];CLY_zombievictims set [count CLY_zombievictims,germanshepherd]}
+publicVariable "CLY_players"
+
+;Determine viable zombie victims
+?!CLY_cutscene:{if (alive _x and _x isKindOf "Man" and typeOf _x!="ValentinaVictim" and !(vehicle _x isKindOf "Air" and getPos vehicle _x select 2>10) and isNil {_x getVariable "victim"} and isNil {_x getVariable "spectating"}) then {CLY_zombievictims set [count CLY_zombievictims,_x]}} forEach allUnits
+
+;Delete unused groups
+{if (count units _x==0) then {deleteGroup _x}} forEach allGroups
+~1
+goto "loop"

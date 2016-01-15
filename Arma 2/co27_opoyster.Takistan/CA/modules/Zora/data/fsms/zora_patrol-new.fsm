@@ -1,0 +1,278 @@
+/*%FSM<COMPILE "C:\Bis\fsmeditor\scriptedFSM.cfg, Patrol - Zone Restriction Assistant">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-550.000000,100.000000,-450.000000,150.000000,0.000000,"Start"};
+item1[] = {"Pursuit",4,218,-550.000000,-100.000000,-450.000000,-50.000000,0.000000,"Pursuit"};
+item2[] = {"Pursuit",2,250,-325.000000,100.000000,-225.000000,150.000000,0.000000,"Pursuit"};
+item3[] = {"Wait",8,218,-550.000000,300.000000,-450.000000,350.000000,0.000000,"Wait"};
+item4[] = {"Return",4,218,-325.000000,0.000000,-225.000000,50.000000,2.000000,"Return"};
+item5[] = {"Return",2,250,-325.000000,-100.000000,-225.000000,-50.000000,0.000000,"Return"};
+item6[] = {"Returned",4,218,-100.000000,-100.000000,0.000000,-50.000000,0.000000,"Returned"};
+item7[] = {"End",1,4346,-100.000000,100.000000,0.000000,150.000000,0.000000,"End"};
+item8[] = {"Wait",2,250,-325.000000,300.000000,-225.000000,350.000000,0.000000,"Wait"};
+item9[] = {"Delay",4,218,-325.000000,200.000000,-225.000000,250.000000,0.000000,"Delay"};
+item10[] = {"Destroyed",4,218,-100.000000,300.000000,0.000000,350.000000,1.000000,"Destroyed"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,4};
+link4[] = {2,10};
+link5[] = {3,8};
+link6[] = {4,5};
+link7[] = {5,1};
+link8[] = {5,6};
+link9[] = {6,7};
+link10[] = {8,9};
+link11[] = {8,10};
+link12[] = {9,2};
+link13[] = {10,7};
+globals[] = {25.000000,1,0,1,16777215,640,480,1,11,6316128,1,-789.597595,190.888977,563.398438,-260.587372,787,846,1};
+window[] = {2,-1,-1,-1,-1,818,88,1348,88,3,804};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "Patrol - Zone Restriction Assistant";
+  class States
+  {
+    /*%FSM<STATE "Start">*/
+    class Start
+    {
+      name = "Start";
+      init = /*%FSM<STATEINIT""">*/"_grp = _this select 0;" \n
+       "_prey = _this select 1;" \n
+       "_type = _this select 3;" \n
+       "_logic = bis_zora_mainscope;" \n
+       "_search = _logic getvariable ""search_radius"";" \n
+       "if (isnil ""_search"") then {_logic setvariable [""search_radius"",100]; _search = 100;};" \n
+       "" \n
+       "_defpos = position (leader _grp);" \n
+       "//hint str _defpos;" \n
+       "/*" \n
+       "if (_type == ""Air"") then {" \n
+       "	{_x flyinheight 50} foreach units _grp;" \n
+       "};" \n
+       "*/" \n
+       "_debug = _logic getvariable ""debug"";" \n
+       "" \n
+       "if (_debug) then {" \n
+       "" \n
+       "		_faction = gettext (configfile >> ""cfgvehicles"" >> typeof (leader _grp) >> ""faction"");" \n
+       "		_mcolor = ""colorblack"";" \n
+       "		switch (_faction) do {" \n
+       "			case ""USMC"": {_mcolor = ""colorblue""};" \n
+       "			case ""CDF"": {_mcolor = ""colorblack""};" \n
+       "			case ""RU"": {_mcolor = ""colorred""};" \n
+       "			case ""INS"": {_mcolor = ""coloryellow""};" \n
+       "			case ""GUE"": {_mcolor = ""colorgreen""};" \n
+       "			case ""CIV"": {_mcolor = ""colorwhite""};" \n
+       "		};" \n
+       "		_mtype = ""unknown"";" \n
+       "		switch (_this select 3) do {" \n
+       "			case ""Armored"": {_mtype = ""o_armor""};" \n
+       "			case ""Mechanized"": {_mtype = ""o_mech_inf""};" \n
+       "			case ""Motorized"": {_mtype = ""o_motor_inf""};" \n
+       "			case ""Infantry"": {_mtype = ""o_inf""};" \n
+       "			case ""Air"": {_mtype = ""o_air""};" \n
+       "		};" \n
+       "" \n
+       "		_ran = round random 1000000;" \n
+       "		//--- Group marker" \n
+       "		_gmarker = createmarker [format [""BIS_zora_patrol_%1"",_ran], position (leader _grp)];" \n
+       "		_gmarker setmarkertype _mtype;" \n
+       "		_gmarker setmarkercolor _mcolor;" \n
+       "		_gmarker setmarkertext (configname (_this select 2));//(name _prey);" \n
+       "		//--- Prey marker" \n
+       "		_pmarker = createmarker [format [""BIS_zora_prey_%1"",_ran], position leader _prey];" \n
+       "		_pmarker setmarkertype ""dot"";" \n
+       "		_pmarker setmarkercolor _mcolor;" \n
+       "		//--- Line" \n
+       "		_lmarker = createmarker [format [""BIS_zora_line_%1"",_ran],[1,1,1]];" \n
+       "		_lmarker setmarkershape ""rectangle"";" \n
+       "		_lmarker setmarkerbrush ""solid"";" \n
+       "		_lmarker setmarkercolor _mcolor;" \n
+       "		//--- Loop" \n
+       "		[_grp,_prey,_gmarker,_pmarker,_lmarker] spawn {" \n
+       "" \n
+       "			_grp = _this select 0;" \n
+       "			_prey = _this select 1;" \n
+       "			_gmarker = _this select 2;" \n
+       "			_pmarker = _this select 3;" \n
+       "			_lmarker = _this select 4;" \n
+       "			while {!isnull _grp} do {" \n
+       "				waituntil {sleep 3;!isnull (leader _grp)};" \n
+       "				_gpos = position (leader _grp);" \n
+       "				_ppos = expecteddestination (vehicle leader _grp) select 0;" \n
+       "" \n
+       "				_difX = (_gpos select 0) - (_ppos select 0) +0.1;" \n
+       "				_difY = (_gpos select 1) - (_ppos select 1) +0.1;" \n
+       "				_lx = (_ppos select 0) + _difX / 2;" \n
+       "				_ly = (_ppos select 1) + _difY / 2;" \n
+       "				_dis = sqrt(_difX^2 + _difY^2);" \n
+       "				_dir = atan (_difX / _difY);" \n
+       "				_lmarker setmarkerpos [_lx,_ly];" \n
+       "				_lmarker setmarkersize [2,_dis/2];" \n
+       "				_lmarker setmarkerdir _dir;" \n
+       "" \n
+       "				_gmarker setmarkerpos _gpos;" \n
+       "				_pmarker setmarkerpos _ppos;" \n
+       "				sleep 5;" \n
+       "			};" \n
+       "			deletemarker _gmarker;" \n
+       "			deletemarker _pmarker;" \n
+       "			deletemarker _lmarker;" \n
+       "		};" \n
+       "};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Pursuit">*/
+        class Pursuit
+        {
+          priority = 0.000000;
+          to="Pursuit";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_prey in (_logic getvariable ""unitslist"") && alive _prey;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Pursuit">*/
+    class Pursuit
+    {
+      name = "Pursuit";
+      init = /*%FSM<STATEINIT""">*/"_pos = [position _prey, _search/5,  _search, 1, 0, 50, 0] call BIS_fnc_findSafePos;" \n
+       "(units _grp) commandmove _pos;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Return">*/
+        class Return
+        {
+          priority = 2.000000;
+          to="Return";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"unitready (leader _grp)" \n
+           "|| " \n
+           "!(_prey in (_logic getvariable ""unitslist""))" \n
+           "||" \n
+           " !alive _prey;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Destroyed">*/
+        class Destroyed
+        {
+          priority = 2.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"{alive _x} count units _grp == 0;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Wait">*/
+        class Wait
+        {
+          priority = 0.000000;
+          to="Wait";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Return">*/
+    class Return
+    {
+      name = "Return";
+      init = /*%FSM<STATEINIT""">*/"(units _grp) commandmove _defpos;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Returned">*/
+        class Returned
+        {
+          priority = 1.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"unitready (leader _grp)" \n
+           "|| " \n
+           "({alive _x} count units _grp == 0)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Pursuit">*/
+        class Pursuit
+        {
+          priority = 0.000000;
+          to="Pursuit";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_prey in (_logic getvariable ""unitslist"") && alive _prey;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "End">*/
+    class End
+    {
+      name = "End";
+      init = /*%FSM<STATEINIT""">*/"_vehlist = [];" \n
+       "{" \n
+       "	if (vehicle _x != _x) then {_vehlist = _vehlist + [vehicle _x]};" \n
+       "	_x call CBA_fnc_deleteEntity;" \n
+       "} foreach units _grp;" \n
+       "{_x call CBA_fnc_deleteEntity} foreach _vehlist;" \n
+       "" \n
+       "_groups = _logic getvariable ""zora_groups"";" \n
+       "if !(isnil ""_groups"") then {_logic setvariable [""zora_groups"",_groups - [_grp]]};" \n
+       "deletegroup _grp;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Wait">*/
+    class Wait
+    {
+      name = "Wait";
+      init = /*%FSM<STATEINIT""">*/"_timeNow = time;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Destroyed">*/
+        class Destroyed
+        {
+          priority = 2.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"{alive _x} count units _grp == 0;"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Delay">*/
+        class Delay
+        {
+          priority = 0.000000;
+          to="Pursuit";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(time - _timeNow) >= (30);"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Start";
+  finalStates[] =
+  {
+    "End",
+  };
+};
+/*%FSM</COMPILE>*/

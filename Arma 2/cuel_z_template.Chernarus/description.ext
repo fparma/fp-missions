@@ -1,0 +1,226 @@
+onLoadMission="";
+
+showCompass   = 1; 
+showGPS       = 1; 
+showMap       = 1; 
+showWatch     = 1; 
+
+respawn="BASE";
+respawnDelay=4;
+disabledAI=1;
+respawnDialog=1;
+
+class Header
+{
+	gameType=COOP;
+	minPlayers=1;
+	maxPlayers=64;
+};
+
+
+class Params {
+	class param_debug {
+		title="DEBUG mode"; 
+		values[]={0,1}; 
+		texts[]={"Off","On"}; 
+		default=0; 
+		code = ""; 
+	};
+	class EmtpyLine {
+		title = "   ---   Game Settings   ---   ";
+		values[]={0,0};
+		texts[]={ "",""};
+		default = 0;			
+	};
+	class remPlayerBodyTime {
+		title="    Time until player corpse is removed";
+		values[]={30,60,90,180,300}; 
+		texts[]={ "30 sec","60 sec","90 sec","180 sec","300 sec" }; 
+		default=60;
+		code = ""; 
+	};
+	class param_playerfired {
+		title="    Zombies alerted by gunshots"; 
+		values[]={1,0}; 
+		texts[]={ "Default: On","Off"}; 
+		default=1; 
+		code = ""; 
+	};
+	class param_acre {
+		title="    ACRE";
+		values[]={0,1}; 
+		texts[]={"Disabled/PRC-343","PRC-343+PRC-148"}; 
+		default=0;
+		code = ""; 
+	};
+	class param_nvg {
+		title="    Player spawn with NVG";
+		values[]={0,1}; 
+		texts[]={ "Disabled","Enabled"}; 
+		default=0;
+		code = ""; 
+	};
+	class EmtpyLine1 {
+		title = ":: Zombie Settings";
+		values[]={0,0};
+		texts[]={ "",""};
+		default = 0;			
+	};
+	class param_density{ 
+		title="    Zombie density (per 500m)"; 
+		values[]={60,40,80,100,120,140,160}; 
+		texts[]={ "Default:60","40","80","100","120","140","160"}; 
+		default=60; 
+		code = ""; 
+	};
+	class param_minspawn {
+		title="    Zombie minimum spawn distance"; 
+		values[]={120,60,100,150,200}; 
+		texts[]={ "Default:120m","60m","100m","150m","200m"}; 
+		default=120; 
+		code = ""; 
+	};
+	class param_maxspawn {
+		title="    Zombie maximum spawn distance"; 
+		values[]={300,400,500,600}; 
+		texts[]={ "Default: 300m","400m","500m","600m"}; 
+		default=300; 
+		code = ""; 
+	};
+	class param_magazine {
+		title="    -Zombie magazine loot chance"; 
+		values[]={0,-1,1,2,3,4,5,6,7,8}; 
+		texts[]={"Off","Default: 6%","10%","20%","30%","40%","50%","60%","70%","80%"}; 
+		default=-1; 
+		code = ""; 
+	};
+	class param_normalmed {
+		title="    -Normal zombie bandage chance"; 
+		values[]={0,-1,1,2,3,4,5}; 
+		texts[]={ "Off","Default: 5%","10%","20%","30%","40%","50%"}; 
+		default=-1; 
+		code = "";
+	};
+	class param_militarymed {
+		title="    -Military zombies med item chance."; 
+		values[]={0,2,4}; 
+		texts[]={ "Off","Default: 25%","50%"}; 
+		default=2; 
+		code = ""; 
+	};
+	class EmptyLine2 {
+		title = ":: Random Horde Settings";
+		values[]={0,0};
+		texts[]={ "",""};
+		default = 0;
+	};
+	class param_rndhorde {
+		title="    Random Horde Enabled"; 
+		values[]={1,0}; 
+		texts[]={ "Default:On","Off" }; 
+		default=1;
+		code = ""; 
+	};
+	class param_rndhordeinterval {
+		title="    Random Horde Interval (min/max seconds)"; 
+		values[]={0,1,2,3,4,5}; 
+		texts[]={ "Default: 300/600s","30/60","60/120s","120/240s","240/480s","600/1000s"}; 
+		default=0;
+		code = ""; 
+	};
+	class param_rndhordemin {
+		title="    Random Horde Amount Minimum"; 
+		values[]={2,4,8,12}; 
+		texts[]={}; 
+		default=2; 
+		code = ""; 
+	};
+	class param_rndhordemax {
+		title="    Random Horde Amount Maximum"; 
+		values[]={6,8,10,12,16,20}; 
+		texts[]={}; 
+		default=10; 
+		code = ""; 
+	};
+	class EmptyLine3 {
+		title = ":: ACE settings";
+		values[]={0,0};
+		texts[]={ "",""};
+		default = 0;
+	};
+	class param_ace_leftdam {
+		title="    ACE Wounds: max left damage after unconscious"; 
+		values[]={0,1,2,3,4,5,6,7,8,9}; 
+		texts[]={"0% (Full heal)","5%","Default: 10%","20%","30%","40%","50%","60%","70%","80%"}; 
+		default=2; 
+		code = ""; 
+	};
+	class param_ace_pmr {
+		title="    ACE Wounds: PMR (unconscious) timer before forced death. Doing CPR inceases timer."; 
+		values[]={600,0,120,240,300,400,500,800,1000}; 
+		texts[]={ "Default: 600","Off","120","240s","300s","400s","500s","800s","1000s"}; 
+		default=600; 
+		code = ""; 
+	};
+	class param_ace_meditems {
+		title="    ACE Wounds: Spawn with medical gear."; 
+		values[]={0,1,2,3,4}; 
+		texts[]={ "Default: 2 of every","None","Only bandages","Bandages+2xMorphine","2 of every + 1 medkit"}; 
+		default=0; 
+		code = ""; 
+	};
+	class param_ace_medic {
+		title="    ACE Wounds: Everyone is a medic"; 
+		values[]={0,1}; 
+		texts[]={ "Default: No","Yes"}; 
+		default=0; 
+		code = ""; 
+	};
+		class param_ace_stamina {
+		title="    ACE Stamina"; 
+		values[]={0,1}; 
+		texts[]={ "Disabled (disables weapon on back!)","Enabled"}; 
+		default=1; 
+		code = ""; 
+	};	
+	class param_date {
+		title = ":: Time & Date Settings";
+		values[]={0,1,2};
+		texts[]={ "Mission defined (overrides below!)","User defined","Random"};
+		default = 0;			
+	};
+	class Month { 	
+		title="    ::Month"; 
+		values[]={ 1,2,3,4,5,6,7,8,9,10,11,12}; 
+		texts[]={ "January","Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}; 
+		default=7; 
+		code = ""; 
+	}; 
+	class Day { 
+		title="    ::Day"; 
+		values[]={ 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31}; 
+		texts[]={ "1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"}; 
+		default=24; 
+		code = ""; 
+	}; 
+	class Hour { 
+		title="    ::Hour"; 
+		values[]={ 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24}; 
+		texts[]={ "1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"}; 
+		default=12; 
+		code = ""; 
+	}; 
+	class Minute {
+		title="    ::Minute"; 
+		values[]={ 00,15,30,45}; 
+		texts[]={ "00","15","30","45"}; 
+		default=00; 
+		code = ""; 
+	};
+}; 
+
+
+class CfgSounds
+{
+	#include "sound\1_zombie_sounds.hpp"
+};

@@ -1,0 +1,85 @@
+/*%FSM<COMPILE "C:\BIS\fsmeditor\scriptedFSM.cfg, ALICE Action - Hide Out">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"COMBAT_HIDE_OUTS",0,250,-25.000000,-200.000000,75.000000,-150.000000,0.000000,"COMBAT" \n "HIDE OUTSIDE"};
+item1[] = {"Combat_end",4,218,-25.000000,-100.000000,75.000000,-50.000000,0.000000,"Combat end"};
+item2[] = {"End",1,4346,-25.000000,0.000000,75.000000,50.000000,0.000000,"End"};
+link0[] = {0,1};
+link1[] = {1,2};
+globals[] = {25.000000,1,0,0,16777215,640,480,1,3,6316128,1,-202.103897,368.489807,427.600128,-409.208588,613,872,1};
+window[] = {2,-1,-1,-1,-1,818,88,1348,88,3,630};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "ALICE Action - Hide Out";
+  class States
+  {
+    /*%FSM<STATE "COMBAT_HIDE_OUTS">*/
+    class COMBAT_HIDE_OUTS
+    {
+      name = "COMBAT_HIDE_OUTS";
+      init = /*%FSM<STATEINIT""">*/"/////////////////////////////////////////////////////////////////////////////////////////////" \n
+       "// HIDE INSIDE" \n
+       "// Unit will hide in home" \n
+       "/////////////////////////////////////////////////////////////////////////////////////////////" \n
+       "" \n
+       "_unit = _this select 0;" \n
+       "_twn = _unit getvariable ""ALICE_twn"";" \n
+       "_unit setbehaviour ""stealth"";" \n
+       "_unit setspeedmode ""full"";" \n
+       "_unit forcewalk false;" \n
+       "" \n
+       "_home = _unit getvariable ""ALICE_home"";" \n
+       "if (!isnull _home) then {" \n
+       "	_unit domove position _home;" \n
+       "} else {" \n
+       "	_unit domove [" \n
+       "		(position _twn select 0) + (-50 + random 100)," \n
+       "		(position _twn select 1) + (-50 + random 100)," \n
+       "		0" \n
+       "	];" \n
+       "};" \n
+       "" \n
+       "" \n
+       "_marker = """";" \n
+       "if (bis_alice_mainscope getvariable ""debug"") then {" \n
+       "	_marker = _unit getvariable ""ALICE_marker"";" \n
+       "	_marker setmarkertype ""mil_unknown"";" \n
+       "};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Combat_end">*/
+        class Combat_end
+        {
+          priority = 0.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"if (isnil ""_twn"") then {_twn = objnull};" \n
+           "_twn getvariable ""ALICE_threat"" == 0 || (_unit getvariable ""ALICE_action"") == """"" \n
+           ""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "End">*/
+    class End
+    {
+      name = "End";
+      init = /*%FSM<STATEINIT""">*/"_unit forcewalk true;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="COMBAT_HIDE_OUTS";
+  finalStates[] =
+  {
+    "End",
+  };
+};
+/*%FSM</COMPILE>*/
