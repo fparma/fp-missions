@@ -1,0 +1,7 @@
+[
+  ["SIDE_FRIENDLY", blufor],
+  ["SIDE_ENEMY", opfor],
+
+  ["SECTOR_ACTIVATE_DIST", 900],
+  ["SECTOR_DEACTIVATE_DIST", 1500]
+]

@@ -1,0 +1,42 @@
+#include "XEH.hpp"
+
+disabledAI = 1;
+class Header
+{
+  gameType = CTI;
+  minPlayers = 1;
+  maxPlayers = 1;
+};
+
+// ===  Mission name etc settings
+OnLoadName = "=CTI= Emancipation";// Mission name (short)
+onLoadMission="do it"; // Longer description
+// loadScreen = "img_loading.jpg"; // custom load image
+author="Cuel | 2016";
+
+// ===  Respawn settings
+respawndelay = 4;
+respawnDialog = 0;
+respawn = "BASE";
+
+showGPS = 1;
+showMap = 1;
+showWatch = 1;
+showCompass = 1;
+joinUnassigned = 1;
+allowFunctionsLog = 0;
+enableDebugConsole = 1;
+onLoadIntroTime = false;
+enableItemsDropping = 0;
+onLoadMissionTime = false;
+
+// Clean up settings
+corpseManagerMode = 1;
+corpseLimit = 20;
+corpseRemovalMinTime = 120;
+corpseRemovalMaxTime = 300;
+
+wreckManagerMode = 1;
+wreckLimit = 10;
+wreckRemovalMinTime = 300;
+wreckRemovalMaxTime = 800;

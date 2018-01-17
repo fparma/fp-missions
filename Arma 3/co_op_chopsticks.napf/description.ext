@@ -1,0 +1,87 @@
+#include "config_mission.hpp"
+
+class Header
+{
+  gameType = Coop;
+  minPlayers = 1;
+  maxPlayers = 99;
+};
+disabledAI = 1;
+
+// ===  Mission name etc settings
+// Edit these in config_mission.hpp
+onLoadName = CFG_ON_LOAD_TITLE;// Mission name (short). Used on loading screen
+onLoadMission= CFG_ON_LOAD_TEXT; // Longer description. Loading screen
+briefingName = CFG_LOBBY_TITLE; // Mission name in mission selection screen (lobby)
+loadScreen = CFG_LOAD_IMAGE; // custom load image
+author = CFG_AUTHOR;
+
+// Used for validation. Can be removed, if possible always remove it before uploading to the server
+/*class MissionSQM {
+  #include "mission.sqm"
+};*/
+
+class CfgFunctions {
+  class FP {
+    tag = "FP";
+    class functions {
+      file = "fparma\functions";
+      class getLoadout;
+    };
+  };
+};
+
+class CfgDebriefingSections {
+    // FPARMA end stats
+    class fparma_stats {
+        title = "Mission Statistics";
+        variable = "fpa_common_stats";
+    };
+    // ACEX Killtracker
+    class acex_killTracker {
+        title = "Acex Killed Events";
+        variable = "acex_killTracker_outputText";
+    };
+};
+
+// === DO NOT EDIT BELOW
+#include "XEH.hpp"
+
+respawnTemplates[] = {"Base"};
+respawndelay = 5;
+respawnDialog = 0;
+respawnOnStart = 0;
+respawn = "BASE";
+
+class Params {
+  #include "fparma\Params.hpp"
+};
+
+class CfgDebriefing {
+  #include "CfgDebriefing.hpp"
+};
+
+showGPS = 1;
+showMap = 1;
+showWatch = 1;
+showCompass = 1;
+joinUnassigned = 1;
+allowFunctionsLog = 0;
+onLoadIntroTime = 0;
+enableItemsDropping = 0;
+onLoadMissionTime = 0;
+
+// Debug (and CBA target debug)
+enableDebugConsole = 1;
+enableTargetDebug = 1;
+
+// Clean up settings
+corpseManagerMode = 1;
+corpseLimit = 20;
+corpseRemovalMinTime = 300;
+corpseRemovalMaxTime = 600;
+
+wreckManagerMode = 1;
+wreckLimit = 10;
+wreckRemovalMinTime = 300;
+wreckRemovalMaxTime = 1200;

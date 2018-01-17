@@ -1,0 +1,2 @@
+PREP(getNearestSector);
+PREP(canSectorActivate);
